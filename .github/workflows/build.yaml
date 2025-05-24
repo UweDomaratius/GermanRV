@@ -32,5 +32,6 @@ jobs:
         #run: python build.py
         run: |
           nmlc --version
+          npm i conventional-changelog-conventionalcommits
           npx conventional-changelog --help
-          npx conventional-changelog -p conventional-commits -r 0
+          npx conventional-changelog -p conventional-commits -r 0 -o build/changelog.md
