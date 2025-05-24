@@ -1,0 +1,76 @@
+template t_psbtw21(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 16,  -4,  -8]
+	[ 34, y, 17, 14, -13,  -3]
+	[ 66, y, 23, 14, -11, -10]
+    [ 98, y, 17, 17,  -6,  -8]
+    [130, y,  6, 20,  -3, -10]
+    [162, y, 17, 17, -15,  -7]
+    [194, y, 23, 14, -11,  -9]
+    [226, y, 17, 14,  -4,  -6]
+}
+
+spriteset(tw21_2cc, "graphics/tw21.pcx") {
+	t_psbtw21(40)
+}
+spriteset(tw21_yellow, "graphics/tw21.pcx") {
+	t_psbtw21(72)
+}
+
+spriteset(tw21_recolor, "graphics/tw21.pcx") {
+	t_psbtw21(104)
+}
+
+// only provide recolouring per city if the vehicle is refitted to passengers
+switch(FEAT_ROADVEHS, SELF, tw21_cb_refit_city, cargo_type_in_veh) {
+	PASS: tram_cb_refit_historic_cities;
+	CB_FAILED;
+}
+
+switch(FEAT_ROADVEHS, SELF, tw21_cb_colour_mapping, cargo_type_in_veh) {
+	PASS: tram_cb_colour_mapping_historic_cities;
+	CB_FAILED;
+}
+
+switch(FEAT_ROADVEHS, SELF, tw21_passenger_graphics, cargo_subtype) {
+	0: tw21_2cc;
+	tw21_recolor;
+}
+
+switch(FEAT_ROADVEHS, SELF, tw21_graphics, cargo_type_in_veh) {
+	MAIL: tw21_yellow;
+	tw21_passenger_graphics;
+}
+
+item(FEAT_ROADVEHS, ID_21_PSB_TW21) {
+	property{
+		name: string(TRAM_PSB_TW21);
+		introduction_date:date(1920,01,01);
+		reliability_decay:33;
+		vehicle_life:40;
+        model_life:52;
+        loading_speed:5;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:40 km/h;
+        running_cost_factor:3;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:36;
+		default_cargo_type:PASS;
+		cost_factor:7;
+		length:7;
+        power:92 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:38;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS, CC_MAIL);
+	}
+	graphics {
+		default: tw21_graphics;
+		purchase: tw21_2cc;
+		colour_mapping: tw21_cb_colour_mapping;
+		cargo_subtype_text: tw21_cb_refit_city;
+	}
+}

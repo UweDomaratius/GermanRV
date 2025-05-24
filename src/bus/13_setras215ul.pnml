@@ -1,0 +1,56 @@
+template t_setra_s215ul(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 21,  -4, -12]
+	[ 66, y, 26, 18, -14, -9]
+	[130, y, 30, 12, -15, -6]
+    [194, y, 26, 19, -10, -8]
+    [258, y, 10, 21,  -4, -11]
+    [322, y, 26, 19, -16, -8]
+    [386, y, 30, 12, -15, -6]
+    [450, y, 26, 18, -11, -9]
+}
+
+spriteset(setras215ul_blue, "graphics/setras215ul.pcx") {
+	t_setra_s215ul(72)
+}
+spriteset(setras215ul_blue_loading, "graphics/setras215ul.pcx") {
+	t_setra_s215ul(136)
+}
+
+spritegroup setras215ul_blue_group {
+	loading: setras215ul_blue_loading;
+	loaded:  setras215ul_blue;
+}
+
+item(FEAT_ROADVEHS, ID_13_Setra_S215_UL) {
+	property{
+		name: string(BUS_SETRA_S215UL);
+		introduction_date:date(1983,01,01);
+		reliability_decay:8;
+		vehicle_life:19;
+        model_life:37;
+        loading_speed:17;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:118;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:100;
+		default_cargo_type:PASS;
+		cost_factor:129;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:250 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:19;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: setras215ul_blue_group;
+		
+		additional_text: return string(STR_BUS_REGIONAL);
+	}
+}

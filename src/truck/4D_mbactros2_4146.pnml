@@ -1,0 +1,92 @@
+template t_mbactros2_4146k(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 21,  -5, -11]
+	[ 34, y, 24, 18, -16,  -8]
+	[ 66, y, 27, 13, -14,  -7]
+    [ 98, y, 24, 19, -10, -11]
+    [130, y, 10, 22,  -5, -11]
+    [162, y, 24, 19, -13, -12]
+    [194, y, 27, 13, -13,  -7]
+    [226, y, 24, 18,  -8,  -9]
+}
+
+spriteset(mbactros2_4146k_void, "graphics/mbactros2_4146k.pcx") {
+	t_mbactros2_4146k(8)
+}
+
+spriteset(mbactros2_4146k_empty, "graphics/mbactros2_4146k.pcx") {
+	t_mbactros2_4146k(40)
+}
+
+spriteset(mbactros2_4146k_half_full, "graphics/mbactros2_4146k.pcx") {
+	t_mbactros2_4146k(72)
+}
+
+spriteset(mbactros2_4146k_full, "graphics/mbactros2_4146k.pcx") {
+	t_mbactros2_4146k(104)
+}
+
+spritegroup mbactros2_4146k_open_bulk_group {
+	loading: [mbactros2_4146k_void, mbactros2_4146k_half_full, mbactros2_4146k_full];
+	loaded:  [mbactros2_4146k_void, mbactros2_4146k_half_full, mbactros2_4146k_full];
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2_4146k_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	mbactros2_4146k_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2_4146k_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100)]
+)
+{
+	mbactros2_4146k_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, mbactros2_4146k_switch_graphics_open, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: mbactros2_4146k_graphics_open_bulk_spritestack1;
+	mbactros2_4146k_graphics_open_bulk_spritestack0;
+}
+
+// open
+item(FEAT_ROADVEHS, ID_4D_mbactros2_4146k_open) {
+	property{
+		name: string(TRUCK_MB_ACTROS2_4146_OPEN);
+		introduction_date:date(2003,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:30;
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:460 hp;
+        weight:12 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_BULK);
+		non_refittable_cargo_classes:bitmask(CC_COVERED);
+	}
+	graphics {
+		default: mbactros2_4146k_switch_graphics_open;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+	}
+}

@@ -1,0 +1,33 @@
+grf {
+	grfid: "UD\00\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESCRIPTION);
+	version: 0;
+	min_compatible_version: 0;
+}
+
+if (ttd_platform != PLATFORM_OPENTTD || openttd_version < version_openttd(14, 0)) {
+	error(FATAL, REQUIRES_OPENTTD, string(STR_ERR_OPENTTD_VERSION));
+	exit;
+}
+
+if (dynamic_engines == 0) {
+	error(FATAL, USED_WITH, string(STR_ERR_DYNAMIC_ENGINES));
+	exit;
+}
+
+if (traffic_side != TRAFFIC_SIDE_RIGHT) {
+	error(WARNING, USED_WITH, string(STR_ERR_DRIVING_SIDE));
+}
+
+cargotable {
+	PASS, COAL, MAIL, OIL_, 
+	LVST, GOOD, TOUR, STEL,
+	PAPR, STAL, WOOD, WDPR,
+	AORE, CLAY, COKE, CORE,
+	FERT, GRAI, GRVL, IORE,
+	KAOL, LIME, MNO2, NITR,
+	OLSD, PEAT, PHOS, POTA,
+	PORE, SALT, SAND, SCRP,
+	SULP, VEHI
+}

@@ -1,0 +1,56 @@
+template t_mb_o3500(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 17,  -3, -9]
+	[ 34, y, 22, 13, -13, -3]
+	[ 66, y, 23, 11, -12, -5]
+    [ 98, y, 22, 16,  -8, -6]
+    [130, y,  8, 17,  -3, -9]
+    [162, y, 22, 16, -13, -6]
+    [194, y, 23, 11, -11, -5]
+    [226, y, 22, 13,  -8, -3]
+}
+
+spriteset(mb_o3500_blue, "graphics/mbo3500.pcx") {
+	t_mb_o3500(40)
+}
+spriteset(mb_o3500_blue_loading, "graphics/mbo3500.pcx") {
+	t_mb_o3500(72)
+}
+
+spritegroup mb_o3500_blue_group {
+	loading: mb_o3500_blue_loading;
+	loaded:  mb_o3500_blue;
+}
+
+item(FEAT_ROADVEHS, ID_07_MB_O3500) {
+	property{
+		name: string(BUS_MB_O3500);
+		introduction_date:date(1949,01,01);
+		reliability_decay:18;
+		vehicle_life:15;
+        model_life:26;
+        loading_speed:4;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:82 km/h;
+        running_cost_factor:57;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:30;
+		default_cargo_type:TOUR;
+		cost_factor:49;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:7;
+        power:90 hp;
+        weight:8.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: mb_o3500_blue_group;
+		
+		additional_text: return string(STR_BUS_COACH);
+	}
+}

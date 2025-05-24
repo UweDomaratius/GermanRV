@@ -1,0 +1,96 @@
+template t_mbo405g_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 20,  -4, -11]
+	[ 34, y, 23, 18, -12,  -8] 
+	[ 66, y, 27, 12, -13,  -6]
+    [ 98, y, 24, 18,  -9,  -9]
+    [130, y, 10, 20,  -4, -10]
+    [162, y, 24, 18, -14,  -9]
+    [194, y, 27, 12, -11,  -6]
+    [226, y, 23, 18,  -9,  -8]
+}
+
+template t_mbo405g_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 17,  -3,  -8]
+	[ 34, y, 19, 16, -14,  -6]
+	[ 66, y, 19, 12, -11,  -6]
+    [ 98, y, 18, 16, -10,  -9]
+    [130, y,  8, 17,  -3, -10]
+    [162, y, 18, 17,  -7,  -9]
+    [194, y, 19, 12, -12,  -6]
+    [226, y, 19, 16,  -3,  -6]
+}
+
+spriteset(mbo405g_front_blue, "graphics/mbo405g.pcx") {
+	t_mbo405g_front(40)
+}
+spriteset(mbo405g_front_blue_loading, "graphics/mbo405g.pcx") {
+	t_mbo405g_front(72)
+}
+
+spriteset(mbo405g_back_blue, "graphics/mbo405g.pcx") {
+	t_mbo405g_back(104)
+}
+spriteset(mbo405g_back_blue_loading, "graphics/mbo405g.pcx") {
+	t_mbo405g_back(136)
+}
+
+spritegroup mbo405g_front_blue_group {
+	loading: mbo405g_front_blue_loading;
+	loaded:  mbo405g_front_blue;
+}
+
+spritegroup mbo405g_back_blue_group {
+	loading: mbo405g_back_blue_loading;
+	loaded:  mbo405g_back_blue;
+}
+
+spriteset(mbo405g_menu, "graphics/mbo405g.pcx") {
+	[  194, 168,  46,12,  -23, -6]
+}
+
+switch(FEAT_ROADVEHS, SELF, mbo405g_blue_group, position_in_consist) {
+	0: mbo405g_front_blue_group;
+	mbo405g_back_blue_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbo405g_cb_articulation, extra_callback_info1) {
+	1: return ID_15_MB_O405G;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_15_MB_O405G) {
+	property{
+		name: string(BUS_MB_O405G);
+		introduction_date:date(1985,01,01);
+		reliability_decay:16;
+		vehicle_life:18;
+        model_life:33;
+        loading_speed:21;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:75 km/h;
+        running_cost_factor:152;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:83; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:157;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:6;
+        power:250 hp;
+        weight:14.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		purchase: mbo405g_menu;
+		default: mbo405g_blue_group;
+		articulated_part:mbo405g_cb_articulation;
+		//length: mbo405g_cb_length;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

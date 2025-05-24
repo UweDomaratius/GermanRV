@@ -1,0 +1,61 @@
+template t_neoplann4032(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 29,  -4, -15]
+	[ 66, y, 32, 24, -15, -13]
+	[130, y, 39, 15, -19, -9]
+    [194, y, 31, 25, -9,  -12]
+    [258, y, 10, 29,  -4, -15]
+    [322, y, 32, 25, -19, -12]
+    [386, y, 39, 15, -19, -9]
+    [450, y, 32, 24, -12, -12]
+}
+
+spriteset(neoplann4032_blue, "graphics/neoplann4032.pcx") {
+	t_neoplann4032(72)
+}
+spriteset(neoplann4032_blue_loading, "graphics/neoplann4032.pcx") {
+	t_neoplann4032(136)
+}
+
+spritegroup neoplann4032_blue_group {
+	loading: neoplann4032_blue_loading;
+	loaded:  neoplann4032_blue;
+}
+
+spriteset(neoplann4032_menu, "graphics/neoplann4032.pcx") {
+	[  386, 200,  39,14,  -19, -7]
+}
+
+
+item(FEAT_ROADVEHS, ID_17_Neoplan_N4032) {
+	property{
+		name: string(BUS_NEOPLAN_N4032);
+		introduction_date:date(1993,01,01);
+		reliability_decay:35;
+		vehicle_life:11;
+        model_life:30;
+        loading_speed:30;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:64 km/h;
+        running_cost_factor:241;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:180;
+		default_cargo_type:PASS;
+		cost_factor:152;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:270 hp;
+        weight:20 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:15;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: neoplann4032_blue_group;
+		purchase: neoplann4032_menu;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

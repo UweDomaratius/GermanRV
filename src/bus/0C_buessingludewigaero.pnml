@@ -1,0 +1,56 @@
+template t_buessingludewigaero(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 25,  -4, -13]
+	[ 66, y, 26, 19, -14, -9]
+	[130, y, 30, 14, -15, -8]
+    [194, y, 27, 22,  -9, -11]
+    [258, y,  8, 25,  -3, -14]
+    [322, y, 27, 22, -16, -11]
+    [386, y, 30, 14, -15, -8]
+    [450, y, 26, 19,  -9, -8]
+}
+
+spriteset(buessingludewigaero_blue, "graphics/buessingludewigaero.pcx") {
+	t_buessingludewigaero(72)
+}
+spriteset(buessingludewigaero_blue_loading, "graphics/buessingludewigaero.pcx") {
+	t_buessingludewigaero(136)
+}
+
+spritegroup buessingludewigaero_blue_group {
+	loading: buessingludewigaero_blue_loading;
+	loaded:  buessingludewigaero_blue;
+}
+
+item(FEAT_ROADVEHS, ID_0C_Buessing_Ludewig_Aero) {
+	property{
+		name: string(BUS_BUESSING_LUDEWIGAERO);
+		introduction_date:date(1961,01,01);
+		reliability_decay:20;
+		vehicle_life:15;
+        model_life:20;
+        loading_speed:15;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:68 km/h;
+        running_cost_factor:109;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:130;
+		default_cargo_type:PASS;
+		cost_factor:94;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:150 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:4;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: buessingludewigaero_blue_group;
+		
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

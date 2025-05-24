@@ -1,0 +1,74 @@
+template t_opelblitz(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 18,  -3, -10]
+	[ 34, y, 22, 13, -13,  -4]
+	[ 66, y, 23, 11, -11,  -5]
+    [ 98, y, 20, 15,  -6,  -5]
+    [130, y,  8, 18,  -3, -10]
+    [162, y, 20, 15, -12,  -6]
+    [194, y, 23, 11, -11,  -5]
+    [226, y, 22, 13,  -8,  -4]
+}
+
+spriteset(opelblitz_blue, "graphics/opelblitz.pcx") {
+	t_opelblitz(40)
+}
+spriteset(opelblitz_blue_loading, "graphics/opelblitz.pcx") {
+	t_opelblitz(72)
+}
+spriteset(opelblitz_green, "graphics/opelblitz.pcx") {
+	t_opelblitz(104)
+}
+spriteset(opelblitz_green_loading, "graphics/opelblitz.pcx") {
+	t_opelblitz(136)
+}
+
+spritegroup opelblitz_blue_group {
+	loading: opelblitz_blue_loading;
+	loaded:  opelblitz_blue;
+}
+spritegroup opelblitz_green_group {
+	loading: opelblitz_green_loading;
+	loaded:  opelblitz_green;
+}
+
+// when refitted to tourists, only half the capacity is available
+switch(FEAT_ROADVEHS, SELF, opelblitz_cb_refitted_capacity, cargo_type_in_veh) {
+	TOUR: return 17;
+	return 35;
+}
+
+item(FEAT_ROADVEHS, ID_05_Opel_Blitz) {
+	property{
+		name: string(BUS_OPEL_BLITZ);
+		introduction_date:date(1935,01,01);
+		reliability_decay:19;
+		vehicle_life:18;
+        model_life:33;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:75 km/h;
+        running_cost_factor:20;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:35;
+		default_cargo_type:PASS;
+		cost_factor:21;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:7;
+        power:75 hp;
+        weight:6.75 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:11;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		TOUR: opelblitz_green_group;
+		default: opelblitz_blue_group;
+		
+		additional_text: return string(STR_BUS_REGIONAL);
+		cargo_capacity: opelblitz_cb_refitted_capacity;
+	}
+}

@@ -1,0 +1,79 @@
+template t_mansd200(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 24,  -3, -14]
+	[ 66, y, 25, 22, -14, -12]
+	[130, y, 29, 15, -14, -9]
+    [194, y, 25, 22,  -9, -12]
+    [258, y,  8, 24,  -3, -14]
+    [322, y, 25, 22, -14, -12]
+    [386, y, 29, 15, -14, -9]
+    [450, y, 25, 22, -10, -12]
+}
+
+spriteset(mansd200_blue, "graphics/mansd200.pcx") {
+	t_mansd200(72)
+}
+spriteset(mansd200_blue_loading, "graphics/mansd200.pcx") {
+	t_mansd200(136)
+}
+
+spriteset(mansd200_later, "graphics/mansd200.pcx") {
+	t_mansd200(200)
+}
+spriteset(mansd200_later_loading, "graphics/mansd200.pcx") {
+	t_mansd200(264)
+}
+
+spritegroup mansd200_early_group {
+	loading: mansd200_blue_loading;
+	loaded:  mansd200_blue;
+}
+
+spritegroup mansd200_later_group {
+	loading: mansd200_later_loading;
+	loaded:  mansd200_later;
+}
+
+switch(FEAT_ROADVEHS, SELF, mansd200_blue_group, build_year) {
+	0..1982: mansd200_early_group;
+	mansd200_later_group;
+}
+
+
+spriteset(mansd200_menu, "graphics/mansd200.pcx") {
+	[  386, 265,  29,14,  -14, -7]
+}
+
+
+item(FEAT_ROADVEHS, ID_12_MAN_SD200) {
+	property{
+		name: string(BUS_MAN_SD200);
+		introduction_date:date(1974,01,01);
+		reliability_decay:17;
+		vehicle_life:18;
+        model_life:29;
+        loading_speed:17;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:74 km/h;
+        running_cost_factor:88;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:100;
+		default_cargo_type:PASS;
+		cost_factor:101;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:192 hp;
+        weight:14 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:15;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: mansd200_blue_group;
+		purchase: mansd200_menu;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

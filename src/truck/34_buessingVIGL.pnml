@@ -1,0 +1,249 @@
+template t_bussingVIGL(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 17,  -3,  -9]
+	[ 34, y, 24, 15, -12,  -5]
+	[ 66, y, 23, 13, -10,  -7]
+    [ 98, y, 21, 17,  -7,  -7]
+    [130, y,  8, 18,  -3, -10]
+    [162, y, 21, 17, -13,  -6]
+    [194, y, 23, 13, -10,  -7]
+    [226, y, 23, 15,  -7,  -5]
+}
+
+spriteset(buessingVIGL_open_empty, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(40)
+}
+
+spriteset(buessingVIGL_open_bulk_half_full, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(72)
+}
+
+spriteset(buessingVIGL_open_bulk_full, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(104)
+}
+
+spriteset(buessingVIGL_open_crates, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(136)
+}
+
+spriteset(buessingVIGL_closed_van, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(168)
+}
+spriteset(buessingVIGL_closed_van_loading, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(200)
+}
+
+spriteset(buessingVIGL_tarpaulin_empty, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(232)
+}
+
+spriteset(buessingVIGL_tarpaulin_full, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(264)
+}
+
+spriteset(buessingVIGL_tarpaulin, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(296)
+}
+
+spriteset(buessingVIGL_tanker, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(328)
+}
+
+spriteset(buessingVIGL_void, "graphics/buessingVIGL.pcx") {
+	t_bussingVIGL(360)
+}
+
+spritegroup buessingVIGL_open_bulk_group {
+	loading: [buessingVIGL_void, buessingVIGL_open_bulk_half_full, buessingVIGL_open_bulk_full];
+	loaded:  [buessingVIGL_void, buessingVIGL_open_bulk_half_full, buessingVIGL_open_bulk_full];
+}
+
+spritegroup buessingVIGL_open_group {
+	loading: [buessingVIGL_open_empty, buessingVIGL_open_crates];
+	loaded:  [buessingVIGL_open_empty, buessingVIGL_open_crates];
+}
+
+spritegroup buessingVIGL_closed_van_group {
+	loading: buessingVIGL_closed_van_loading;
+	loaded:  buessingVIGL_closed_van;
+}
+
+spritegroup buessingVIGL_tarpaulin_group {
+	loading: [buessingVIGL_tarpaulin_empty, buessingVIGL_tarpaulin_full];
+	loaded: buessingVIGL_tarpaulin;
+}
+
+spritegroup buessingVIGL_tanker_group {
+	loading: buessingVIGL_tanker;
+	loaded: buessingVIGL_tanker;
+}
+
+switch(FEAT_ROADVEHS, SELF, buessingVIGL_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	buessingVIGL_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, buessingVIGL_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100)]
+)
+{
+	buessingVIGL_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, buessingVIGL_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: buessingVIGL_graphics_open_bulk_spritestack1;
+	buessingVIGL_graphics_open_bulk_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, buessingVIGL_graphics_open, (cargo_classes & bitmask(CC_BULK)) == bitmask(CC_BULK)) {
+	1: buessingVIGL_graphics_open_bulk_spritestack;
+	buessingVIGL_open_group;
+}
+
+// open
+item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_open) {
+	property{
+		name: string(TRUCK_BUSSING_VIGL_OPEN);
+		introduction_date:date(1924,01,01);
+		reliability_decay:23;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:3;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:50 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:7;
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:7;
+        power:80 hp;
+        weight:2.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		variant_group: ID_34_BUSSING_VIGL_tarpaulin;
+	}
+	graphics {
+		default: buessingVIGL_graphics_open;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+	}
+}
+
+// tarpaulin
+item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_tarpaulin) {
+	property{
+		name: string(TRUCK_BUSSING_VIGL_TARPAULIN);
+		introduction_date:date(1924,01,01);
+		reliability_decay:23;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:3;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:50 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:7;
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:7;
+        power:80 hp;
+        weight:2.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+	}
+	graphics {
+		default: buessingVIGL_tarpaulin_group;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+	}
+}
+
+// closed_van
+item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_closed) {
+	property{
+		name: string(TRUCK_BUSSING_VIGL_CLOSED);
+		introduction_date:date(1924,01,01);
+		reliability_decay:23;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:3;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:50 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:7;
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:7;
+        power:80 hp;
+        weight:2.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		variant_group: ID_34_BUSSING_VIGL_tarpaulin;
+	}
+	graphics {
+		default: buessingVIGL_closed_van_group;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+	}
+}
+
+// tanker
+item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_tanker) {
+	property{
+		name: string(TRUCK_BUSSING_VIGL_TANKER);
+		introduction_date:date(1924,01,01);
+		reliability_decay:23;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:3;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:50 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:7;
+		default_cargo_type:OIL_;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:7;
+        power:80 hp;
+        weight:2.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_LIQUID);
+		variant_group: ID_34_BUSSING_VIGL_tarpaulin;
+	}
+	graphics {
+		default: buessingVIGL_tanker_group;
+	}
+}

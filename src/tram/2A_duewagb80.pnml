@@ -1,0 +1,136 @@
+template t_duewagb80_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 22,  -3, -11]
+	[ 66, y, 24, 19,  -9, -10]
+	[130, y, 30, 16, -15, -10]
+    [194, y, 24, 20, -10, -11]
+    [258, y,  6, 21,  -3, -11]
+    [322, y, 24, 20, -17, -11]
+    [386, y, 30, 16, -15, -10]
+    [450, y, 24, 19, -11, -11]
+}
+
+template t_duewagb80_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 21,  -3, -11]
+	[ 66, y, 24, 17, -13,  -8]
+	[130, y, 30, 11, -15,  -5]
+    [194, y, 24, 19, -14, -10]
+    [258, y,  6, 22,  -3, -11]
+    [322, y, 24, 19, -13, -10]
+    [386, y, 30, 11, -13,  -5]
+    [450, y, 24, 17,  -7,  -9]
+}
+
+spriteset(duewagb80_2cc_front, "graphics/duewagb80.pcx") {
+	t_duewagb80_front(72)
+}
+spriteset(duewagb80_2cc_front_loading, "graphics/duewagb80.pcx") {
+	t_duewagb80_front(136)
+}
+
+spriteset(duewagb80_2cc_back, "graphics/duewagb80.pcx") {
+	t_duewagb80_back(200)
+}
+spriteset(duewagb80_2cc_back_loading, "graphics/duewagb80.pcx") {
+	t_duewagb80_back(264)
+}
+
+spriteset(duewagb80_false_color_front, "graphics/duewagb80.pcx") {
+	t_duewagb80_front(328)
+}
+
+spriteset(duewagb80_false_color_front_loading, "graphics/duewagb80.pcx") {
+	t_duewagb80_front(392)
+}
+
+spriteset(duewagb80_false_color_back, "graphics/duewagb80.pcx") {
+	t_duewagb80_back(456)
+}
+
+spriteset(duewagb80_false_color_back_loading, "graphics/duewagb80.pcx") {
+	t_duewagb80_back(520)
+}
+
+spritegroup duewagb80_2cc_front_group {
+	loading: duewagb80_2cc_front_loading;
+	loaded:  duewagb80_2cc_front;
+}
+
+spritegroup duewagb80_2cc_back_group {
+	loading: duewagb80_2cc_back_loading;
+	loaded:  duewagb80_2cc_back;
+}
+
+spritegroup duewagb80_false_color_front_group {
+	loading: duewagb80_false_color_front_loading;
+	loaded:  duewagb80_false_color_front;
+}
+
+spritegroup duewagb80_false_color_back_group {
+	loading: duewagb80_false_color_back_loading;
+	loaded:  duewagb80_false_color_back;
+}
+
+spriteset(duewagb80_menu, "graphics/duewagb80.pcx") {
+	[  386, 584,  51,16,  -25, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagb80_cb_colour_mapping, date_of_last_service < date(1991,1,1)) {
+	1: tram_cb_colour_mapping_west_cities_old;
+	tram_cb_colour_mapping_west_cities_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagb80_graphics_2cc, position_in_consist) {
+	0: duewagb80_2cc_front_group;
+	duewagb80_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagb80_graphics_false_color, position_in_consist) {
+	0: duewagb80_false_color_front_group;
+	duewagb80_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagb80_graphics, cargo_subtype) {
+	0: duewagb80_graphics_2cc;
+	duewagb80_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagb80_cb_articulation, extra_callback_info1) {
+	1: return ID_2A_Duewag_B80;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_2A_Duewag_B80) {
+	property{
+		name: string(TRAM_DUEWAG_B80);
+		introduction_date:date(1974,01,01);
+		reliability_decay:17;
+		vehicle_life:30;
+        model_life:48;
+        loading_speed:18;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:97;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:91; // half of the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:167;
+		length:8;
+        power:220 hp;
+        weight:19.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:22;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: duewagb80_graphics;
+		purchase: duewagb80_menu;
+		articulated_part:duewagb80_cb_articulation;
+		colour_mapping: duewagb80_cb_colour_mapping;
+		cargo_subtype_text: tram_cb_refit_west_cities;
+	}
+}

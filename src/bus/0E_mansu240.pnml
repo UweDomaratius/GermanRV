@@ -1,0 +1,56 @@
+template t_mansu240(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 21,  -3, -12]
+	[ 66, y, 25, 19, -14, -9]
+	[130, y, 30, 12, -15, -6]
+    [194, y, 25, 19,  -8, -8]
+    [258, y,  8, 21,  -3, -12]
+    [322, y, 25, 19, -15, -8]
+    [386, y, 30, 12, -15, -6]
+    [450, y, 25, 19,  -9, -9]
+}
+
+spriteset(man_su240_blue, "graphics/mansue240.pcx") {
+	t_mansu240(72)
+}
+spriteset(man_su240_blue_loading, "graphics/mansue240.pcx") {
+	t_mansu240(136)
+}
+
+spritegroup man_su240_blue_group {
+	loading: man_su240_blue_loading;
+	loaded:  man_su240_blue;
+}
+
+item(FEAT_ROADVEHS, ID_0E_MAN_SU240) {
+	property{
+		name: string(BUS_MAN_SU240);
+		introduction_date:date(1973,01,01);
+		reliability_decay:9;
+		vehicle_life:17;
+        model_life:33;
+        loading_speed:11;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:74 km/h;
+        running_cost_factor:98;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:94;
+		default_cargo_type:PASS;
+		cost_factor:107;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:240 hp;
+        weight:9.75 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:10;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: man_su240_blue_group;
+		
+		additional_text: return string(STR_BUS_REGIONAL);
+	}
+}

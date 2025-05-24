@@ -1,0 +1,305 @@
+template t_tatrakt4d_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 17,  -3,  -8]
+	[ 34, y, 18, 18, -11,  -8]
+	[ 66, y, 24, 16, -12, -12]
+    [ 98, y, 18, 16, -11, -10]
+    [130, y,  6, 19,  -3,  -9]
+    [162, y, 18, 16, -12,  -8]
+    [194, y, 24, 16, -10, -10]
+    [226, y, 17, 18, -10, -13]
+}
+
+template t_tatrakt4d_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 20,  -3, -10]
+	[ 34, y, 18, 15, -10,  -6]
+	[ 66, y, 24, 12, -12,  -8]
+    [ 98, y, 18, 16, -10,  -9]
+    [130, y,  6, 18,  -3,  -9]
+    [162, y, 18, 16, -12,  -8]
+    [194, y, 24, 12, -14,  -6]
+    [226, y, 18, 16, -10, -11]
+}
+
+spriteset(tatrakt4d_2cc_front, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(40)
+}
+spriteset(tatrakt4d_2cc_front_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(72)
+}
+
+spriteset(tatrakt4d_2cc_front_modern_pantograph, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(104)
+}
+spriteset(tatrakt4d_2cc_front_loading_modern_pantograph, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(136)
+}
+
+spriteset(tatrakt4d_2cc_back, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(168)
+}
+
+spriteset(tatrakt4d_2cc_back_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(200)
+}
+
+spriteset(tatrakt4d_falsecolor_front, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(232)
+}
+
+spriteset(tatrakt4d_falsecolor_front_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(264)
+}
+
+spriteset(tatrakt4d_falsecolor_front_modern_pantograph, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(296)
+}
+
+spriteset(tatrakt4d_falsecolor_front_loading_modern_pantograph, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(328)
+}
+
+spriteset(tatrakt4d_falsecolor_back, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(360)
+}
+
+spriteset(tatrakt4d_falsecolor_back_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(392)
+}
+
+spriteset(tatrakt4d_gera_front, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(424)
+}
+
+spriteset(tatrakt4d_gera_front_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(456)
+}
+
+spriteset(tatrakt4d_gera_back, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(488)
+}
+
+spriteset(tatrakt4d_gera_back_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(520)
+}
+
+spriteset(tatrakt4d_magdeburg_front, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(552)
+}
+
+spriteset(tatrakt4d_magdeburg_front_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_front(584)
+}
+
+spriteset(tatrakt4d_magdeburg_back, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(616)
+}
+
+spriteset(tatrakt4d_magdeburg_back_loading, "graphics/tatrakt4d.pcx") {
+	t_tatrakt4d_back(648)
+}
+
+spritegroup tatrakt4d_2cc_front_group {
+	loading: tatrakt4d_2cc_front_loading;
+	loaded:  tatrakt4d_2cc_front;
+}
+
+spritegroup tatrakt4d_2cc_front_group_modern {
+	loading: tatrakt4d_2cc_front_loading_modern_pantograph;
+	loaded:  tatrakt4d_2cc_front_modern_pantograph;
+}
+
+spritegroup tatrakt4d_2cc_back_group {
+	loading: tatrakt4d_2cc_back_loading;
+	loaded:  tatrakt4d_2cc_back;
+}
+
+spritegroup tatrakt4d_false_color_front_group {
+	loading: tatrakt4d_falsecolor_front_loading;
+	loaded:  tatrakt4d_falsecolor_front;
+}
+
+spritegroup tatrakt4d_false_color_front_group_modern {
+	loading: tatrakt4d_falsecolor_front_loading_modern_pantograph;
+	loaded:  tatrakt4d_falsecolor_front_modern_pantograph;
+}
+
+spritegroup tatrakt4d_false_color_back_group {
+	loading: tatrakt4d_falsecolor_back_loading;
+	loaded:  tatrakt4d_falsecolor_back;
+}
+
+spritegroup tatrakt4d_gera_front_group {
+	loading: tatrakt4d_gera_front_loading;
+	loaded:  tatrakt4d_gera_front;
+}
+
+spritegroup tatrakt4d_gera_back_group {
+	loading: tatrakt4d_gera_back_loading;
+	loaded:  tatrakt4d_gera_back;
+}
+
+spritegroup tatrakt4d_magdeburg_front_group {
+	loading: tatrakt4d_magdeburg_front_loading;
+	loaded:  tatrakt4d_magdeburg_front;
+}
+
+spritegroup tatrakt4d_magdeburg_back_group {
+	loading: tatrakt4d_magdeburg_back_loading;
+	loaded:  tatrakt4d_magdeburg_back;
+}
+
+spriteset(tatrakt4d_menu, "graphics/tatrakt4d.pcx") {
+	[  194, 680,  48,16,  -24, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_refit_city, cargo_subtype) {
+	0: return string(COLOR_2CC);
+	1: return string(COLOR_BERLIN);
+	2: return string(COLOR_BRANDENBURG);
+	3: return string(COLOR_CHEMNITZ);
+	4: return string(COLOR_DRESDEN);
+	5: return string(COLOR_ERFURT);
+	6: return string(COLOR_FFO);
+	7: return string(COLOR_GERA);
+	8: return string(COLOR_GORLITZ);
+	9: return string(COLOR_GOTHA);
+	10:return string(COLOR_HALLE);
+	11:return string(COLOR_LEIPZIG);
+	12:return string(COLOR_MAGDEBURG);
+	13:return string(COLOR_ROSTOCK);
+	14:return string(COLOR_SCHWERIN);
+	return CB_RESULT_NO_TEXT;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_colour_mapping_before_1991, cargo_subtype) {
+	1: return tram_palettes + CT_BERLIN_MODERN;
+	2: return tram_palettes + CT_BRANDENBURG_MODERN;
+	3: return tram_palettes + CT_CHEMNITZ_MODERN;
+	4: return tram_palettes + CT_DRESDEN_MODERN;
+	5: return tram_palettes + CT_ERFURT_MODERN;
+	6: return tram_palettes + CT_FFO_MODERN;
+	8: return tram_palettes + CT_GORLITZ_MODERN;
+	9: return tram_palettes + CT_GOTHA_MODERN;
+	10: return tram_palettes + CT_HALLE_MODERN;
+	11: return tram_palettes + CT_LEIPZIG_MODERN;
+	13: return tram_palettes + CT_ROSTOCK_MODERN;
+	14: return tram_palettes + CT_SCHWERIN_MODERN;
+	CB_FAILED;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_colour_mapping_after_1991, cargo_subtype) {
+	1: return tram_palettes + CT_BERLIN_OLD;
+	2: return tram_palettes + CT_BRANDENBURG_OLD;
+	3: return tram_palettes + CT_CHEMNITZ_OLD;
+	4: return tram_palettes + CT_DRESDEN_OLD;
+	5: return tram_palettes + CT_ERFURT_OLD;
+	6: return tram_palettes + CT_FFO_OLD;
+	7: return tram_palettes + CT_GERA_OLD;
+	8: return tram_palettes + CT_GORLITZ_OLD;
+	9: return tram_palettes + CT_GOTHA_OLD;
+	10: return tram_palettes + CT_HALLE_OLD;
+	11: return tram_palettes + CT_LEIPZIG_OLD;
+	12: return tram_palettes + CT_MAGDEBURG_OLD;
+	13: return tram_palettes + CT_ROSTOCK_OLD;
+	14: return tram_palettes + CT_SCHWERIN_OLD;
+	CB_FAILED;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_colour_mapping, date_of_last_service < date(1991,1,1)) {
+	1: tatrakt4d_cb_colour_mapping_before_1991;
+	tatrakt4d_cb_colour_mapping_after_1991;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_2cc_old, position_in_consist % 2) {
+	0: tatrakt4d_2cc_front_group;
+	tatrakt4d_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_false_color_old, position_in_consist % 2) {
+	0: tatrakt4d_false_color_front_group;
+	tatrakt4d_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_2cc_modern, position_in_consist % 2) {
+	0: tatrakt4d_2cc_front_group_modern;
+	tatrakt4d_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_gera_modern, position_in_consist % 2) {
+	0: tatrakt4d_gera_front_group;
+	tatrakt4d_gera_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_magdeburg_modern, position_in_consist % 2) {
+	0: tatrakt4d_magdeburg_front_group;
+	tatrakt4d_magdeburg_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_false_color_modern, position_in_consist % 2) {
+	0: tatrakt4d_false_color_front_group_modern;
+	tatrakt4d_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_old, cargo_subtype) {
+	0: tatrakt4d_graphics_2cc_old;
+	tatrakt4d_graphics_false_color_old;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics_modern, cargo_subtype) {
+	0: tatrakt4d_graphics_2cc_modern;
+	7: tatrakt4d_graphics_gera_modern;
+	12:tatrakt4d_graphics_magdeburg_modern;
+	tatrakt4d_graphics_false_color_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_graphics, date_of_last_service < date(1991,1,1)) {
+	1: tatrakt4d_graphics_old;
+	tatrakt4d_graphics_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_articulation, extra_callback_info1) {
+	1..3: return ID_29_TatraKT4D;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_length, position_in_consist % 2) {
+	1: return 7;
+	return 8;
+}
+
+item(FEAT_ROADVEHS, ID_29_TatraKT4D) {
+	property{
+		name: string(TRAM_TATRA_KT4D);
+		introduction_date:date(1974,01,01);
+		reliability_decay:17;
+		vehicle_life:30;
+        model_life:50;
+        loading_speed:13;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:128;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:65; // quarter of the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:220;
+		length:8;
+        power:220 hp;
+        weight:10.25 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:19;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: tatrakt4d_graphics;
+		purchase: tatrakt4d_menu;
+		articulated_part:tatrakt4d_cb_articulation;
+		colour_mapping: tatrakt4d_cb_colour_mapping;
+		length: tatrakt4d_cb_length;
+		cargo_subtype_text: tatrakt4d_cb_refit_city;
+	}
+}

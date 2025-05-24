@@ -1,0 +1,79 @@
+template t_mantga41660xxl_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 18,  -4, -11]
+	[ 34, y, 21, 18,  -3, -14]
+	[ 66, y, 22, 13,  -7,  -8]
+    [ 98, y, 20, 14, -11,  -8]
+    [130, y, 10, 18,  -4, -11]
+    [162, y, 20, 14,  -4,  -9]
+    [194, y, 22, 13,  -5,  -7]
+    [226, y, 21, 18,  -3,  -7]
+}
+
+template t_mantga41660xxl_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 26,  -3, -11]
+	[ 34, y, 40, 22, -14, -12]
+	[ 98, y, 46, 12, -20,  -7]
+    [162, y, 39, 19, -17,  -9]
+    [226, y,  8, 26,  -3, -11]
+    [258, y, 39, 19, -15, -11]
+    [322, y, 46, 12, -20,  -7]
+    [386, y, 40, 22, -11,  -5]
+}
+
+spriteset(mantga41660xxl_front, "graphics/mantga41660xxl.pcx") {
+	t_mantga41660xxl_front(40)
+}
+
+spriteset(mantga41660xxl_trailer_empty, "graphics/mantga41660xxl.pcx") {
+	t_mantga41660xxl_back(72)
+}
+
+spriteset(mantga41660xxl_trailer_full, "graphics/mantga41660xxl.pcx") {
+	t_mantga41660xxl_back(104)
+}
+
+spritegroup mantga41660xxl_trailer_group {
+	loading: [mantga41660xxl_trailer_empty, mantga41660xxl_trailer_full];
+	loaded:  [mantga41660xxl_trailer_empty, mantga41660xxl_trailer_full];
+}
+
+switch(FEAT_ROADVEHS, SELF, mantga41660xxl_switch_graphics, position_in_consist) {
+	0: mantga41660xxl_front;
+	mantga41660xxl_trailer_group;
+}
+
+item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
+	property{
+		name: string(TRUCK_MAN_TGA_41660_XXL);
+		introduction_date:date(2003,01,01);
+		reliability_decay:18;
+		vehicle_life:11;
+        model_life:26;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:40;
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:660 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_EXPRESS, CC_OVERSIZED);
+		//non_refittable_cargo_classes:bitmask(CC_LIQUID);
+	}
+	graphics {
+		default: mantga41660xxl_switch_graphics;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+	}
+}

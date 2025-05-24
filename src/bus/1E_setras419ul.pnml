@@ -1,0 +1,55 @@
+template t_setras419ul(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 26,  -3, -13]
+	[ 66, y, 31, 22, -19, -10]
+	[130, y, 38, 12, -19,  -6]
+    [194, y, 31, 22,  -9,  -9]
+    [258, y,  8, 26,  -3, -13]
+    [322, y, 31, 22, -19, -10]
+    [386, y, 38, 12, -18,  -6]
+    [450, y, 31, 22, -10, -10]
+}
+
+spriteset(setras419ul_blue, "graphics/setras419ul.pcx") {
+	t_setras419ul(72)
+}
+spriteset(setras419ul_blue_loading, "graphics/setras419ul.pcx") {
+	t_setras419ul(136)
+}
+
+spritegroup setras419ul_blue_group {
+	loading: setras419ul_blue_loading;
+	loaded:  setras419ul_blue;
+}
+
+item(FEAT_ROADVEHS, ID_1E_Setra_S419UL) {
+	property{
+		name: string(BUS_SETRA_S419UL);
+		introduction_date:date(2006,01,01);
+		reliability_decay:9;
+		vehicle_life:15;
+        model_life:255;
+        loading_speed:26;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:226;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:130;
+		default_cargo_type:PASS;
+		cost_factor:194;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:354 hp;
+        weight:16 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:13;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: setras419ul_blue_group;
+		additional_text: return string(STR_BUS_REGIONAL);
+	}
+}

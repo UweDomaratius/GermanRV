@@ -1,0 +1,233 @@
+template t_henschel_hs140(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 18,  -3, -11]
+	[ 66, y, 18, 13, -14,  -3]
+	[130, y, 22, 12,  -7,  -6]
+    [194, y, 20, 14, -11,  -6]
+    [258, y,  8, 16,  -3, -11]
+    [322, y, 20, 14,  -5,  -8]
+    [386, y, 22, 12, -13,  -6]
+    [450, y, 18, 13,  -2,  -3]
+}
+
+spriteset(henschel_hs140, "graphics/henschelhs140.pcx") {
+	t_henschel_hs140(72)
+}
+
+spriteset(henschel_hs140_closed_menu, "graphics/henschelhs140.pcx") {
+	[  2, 8,  36,14,  -18, -7]
+}
+
+spriteset(henschel_hs140_tarpaulin_menu, "graphics/henschelhs140.pcx") {
+	[  66, 8,  36,14,  -18, -7]
+}
+
+spriteset(henschel_hs140_tanker_menu, "graphics/henschelhs140.pcx") {
+	[ 130, 8,  36,14,  -18, -7]
+}
+
+spriteset(henschel_hs140_open_menu, "graphics/henschelhs140.pcx") {
+	[ 194, 8,  36,14,  -18, -7]
+}
+
+// truck has 0t capacity, trailer has 24t
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_cb_cargo_capacity, position_in_consist) {
+	0: return 0;
+	return 24;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_open_cb_articulation, extra_callback_info1) {
+	1: return ID_39_henschel_hs140_open;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_switch_graphics_open, position_in_consist) {
+	0: henschel_hs140;
+	trailer_henschelhs140_graphics_open_bulk_spritestack;
+}
+
+// open
+item(FEAT_ROADVEHS, ID_39_henschel_hs140_open) {
+	property{
+		name: string(TRUCK_HENSCHEL_HS140_OPEN);
+		introduction_date:date(1950,01,01);
+		reliability_decay:18;
+		vehicle_life:11;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:68 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:140 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK);
+		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		variant_group: ID_39_henschel_hs140_tarpaulin;
+	}
+	graphics {
+		default: henschel_hs140_switch_graphics_open;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: henschel_hs140_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12; // doubled due to articulation
+		articulated_part:henschel_hs140_open_cb_articulation;
+		purchase: henschel_hs140_open_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_tarpaulin_cb_articulation, extra_callback_info1) {
+	1: return ID_39_henschel_hs140_tarpaulin;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_switch_graphics_tarpaulin, position_in_consist) {
+	0: henschel_hs140;
+	trailer_henschelhs140_tarpaulin_group;
+}
+
+// tarpaulin
+item(FEAT_ROADVEHS, ID_39_henschel_hs140_tarpaulin) {
+	property{
+		name: string(TRUCK_HENSCHEL_HS140_TARPAULIN);
+		introduction_date:date(1950,01,01);
+		reliability_decay:18;
+		vehicle_life:11;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:68 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:140 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+	}
+	graphics {
+		default: henschel_hs140_switch_graphics_tarpaulin;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: henschel_hs140_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12; // doubled due to articulation
+		articulated_part:henschel_hs140_tarpaulin_cb_articulation;
+		purchase: henschel_hs140_tarpaulin_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_closed_cb_articulation, extra_callback_info1) {
+	1: return ID_39_henschel_hs140_closed;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_switch_graphics_closed, position_in_consist) {
+	0: henschel_hs140;
+	trailer_henschelhs140_closed_van_group;
+}
+
+// closed_van
+item(FEAT_ROADVEHS, ID_39_henschel_hs140_closed) {
+	property{
+		name: string(TRUCK_HENSCHEL_HS140_CLOSED);
+		introduction_date:date(1950,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:140 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		variant_group: ID_39_henschel_hs140_tarpaulin;
+	}
+	graphics {
+		default: henschel_hs140_switch_graphics_closed;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: henschel_hs140_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12; // doubled due to articulation
+		articulated_part:henschel_hs140_closed_cb_articulation;
+		purchase: henschel_hs140_closed_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_tanker_cb_articulation, extra_callback_info1) {
+	1: return ID_39_henschel_hs140_tanker;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_switch_graphics_tanker, position_in_consist) {
+	0: henschel_hs140;
+	trailer_henschelhs140_tanker_group;
+}
+
+// tanker
+item(FEAT_ROADVEHS, ID_39_henschel_hs140_tanker) {
+	property{
+		name: string(TRUCK_HENSCHEL_HS140_TANKER);
+		introduction_date:date(1950,01,01);
+		reliability_decay:18;
+		vehicle_life:11;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:68 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:140 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_LIQUID);
+		variant_group: ID_39_henschel_hs140_tarpaulin;
+	}
+	graphics {
+		default: henschel_hs140_switch_graphics_tanker;
+		cargo_capacity: henschel_hs140_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12; // doubled due to articulation
+		articulated_part:henschel_hs140_tanker_cb_articulation;
+		purchase: henschel_hs140_tanker_menu;
+	}
+}

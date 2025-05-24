@@ -1,0 +1,55 @@
+template t_mannl263(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 22,  -4, -12]
+	[ 66, y, 27, 19, -14, -9]
+	[130, y, 31, 12, -15, -6]
+    [194, y, 27, 19, -8,  -9]
+    [258, y, 10, 22,  -4, -12]
+    [322, y, 27, 19, -16, -9]
+    [386, y, 31, 12, -15, -6]
+    [450, y, 27, 19, -10, -9]
+}
+
+spriteset(man_nl263_blue, "graphics/mannl263.pcx") {
+	t_mannl263(72)
+}
+spriteset(man_nl263_blue_loading, "graphics/mannl263.pcx") {
+	t_mannl263(136)
+}
+
+spritegroup man_nl263_blue_group {
+	loading: man_nl263_blue_loading;
+	loaded:  man_nl263_blue;
+}
+
+item(FEAT_ROADVEHS, ID_1A_MAN_NL263) {
+	property{
+		name: string(BUS_MAN_NL263);
+		introduction_date:date(1998,01,01);
+		reliability_decay:18;
+		vehicle_life:20;
+        model_life:40;
+        loading_speed:98;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:88 km/h;
+        running_cost_factor:106;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:98;
+		default_cargo_type:PASS;
+		cost_factor:122;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:260 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: man_nl263_blue_group;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

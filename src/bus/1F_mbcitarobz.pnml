@@ -1,0 +1,55 @@
+template t_mbcitarobz(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 23,  -4, -13]
+	[ 66, y, 27, 20, -14, -10]
+	[130, y, 31, 13, -15,  -7]
+    [194, y, 27, 20,  -9, -10]
+    [258, y, 10, 23,  -4, -12]
+    [322, y, 27, 20, -18,  -9]
+    [386, y, 31, 13, -16,  -6]
+    [450, y, 27, 20, -10, -10]
+}
+
+spriteset(mbcitarobz_blue, "graphics/mbcitarobz.pcx") {
+	t_mbcitarobz(72)
+}
+spriteset(mbcitarobz_blue_loading, "graphics/mbcitarobz.pcx") {
+	t_mbcitarobz(136)
+}
+
+spritegroup mbcitarobz_blue_group {
+	loading: mbcitarobz_blue_loading;
+	loaded:  mbcitarobz_blue;
+}
+
+item(FEAT_ROADVEHS, ID_1F_MB_CitaroBZ) {
+	property{
+		name: string(BUS_MB_CITAROBZ);
+		introduction_date:date(2006,01,01);
+		reliability_decay:21;
+		vehicle_life:20;
+        model_life:255;
+        loading_speed:70;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:90 km/h;
+        running_cost_factor:77;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:70;
+		default_cargo_type:PASS;
+		cost_factor:89;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:272 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: mbcitarobz_blue_group;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

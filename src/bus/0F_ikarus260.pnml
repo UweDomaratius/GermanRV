@@ -1,0 +1,56 @@
+template t_ikarus260(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 21,  -3, -11]
+	[ 66, y, 25, 19, -14, -9]
+	[130, y, 29, 12, -14, -6]
+    [194, y, 25, 19,  -8, -8]
+    [258, y,  8, 21,  -3, -12]
+    [322, y, 25, 19, -15, -8]
+    [386, y, 29, 12, -14, -6]
+    [450, y, 25, 19, -10, -9]
+}
+
+spriteset(ikarus260_blue, "graphics/ikarus260.pcx") {
+	t_ikarus260(72)
+}
+spriteset(ikarus260_blue_loading, "graphics/ikarus260.pcx") {
+	t_ikarus260(136)
+}
+
+spritegroup ikarus260_blue_group {
+	loading: ikarus260_blue_loading;
+	loaded:  ikarus260_blue;
+}
+
+item(FEAT_ROADVEHS, ID_0F_Ikarus_260) {
+	property{
+		name: string(BUS_IKARUS_260);
+		introduction_date:date(1974,01,01);
+		reliability_decay:16;
+		vehicle_life:17;
+        model_life:33;
+        loading_speed:33;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:97;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:98;
+		default_cargo_type:PASS;
+		cost_factor:95;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:192 hp;
+        weight:9 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: ikarus260_blue_group;
+		
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

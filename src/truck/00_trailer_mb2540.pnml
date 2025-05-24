@@ -1,0 +1,354 @@
+template t_trailer_mbactros2540(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 20,  -5, -10]
+	[ 66, y, 24, 19, -16,  -9]
+	[130, y, 27, 14, -13,  -7]
+    [194, y, 23, 19, -10, -11]
+    [258, y, 10, 20,  -5, -11]
+    [322, y, 23, 19, -10, -12]
+    [386, y, 27, 14, -15,  -7]
+    [450, y, 24, 19,  -5,  -8]
+}
+
+spriteset(trailer_mbactros2540_void, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(8)
+}
+
+spriteset(trailer_mbactros2540_refrigerated, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(72)
+}
+
+spriteset(trailer_mbactros2540_refrigerated_loading, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(136)
+}
+
+spriteset(trailer_mbactros2540_tarpaulin, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(200)
+}
+
+spriteset(trailer_mbactros2540_tarpaulin_empty, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(226)
+}
+
+spriteset(trailer_mbactros2540_tarpaulin_half_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(264)
+}
+
+spriteset(trailer_mbactros2540_tarpaulin_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(289)
+}
+
+spriteset(trailer_mbactros2540_crane_empty, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(328)
+}
+
+spriteset(trailer_mbactros2540_crane_half_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(392)
+}
+
+spriteset(trailer_mbactros2540_crane_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(456)
+}
+
+spriteset(trailer_mbactros2540_crane_steel_half_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(520)
+}
+
+spriteset(trailer_mbactros2540_crane_steel_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(584)
+}
+
+spriteset(trailer_mbactros2540_open_empty, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(648)
+}
+
+spriteset(trailer_mbactros2540_open_bulk_half_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(675)
+}
+
+spriteset(trailer_mbactros2540_open_bulk_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(712)
+}
+
+spriteset(trailer_mbactros2540_open_bulk_tarpaulin, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(739)
+}
+
+spriteset(trailer_mbactros2540_livestock, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(776)
+}
+
+spriteset(trailer_mbactros2540_livestock_loading, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(840)
+}
+
+spriteset(trailer_mbactros2540_tanker, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(904)
+}
+
+spriteset(trailer_mbactros2540_silo, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(968)
+}
+
+spriteset(trailer_mbactros2540_stake_empty, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1032)
+}
+
+spriteset(trailer_mbactros2540_stake_half_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1096)
+}
+
+spriteset(trailer_mbactros2540_stake_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1160)
+}
+
+spriteset(trailer_mbactros2540_container_empty, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1224)
+}
+
+spriteset(trailer_mbactros2540_container_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1288)
+}
+
+spriteset(trailer_mbactros2540_vehicles_empty, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1352)
+}
+
+spriteset(trailer_mbactros2540_vehicles_half_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1380)
+}
+
+spriteset(trailer_mbactros2540_vehicles_full, "graphics/trailer_mbactros2540.pcx") {
+	t_trailer_mbactros2540(1480)
+}
+
+spritegroup trailer_mbactros2540_open_bulk_group {
+	loading: [trailer_mbactros2540_void, trailer_mbactros2540_open_bulk_half_full, trailer_mbactros2540_open_bulk_full];
+	loaded:  [trailer_mbactros2540_void, trailer_mbactros2540_open_bulk_half_full, trailer_mbactros2540_open_bulk_full];
+}
+
+spritegroup trailer_mbactros2540_open_bulk_tarpaulin_group {
+	loading: [trailer_mbactros2540_void, trailer_mbactros2540_open_bulk_half_full, trailer_mbactros2540_open_bulk_full];
+	loaded:  [trailer_mbactros2540_void, trailer_mbactros2540_open_bulk_tarpaulin];
+}
+
+spritegroup trailer_mbactros2540_refrigerated_group {
+	loading: trailer_mbactros2540_refrigerated_loading;
+	loaded:  trailer_mbactros2540_refrigerated;
+}
+
+spritegroup trailer_mbactros2540_livestock_group {
+	loading: trailer_mbactros2540_livestock_loading;
+	loaded:  trailer_mbactros2540_livestock;
+}
+
+spritegroup trailer_mbactros2540_crane_group {
+	loading: [trailer_mbactros2540_crane_empty, trailer_mbactros2540_crane_half_full, trailer_mbactros2540_crane_full];
+	loaded:  [trailer_mbactros2540_crane_empty, trailer_mbactros2540_crane_half_full, trailer_mbactros2540_crane_full];
+}
+
+spritegroup trailer_mbactros2540_stake_wood_group {
+	loading: [trailer_mbactros2540_stake_empty, trailer_mbactros2540_stake_half_full, trailer_mbactros2540_stake_full];
+	loaded:  [trailer_mbactros2540_stake_empty, trailer_mbactros2540_stake_half_full, trailer_mbactros2540_stake_full];
+}
+
+spritegroup trailer_mbactros2540_crane_steel_group {
+	loading: [trailer_mbactros2540_crane_empty, trailer_mbactros2540_crane_steel_half_full, trailer_mbactros2540_crane_steel_full];
+	loaded:  [trailer_mbactros2540_crane_empty, trailer_mbactros2540_crane_steel_half_full, trailer_mbactros2540_crane_steel_full];
+}
+
+spritegroup trailer_mbactros2540_container_group {
+	loading: [trailer_mbactros2540_void, trailer_mbactros2540_container_full];
+	loaded:  [trailer_mbactros2540_void, trailer_mbactros2540_container_full];
+}
+
+spritegroup trailer_mbactros2540_vehicles_group {
+	loading: [trailer_mbactros2540_vehicles_empty, trailer_mbactros2540_vehicles_half_full, trailer_mbactros2540_vehicles_full];
+	loaded:  [trailer_mbactros2540_vehicles_empty, trailer_mbactros2540_vehicles_half_full, trailer_mbactros2540_vehicles_full];
+}
+
+spritegroup trailer_mbactros2540_tarpaulin_group {
+	loading: [trailer_mbactros2540_tarpaulin_empty, trailer_mbactros2540_tarpaulin_half_full, trailer_mbactros2540_tarpaulin_full];
+	loaded: trailer_mbactros2540_tarpaulin;
+}
+
+spritegroup trailer_mbactros2540_tanker_group {
+	loading: trailer_mbactros2540_tanker;
+	loaded: trailer_mbactros2540_tanker;
+}
+
+spritegroup trailer_mbactros2540_silo_group {
+	loading: trailer_mbactros2540_silo;
+	loaded: trailer_mbactros2540_silo;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	trailer_mbactros2540_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100),
+	(cargo_classes & bitmask(CC_COVERED)) == bitmask(CC_COVERED)])
+{
+	1: trailer_mbactros2540_open_bulk_tarpaulin_group;
+	trailer_mbactros2540_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: trailer_mbactros2540_graphics_open_bulk_spritestack1;
+	trailer_mbactros2540_graphics_open_bulk_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_switch_graphics_crane_cargo, cargo_type_in_veh) {
+	STEL: trailer_mbactros2540_crane_steel_group;
+	STAL: trailer_mbactros2540_crane_steel_group;
+	// add further FIRS steel and iron product types here
+	trailer_mbactros2540_crane_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	trailer_mbactros2540_container_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_0, 
+	[STORE_TEMP(freight_palettes + 0, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_1, 
+	[STORE_TEMP(freight_palettes + 1, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_2, 
+	[STORE_TEMP(freight_palettes + 2, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_3, 
+	[STORE_TEMP(freight_palettes + 3, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_4, 
+	[STORE_TEMP(freight_palettes + 4, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_5, 
+	[STORE_TEMP(freight_palettes + 5, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack1_6, 
+	[STORE_TEMP(freight_palettes + 6, 0x100)])
+{
+	trailer_mbactros2540_container_group;
+}
+
+random_switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_random_freight_color, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+	1: trailer_mbactros2540_graphics_container_spritestack1_0;
+	1: trailer_mbactros2540_graphics_container_spritestack1_1;
+	1: trailer_mbactros2540_graphics_container_spritestack1_2;
+	1: trailer_mbactros2540_graphics_container_spritestack1_3;
+	1: trailer_mbactros2540_graphics_container_spritestack1_4;
+	1: trailer_mbactros2540_graphics_container_spritestack1_5;
+	1: trailer_mbactros2540_graphics_container_spritestack1_6;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_container_spritestack, 
+	[getbits(extra_callback_info1, 8, 8)])
+{
+	1: trailer_mbactros2540_graphics_container_random_freight_color;
+	trailer_mbactros2540_graphics_container_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	trailer_mbactros2540_vehicles_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_0, 
+	[STORE_TEMP(freight_palettes + 0, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_1, 
+	[STORE_TEMP(freight_palettes + 1, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_2, 
+	[STORE_TEMP(freight_palettes + 2, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_3, 
+	[STORE_TEMP(freight_palettes + 3, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_4, 
+	[STORE_TEMP(freight_palettes + 4, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_5, 
+	[STORE_TEMP(freight_palettes + 5, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack1_6, 
+	[STORE_TEMP(freight_palettes + 6, 0x100)])
+{
+	trailer_mbactros2540_vehicles_group;
+}
+
+random_switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_random_freight_color, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_0;
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_1;
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_2;
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_3;
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_4;
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_5;
+	1: trailer_mbactros2540_graphics_vehicles_spritestack1_6;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, trailer_mbactros2540_graphics_vehicles_spritestack, 
+	[getbits(extra_callback_info1, 8, 8)])
+{
+	1: trailer_mbactros2540_graphics_vehicles_random_freight_color;
+	trailer_mbactros2540_graphics_vehicles_spritestack0;
+}

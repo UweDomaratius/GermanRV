@@ -1,0 +1,56 @@
+template t_mb_o305(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 21,  -3, -11]
+	[ 66, y, 25, 19, -14, -9]
+	[130, y, 29, 12, -15, -6]
+    [194, y, 25, 19,  -9, -9]
+    [258, y,  8, 21,  -3, -11]
+    [322, y, 25, 19, -16, -8]
+    [386, y, 29, 12, -15, -6]
+    [450, y, 25, 19,  -9, -9]
+}
+
+spriteset(mb_o305_blue, "graphics/mbo305.pcx") {
+	t_mb_o305(72)
+}
+spriteset(mb_o305_blue_loading, "graphics/mbo305.pcx") {
+	t_mb_o305(136)
+}
+
+spritegroup mb_o305_blue_group {
+	loading: mb_o305_blue_loading;
+	loaded:  mb_o305_blue;
+}
+
+item(FEAT_ROADVEHS, ID_0D_MB_O305) {
+	property{
+		name: string(BUS_MB_O305);
+		introduction_date:date(1968,01,01);
+		reliability_decay:8;
+		vehicle_life:17;
+        model_life:33;
+        loading_speed:19;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:76 km/h;
+        running_cost_factor:98;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:114;
+		default_cargo_type:PASS;
+		cost_factor:96;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:192 hp;
+        weight:9 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:8;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: mb_o305_blue_group;
+		
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

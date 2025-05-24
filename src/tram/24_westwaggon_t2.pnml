@@ -1,0 +1,132 @@
+template t_westwaggont2_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3, -8]
+	[ 66, y, 19, 15, -12, -6]
+	[130, y, 28, 14, -14, -9]
+    [194, y, 19, 15,  -7, -7]
+    [258, y,  6, 18,  -3, -9]
+    [322, y, 19, 15, -12, -7]
+    [386, y, 28, 14, -14, -9]
+    [450, y, 19, 15,  -8, -8]
+}
+
+template t_westwaggont2_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 16,  -3, -8]
+	[ 66, y, 17, 14, -12, -5]
+	[130, y, 25, 10, -12, -5]
+    [194, y, 17, 14,  -7, -7]
+    [258, y,  6, 16,  -3, -8]
+    [322, y, 17, 14, -10, -7]
+    [386, y, 25, 10, -12, -5]
+    [450, y, 17, 14,  -6, -7]
+}
+
+spriteset(westwaggont2_2cc_front, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_front(72)
+}
+spriteset(westwaggont2_2cc_front_loading, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_front(136)
+}
+
+spriteset(westwaggont2_2cc_back, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_back(200)
+}
+
+spriteset(westwaggont2_2cc_back_loading, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_back(264)
+}
+
+spriteset(westwaggont2_falsecolor_front, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_front(328)
+}
+
+spriteset(westwaggont2_falsecolor_front_loading, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_front(392)
+}
+
+spriteset(westwaggont2_falsecolor_back, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_back(456)
+}
+
+spriteset(westwaggont2_falsecolor_back_loading, "graphics/westwaggont2.pcx") {
+	t_westwaggont2_back(520)
+}
+
+spritegroup westwaggont2_2cc_front_group {
+	loading: westwaggont2_2cc_front_loading;
+	loaded:  westwaggont2_2cc_front;
+}
+
+spritegroup westwaggont2_false_color_front_group {
+	loading: westwaggont2_falsecolor_front_loading;
+	loaded:  westwaggont2_falsecolor_front;
+}
+
+spritegroup westwaggont2_2cc_back_group {
+	loading: westwaggont2_2cc_back_loading;
+	loaded:  westwaggont2_2cc_back;
+}
+
+spritegroup westwaggont2_false_color_back_group {
+	loading: westwaggont2_falsecolor_back_loading;
+	loaded:  westwaggont2_falsecolor_back;
+}
+
+spriteset(westwaggont2_menu, "graphics/westwaggont2.pcx") {
+	[  386, 584,  54,14,  -24, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, westwaggont2_graphics_2cc, position_in_consist) {
+	0: westwaggont2_2cc_front_group;
+	westwaggont2_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, westwaggont2_graphics_false_color, position_in_consist) {
+	0: westwaggont2_false_color_front_group;
+	westwaggont2_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, westwaggont2_graphics, cargo_subtype) {
+	0: westwaggont2_graphics_2cc;
+	westwaggont2_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, westwaggont2_cb_articulation, extra_callback_info1) {
+	1: return ID_24_WestwaggonT2;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_24_WestwaggonT2) {
+	property{
+		name: string(TRAM_WESTWAGGON_T2);
+		introduction_date:date(1939,01,01);
+		reliability_decay:21;
+		vehicle_life:25;
+        model_life:31;
+        loading_speed:14;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:60 km/h;
+        running_cost_factor:44;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:68; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:64;
+		length:7;
+        power:155 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:14;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: westwaggont2_graphics;
+		purchase: westwaggont2_menu;
+		articulated_part:westwaggont2_cb_articulation;
+		colour_mapping: tram_cb_colour_mapping_west_cities_very_old;
+		cargo_subtype_text: tram_cb_refit_west_cities;
+	}
+}

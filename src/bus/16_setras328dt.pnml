@@ -1,0 +1,61 @@
+template t_setras328dt(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 26,  -4, -14, ANIM|WHITE]
+	[ 66, y, 30, 22, -16, -11, ANIM|WHITE]
+	[130, y, 32, 16, -16, -10, ANIM|WHITE]
+    [194, y, 30, 23, -8, -11, ANIM|WHITE]
+    [258, y, 10, 26,  -4, -13, ANIM|WHITE]
+    [322, y, 30, 23, -18, -12, ANIM|WHITE]
+    [386, y, 32, 16, -16, -10, ANIM|WHITE]
+    [450, y, 30, 22, -11, -12, ANIM|WHITE]
+}
+
+spriteset(setras328dt_blue, "graphics/setras328dt.pcx") {
+	t_setras328dt(72)
+}
+spriteset(setras328dt_blue_loading, "graphics/setras328dt.pcx") {
+	t_setras328dt(136)
+}
+
+spritegroup setras328dt_blue_group {
+	loading: setras328dt_blue_loading;
+	loaded:  setras328dt_blue;
+}
+
+spriteset(setras328dt_menu, "graphics/setras328dt.pcx") {
+	[  386, 200,  32,14,  -16, -7]
+}
+
+
+item(FEAT_ROADVEHS, ID_16_SETRA_S328DT) {
+	property{
+		name: string(BUS_SETRA_S328DT);
+		introduction_date:date(1992,01,01);
+		reliability_decay:17;
+		vehicle_life:17;
+        model_life:28;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:110 km/h;
+        running_cost_factor:152;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:70;
+		default_cargo_type:TOUR;
+		cost_factor:148;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:524 hp;
+        weight:22 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:9;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: setras328dt_blue_group;
+		purchase: setras328dt_menu;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

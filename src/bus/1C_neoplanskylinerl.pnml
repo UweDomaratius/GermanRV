@@ -1,0 +1,60 @@
+template t_neoplanskyliner(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 27,  -4, -14, WHITE|ANIM]
+	[ 66, y, 30, 23, -16, -12, WHITE|ANIM]
+	[130, y, 36, 16, -18, -10, WHITE|ANIM]
+    [194, y, 31, 24,  -8, -11, WHITE|ANIM]
+    [258, y, 10, 27,  -4, -14, WHITE|ANIM]
+    [322, y, 30, 24, -18, -12, WHITE|ANIM]
+    [386, y, 36, 16, -18, -10, WHITE|ANIM]
+    [450, y, 31, 23, -10, -11, WHITE|ANIM]
+}
+
+spriteset(neoplan_skylinerl_blue, "graphics/neoplanskyliner.pcx") {
+	t_neoplanskyliner(72)
+}
+spriteset(neoplan_skylinerl_blue_loading, "graphics/neoplanskyliner.pcx") {
+	t_neoplanskyliner(136)
+}
+
+spritegroup neoplan_skylinerl_blue_group {
+	loading: neoplan_skylinerl_blue_loading;
+	loaded:  neoplan_skylinerl_blue;
+}
+
+spriteset(neoplan_skylinerl_menu, "graphics/neoplanskyliner.pcx") {
+	[  386, 200,  36,14,  -16, -7]
+}
+
+item(FEAT_ROADVEHS, ID_1C_Neoplan_SkylinerL) {
+	property{
+		name: string(BUS_NEOPLAN_SKYLINERL);
+		introduction_date:date(2002,01,01);
+		reliability_decay:17;
+		vehicle_life:14;
+        model_life:255;
+        loading_speed:9;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:120 km/h;
+        running_cost_factor:204;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:78;
+		default_cargo_type:TOUR;
+		cost_factor:175;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:530 hp;
+        weight:26 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:9;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: neoplan_skylinerl_blue_group;
+		purchase: neoplan_skylinerl_menu;
+		additional_text: return string(STR_BUS_COACH);
+	}
+}

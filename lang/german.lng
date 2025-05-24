@@ -1,0 +1,127 @@
+##grflangid 0x02
+##plural 0
+# This is the German language file
+
+# GRF name and description definitions
+STR_GRF_NAME        :{TITLE} {VERSION}
+STR_GRF_DESCRIPTION :Deutsche Straßenfahrzeuge für OpenTTD{}Daniel Böhme, Uwe Domaratius, Roland Kahlert, Stephan Krause, Hansel Kruzer{}Mit besonderem Dank an Michael Blunck{}{COPYRIGHT}2006-2025 {}License: CC-BY-NC-SA v4.0
+
+STR_BUS_CITY    :{BLACK}Verwendung: {ORANGE}Stadtbus
+STR_BUS_COACH   :{BLACK}Verwendung: {ORANGE}Reisebus
+STR_BUS_REGIONAL:{BLACK}Verwendung: {ORANGE}Regionalbus
+STR_TRUCK_AUTOREFIT:{BLACK}Umrüstbar an Haltestellen.
+
+# Trucks
+TRUCK_BUSSING_IIIGL_OPEN      :Büssing III GL (Kipper)
+TRUCK_BUSSING_IIIGL_TARPAULIN :Büssing III GL (Pritsche mit Plane)
+TRUCK_BUSSING_IIIGL_TANKER    :Büssing III GL (Tankwagen)
+TRUCK_BUSSING_IIIGL_CLOSED    :Büssing III GL (Kastenwagen)
+
+TRUCK_BUSSING_VIGL_OPEN       :Büssing VI GL (Kipper)
+TRUCK_BUSSING_VIGL_TARPAULIN  :Büssing VI GL (Pritsche mit Plane)
+TRUCK_BUSSING_VIGL_TANKER     :Büssing VI GL (Tankwagen)
+TRUCK_BUSSING_VIGL_CLOSED     :Büssing VI GL (Kastenwagen)
+
+TRUCK_HENSCHEL_36W3_OPEN      :Henschel 36 W3 (Kipper)
+TRUCK_HENSCHEL_36W3_TARPAULIN :Henschel 36 W3 (Pritsche mit Plane)
+TRUCK_HENSCHEL_36W3_TANKER    :Henschel 36 W3 (Tankwagen)
+TRUCK_HENSCHEL_36W3_CLOSED    :Henschel 36 W3 (Kastenwagen)
+
+TRUCK_BUESSING_5000_OPEN      :Büssing-NAG 5000 (Kipper)
+TRUCK_BUESSING_5000_TARPAULIN :Büssing-NAG 5000 (Pritsche mit Plane)
+TRUCK_BUESSING_5000_TANKER    :Büssing-NAG 5000 (Tankwagen)
+TRUCK_BUESSING_5000_CLOSED    :Büssing-NAG 5000 (Kastenwagen)
+
+TRUCK_BUESSING_8000_OPEN      :Büssing 8000 (Kipper)
+TRUCK_BUESSING_8000_TARPAULIN :Büssing 8000 (Pritsche mit Plane)
+TRUCK_BUESSING_8000_TANKER    :Büssing 8000 (Tankwagen)
+TRUCK_BUESSING_8000_CLOSED    :Büssing 8000 (Kastenwagen)
+
+TRUCK_HENSCHEL_HS140_OPEN     :Henschel HS 140 (Kipper)
+TRUCK_HENSCHEL_HS140_TARPAULIN:Henschel HS 140 (Pritsche mit Plane)
+TRUCK_HENSCHEL_HS140_TANKER   :Henschel HS 140 (Tankwagen)
+TRUCK_HENSCHEL_HS140_CLOSED   :Henschel HS 140 (Kastenwagen)
+
+TRUCK_MB_ACTROS_2540_OPEN        :Mercedes-Benz Actros 2540 (Kipper)
+TRUCK_MB_ACTROS_2540_TARPAULIN   :Mercedes-Benz Actros 2540 (Pritsche mit Plane)
+TRUCK_MB_ACTROS_2540_TANKER      :Mercedes-Benz Actros 2540 (Tankwagen)
+TRUCK_MB_ACTROS_2540_SILO        :Mercedes-Benz Actros 2540 (Silowagen)
+TRUCK_MB_ACTROS_2540_LIVESTOCK   :Mercedes-Benz Actros 2540 (Viehtransporter)
+TRUCK_MB_ACTROS_2540_WOOD        :Mercedes-Benz Actros 2540 (Holztransporter)
+TRUCK_MB_ACTROS_2540_VEHICLES    :Mercedes-Benz Actros 2540 (Autotransporter)
+TRUCK_MB_ACTROS_2540_CONTAINER   :Mercedes-Benz Actros 2540 (Containertransporter)
+TRUCK_MB_ACTROS_2540_REFRIGERATED:Mercedes-Benz Actros 2540 (Kühllaster)
+TRUCK_MB_ACTROS_2540_CRANE       :Mercedes-Benz Actros 2540 (Offene Pritsche mit Kran)
+
+TRUCK_MB_ACTROS_4143_OPEN      :Mercedes-Benz Actros 4143K
+
+TRUCK_MB_AXOR_1840_OPEN        :Mercedes-Benz Axor 1840 (Kipper)
+TRUCK_MB_AXOR_1840_TARPAULIN   :Mercedes-Benz Axor 1840 (Pritsche mit Plane)
+TRUCK_MB_AXOR_1840_TANKER      :Mercedes-Benz Axor 1840 (Tankwagen)
+TRUCK_MB_AXOR_1840_SILO        :Mercedes-Benz Axor 1840 (Silowagen)
+TRUCK_MB_AXOR_1840_LIVESTOCK   :Mercedes-Benz Axor 1840 (Viehtransporter)
+TRUCK_MB_AXOR_1840_STAKE       :Mercedes-Benz Axor 1840 (Rungenauflieger)
+TRUCK_MB_AXOR_1840_REFRIGERATED:Mercedes-Benz Axor 1840 (Kühllaster)
+TRUCK_MB_AXOR_1840_FLATBED     :Mercedes-Benz Axor 1840 (Tieflader)
+TRUCK_MB_AXOR_1840_CONTAINER   :Mercedes-Benz Axor 1840 (Containertransporter)
+
+TRUCK_MB_ACTROS2_4146_OPEN     :Mercedes-Benz Actros 2 4146K
+
+TRUCK_MB_ACTROS2_2541_OPEN        :Mercedes-Benz Actros 2 2541 (Kipper)
+TRUCK_MB_ACTROS2_2541_TARPAULIN   :Mercedes-Benz Actros 2 2541 (Pritsche mit Plane)
+TRUCK_MB_ACTROS2_2541_TANKER      :Mercedes-Benz Actros 2 2541 (Tankwagen)
+TRUCK_MB_ACTROS2_2541_SILO        :Mercedes-Benz Actros 2 2541 (Silowagen)
+TRUCK_MB_ACTROS2_2541_LIVESTOCK   :Mercedes-Benz Actros 2 2541 (Viehtransporter)
+TRUCK_MB_ACTROS2_2541_WOOD        :Mercedes-Benz Actros 2 2541 (Holztransporter)
+TRUCK_MB_ACTROS2_2541_VEHICLES    :Mercedes-Benz Actros 2 2541 (Autotransporter)
+TRUCK_MB_ACTROS2_2541_CONTAINER   :Mercedes-Benz Actros 2 2541 (Containertransporter)
+TRUCK_MB_ACTROS2_2541_REFRIGERATED:Mercedes-Benz Actros 2 2541 (Kühllaster)
+TRUCK_MB_ACTROS2_2541_CRANE       :Mercedes-Benz Actros 2 2541 (Offene Pritsche mit Kran)
+
+TRUCK_MAN_TGX_OPEN        :MAN TGX (Kipper)
+TRUCK_MAN_TGX_TARPAULIN   :MAN TGX (Pritsche mit Plane)
+TRUCK_MAN_TGX_TANKER      :MAN TGX (Tankwagen)
+TRUCK_MAN_TGX_SILO        :MAN TGX (Silowagen)
+TRUCK_MAN_TGX_LIVESTOCK   :MAN TGX (Viehtransporter)
+TRUCK_MAN_TGX_STAKE       :MAN TGX (Rungenauflieger)
+TRUCK_MAN_TGX_REFRIGERATED:MAN TGX (Kühllaster)
+TRUCK_MAN_TGX_FLATBED     :MAN TGX (Tieflader)
+TRUCK_MAN_TGX_CONTAINER   :MAN TGX (Containertransporter)
+
+# recoloring schemes
+COLOR_2CC        : (2CC)
+COLOR_BERLIN     : (Berlin)
+COLOR_BOCHUM     : (Bochum)
+COLOR_BRANDENBURG: (Brandenburg)
+COLOR_BREMEN     : (Bremen)
+COLOR_CHEMNITZ   : (Chemnitz)
+COLOR_DRESDEN    : (Dresden)
+COLOR_DARMSTADT  : (Darmstadt)
+COLOR_DUSSELDORF : (Düsseldorf)
+COLOR_ERFURT     : (Erfurt)
+COLOR_FFM        : (Frankfurt/Main)
+COLOR_FFO        : (Frankfurt/Oder)
+COLOR_GERA       : (Gera)
+COLOR_GORLITZ    : (Görlitz)
+COLOR_GOTHA      : (Gotha)
+COLOR_HALLE      : (Halle)
+COLOR_HANNOVER   : (Hannover)
+COLOR_HEIDELBERG : (Heidelberg)
+COLOR_KARLSRUHE  : (Karlsruhe)
+COLOR_KASSEL     : (Kassel)
+COLOR_KOLN       : (Köln)
+COLOR_LEIPZIG    : (Leipzig)
+COLOR_MAGDEBURG  : (Magdeburg)
+COLOR_MAINZ      : (Mainz)
+COLOR_MUHLHEIM   : (Mühlheim)
+COLOR_MUNICH     : (München)
+COLOR_NUREMBERG  : (Nürnberg)
+COLOR_POTSDAM    : (Potsdam)
+COLOR_ROSTOCK    : (Rostock)
+COLOR_SAARBRUCKEN: (Saarbrücken)
+COLOR_SCHWERIN   : (Schwerin)
+COLOR_STUTTGART  : (Stuttgart)
+
+STR_ERR_OPENTTD_VERSION:{ORANGE}E00:{TITLE} benötigt OpenTTD 14.0 oder neuer
+STR_ERR_DYNAMIC_ENGINES:dynamic engines enabled
+STR_ERR_DRIVING_SIDE:driving_side right

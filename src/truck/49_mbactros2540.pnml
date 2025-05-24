@@ -1,0 +1,829 @@
+template t_mbactros_2540(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 22,  -5, -11]
+	[ 66, y, 27, 18, -16,  -9]
+	[130, y, 30, 14, -15,  -7]
+    [194, y, 26, 21, -10, -11]
+    [258, y, 10, 23,  -5, -11]
+    [322, y, 26, 21, -13, -12]
+    [386, y, 30, 14, -13,  -7]
+    [450, y, 27, 18,  -8,  -8]
+}
+
+spriteset(mbactros2540_void, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(8)
+}
+
+spriteset(mbactros2540_refrigerated, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(72)
+}
+
+spriteset(mbactros2540_refrigerated_loading, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(136)
+}
+
+spriteset(mbactros2540_tarpaulin, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(200)
+}
+
+spriteset(mbactros2540_tarpaulin_empty, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(226)
+}
+
+spriteset(mbactros2540_tarpaulin_half_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(264)
+}
+
+spriteset(mbactros2540_tarpaulin_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(289)
+}
+
+spriteset(mbactros2540_crane_empty, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(328)
+}
+
+spriteset(mbactros2540_crane_half_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(392)
+}
+
+spriteset(mbactros2540_crane_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(456)
+}
+
+spriteset(mbactros2540_crane_steel_half_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(520)
+}
+
+spriteset(mbactros2540_crane_steel_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(584)
+}
+
+spriteset(mbactros2540_open_empty, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(648)
+}
+
+spriteset(mbactros2540_open_bulk_half_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(675)
+}
+
+spriteset(mbactros2540_open_bulk_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(712)
+}
+
+spriteset(mbactros2540_open_bulk_tarpaulin, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(739)
+}
+
+spriteset(mbactros2540_livestock, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(776)
+}
+
+spriteset(mbactros2540_livestock_loading, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(840)
+}
+
+spriteset(mbactros2540_tanker, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(904)
+}
+
+spriteset(mbactros2540_silo, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(968)
+}
+
+spriteset(mbactros2540_stake_empty, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1032)
+}
+
+spriteset(mbactros2540_stake_half_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1096)
+}
+
+spriteset(mbactros2540_stake_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1160)
+}
+
+spriteset(mbactros2540_container_empty, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1224)
+}
+
+spriteset(mbactros2540_container_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1288)
+}
+
+spriteset(mbactros2540_vehicles_empty, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1352)
+}
+
+spriteset(mbactros2540_vehicles_half_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1379)
+}
+
+spriteset(mbactros2540_vehicles_full, "graphics/mbactros2540.pcx") {
+	t_mbactros_2540(1480)
+}
+
+spritegroup mbactros2540_open_bulk_group {
+	loading: [mbactros2540_void, mbactros2540_open_bulk_half_full, mbactros2540_open_bulk_full];
+	loaded:  [mbactros2540_void, mbactros2540_open_bulk_half_full, mbactros2540_open_bulk_full];
+}
+
+spritegroup mbactros2540_open_bulk_tarpaulin_group {
+	loading: [mbactros2540_void, mbactros2540_open_bulk_half_full, mbactros2540_open_bulk_full];
+	loaded:  [mbactros2540_void, mbactros2540_open_bulk_tarpaulin];
+}
+
+spritegroup mbactros2540_refrigerated_group {
+	loading: mbactros2540_refrigerated_loading;
+	loaded:  mbactros2540_refrigerated;
+}
+
+spritegroup mbactros2540_livestock_group {
+	loading: mbactros2540_livestock_loading;
+	loaded:  mbactros2540_livestock;
+}
+
+spritegroup mbactros2540_crane_group {
+	loading: [mbactros2540_crane_empty, mbactros2540_crane_half_full, mbactros2540_crane_full];
+	loaded:  [mbactros2540_crane_empty, mbactros2540_crane_half_full, mbactros2540_crane_full];
+}
+
+spritegroup mbactros2540_stake_wood_group {
+	loading: [mbactros2540_stake_empty, mbactros2540_stake_half_full, mbactros2540_stake_full];
+	loaded:  [mbactros2540_stake_empty, mbactros2540_stake_half_full, mbactros2540_stake_full];
+}
+
+spritegroup mbactros2540_crane_steel_group {
+	loading: [mbactros2540_crane_empty, mbactros2540_crane_steel_half_full, mbactros2540_crane_steel_full];
+	loaded:  [mbactros2540_crane_empty, mbactros2540_crane_steel_half_full, mbactros2540_crane_steel_full];
+}
+
+spritegroup mbactros2540_container_group {
+	loading: [mbactros2540_void, mbactros2540_container_full];
+	loaded:  [mbactros2540_void, mbactros2540_container_full];
+}
+
+spritegroup mbactros2540_vehicles_group {
+	loading: [mbactros2540_void, mbactros2540_vehicles_half_full, mbactros2540_vehicles_full];
+	loaded:  [mbactros2540_void, mbactros2540_vehicles_half_full, mbactros2540_vehicles_full];
+}
+
+spritegroup mbactros2540_tarpaulin_group {
+	loading: [mbactros2540_tarpaulin_empty, mbactros2540_tarpaulin_half_full, mbactros2540_tarpaulin_full];
+	loaded: mbactros2540_tarpaulin;
+}
+
+spritegroup mbactros2540_tanker_group {
+	loading: mbactros2540_tanker;
+	loaded: mbactros2540_tanker;
+}
+
+spritegroup mbactros2540_silo_group {
+	loading: mbactros2540_silo;
+	loaded: mbactros2540_silo;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	mbactros2540_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100),
+	(cargo_classes & bitmask(CC_COVERED)) == bitmask(CC_COVERED)])
+{
+	1: mbactros2540_open_bulk_tarpaulin_group;
+	mbactros2540_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: mbactros2540_graphics_open_bulk_spritestack1;
+	mbactros2540_graphics_open_bulk_spritestack0;
+}
+
+// truck has 8t capacity, trailer has 16t
+switch(FEAT_ROADVEHS, SELF, mbactros2540_cb_cargo_capacity, position_in_consist) {
+	0: return 8;
+	return 16;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_open, position_in_consist) {
+	0: mbactros2540_graphics_open_bulk_spritestack;
+	trailer_mbactros2540_graphics_open_bulk_spritestack;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_open_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_open;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+// open
+item(FEAT_ROADVEHS, ID_49_mbactros2540_open) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_OPEN);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK);
+		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_REFRIGERATED);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_open;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_open_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_tarpaulin_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_tarpaulin;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_tarpaulin, position_in_consist) {
+	0: mbactros2540_tarpaulin_group;
+	trailer_mbactros2540_tarpaulin_group;
+}
+
+// tarpaulin
+item(FEAT_ROADVEHS, ID_49_mbactros2540_tarpaulin) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_TARPAULIN);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+		cargo_disallow_refit: [WOOD, STEL, LVST];
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_tarpaulin;
+		purchase: mbactros2540_tarpaulin;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_tarpaulin_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_silo_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_silo;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_silo, position_in_consist) {
+	0: mbactros2540_silo_group;
+	trailer_mbactros2540_silo_group;
+}
+
+// silo
+item(FEAT_ROADVEHS, ID_49_mbactros2540_silo) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_SILO);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_POWDERIZED);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_silo;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_silo_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_tanker_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_tanker;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_tanker, position_in_consist) {
+	0: mbactros2540_tanker_group;
+	trailer_mbactros2540_tanker_group;
+}
+
+// tanker
+item(FEAT_ROADVEHS, ID_49_mbactros2540_tanker) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_TANKER);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:OIL_;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_LIQUID);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_tanker;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_tanker_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_livestock_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_livestock;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_livestock, position_in_consist) {
+	0: mbactros2540_livestock_group;
+	trailer_mbactros2540_livestock_group;
+}
+
+// tanker
+item(FEAT_ROADVEHS, ID_49_mbactros2540_livestock) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_LIVESTOCK);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:LVST;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_livestock;
+		purchase: mbactros2540_livestock;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_livestock_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_wood_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_wood;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_wood, position_in_consist) {
+	0: mbactros2540_stake_wood_group;
+	trailer_mbactros2540_stake_wood_group;
+}
+
+// wood+wood products
+item(FEAT_ROADVEHS, ID_49_mbactros2540_wood) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_WOOD);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:WOOD;
+		refit_cost:0;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		cargo_allow_refit: [WOOD,WDPR];
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_wood;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		articulated_part:mbactros2540_wood_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_vehicles_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_vehicles;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	mbactros2540_vehicles_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_0, 
+	[STORE_TEMP(freight_palettes + 0, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_1, 
+	[STORE_TEMP(freight_palettes + 1, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_2, 
+	[STORE_TEMP(freight_palettes + 2, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_3, 
+	[STORE_TEMP(freight_palettes + 3, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_4, 
+	[STORE_TEMP(freight_palettes + 4, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_5, 
+	[STORE_TEMP(freight_palettes + 5, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack1_6, 
+	[STORE_TEMP(freight_palettes + 6, 0x100)])
+{
+	mbactros2540_vehicles_group;
+}
+
+random_switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_random_freight_color, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+	1: mbactros2540_graphics_vehicles_spritestack1_0;
+	1: mbactros2540_graphics_vehicles_spritestack1_1;
+	1: mbactros2540_graphics_vehicles_spritestack1_2;
+	1: mbactros2540_graphics_vehicles_spritestack1_3;
+	1: mbactros2540_graphics_vehicles_spritestack1_4;
+	1: mbactros2540_graphics_vehicles_spritestack1_5;
+	1: mbactros2540_graphics_vehicles_spritestack1_6;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_vehicles_spritestack, 
+	[getbits(extra_callback_info1, 8, 8)])
+{
+	1: mbactros2540_graphics_vehicles_random_freight_color;
+	mbactros2540_graphics_vehicles_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_vehicles, position_in_consist) {
+	0: mbactros2540_graphics_vehicles_spritestack;
+	trailer_mbactros2540_graphics_vehicles_spritestack;
+}
+
+// vehicles
+item(FEAT_ROADVEHS, ID_49_mbactros2540_vehicles) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_VEHICLES);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:VEHI;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_vehicles;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_vehicles_cb_articulation;
+		random_trigger: mbactros2540_graphics_vehicles_random_freight_color;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_container_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_container;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	mbactros2540_container_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_0, 
+	[STORE_TEMP(freight_palettes + 0, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_1, 
+	[STORE_TEMP(freight_palettes + 1, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_2, 
+	[STORE_TEMP(freight_palettes + 2, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_3, 
+	[STORE_TEMP(freight_palettes + 3, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_4, 
+	[STORE_TEMP(freight_palettes + 4, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_5, 
+	[STORE_TEMP(freight_palettes + 5, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack1_6, 
+	[STORE_TEMP(freight_palettes + 6, 0x100)])
+{
+	mbactros2540_container_group;
+}
+
+random_switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_random_freight_color, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+	1: mbactros2540_graphics_container_spritestack1_0;
+	1: mbactros2540_graphics_container_spritestack1_1;
+	1: mbactros2540_graphics_container_spritestack1_2;
+	1: mbactros2540_graphics_container_spritestack1_3;
+	1: mbactros2540_graphics_container_spritestack1_4;
+	1: mbactros2540_graphics_container_spritestack1_5;
+	1: mbactros2540_graphics_container_spritestack1_6;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, mbactros2540_graphics_container_spritestack, 
+	[getbits(extra_callback_info1, 8, 8)])
+{
+	1: mbactros2540_graphics_container_random_freight_color;
+	mbactros2540_graphics_container_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_container, 
+	position_in_consist) {
+	0: mbactros2540_graphics_container_spritestack;
+	trailer_mbactros2540_graphics_container_spritestack;
+}
+
+// container
+item(FEAT_ROADVEHS, ID_49_mbactros2540_container) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_CONTAINER);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_container;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		articulated_part:mbactros2540_container_cb_articulation;
+		random_trigger: mbactros2540_graphics_container_random_freight_color;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_refrigerated_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_refrigerated;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_refrigerated, position_in_consist) {
+	0: mbactros2540_refrigerated_group;
+	trailer_mbactros2540_refrigerated_group;
+}
+
+// container
+item(FEAT_ROADVEHS, ID_49_mbactros2540_refrigerated) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_REFRIGERATED);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_REFRIGERATED);
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_refrigerated;
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_refrigerated_cb_articulation;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_crane_cb_articulation, extra_callback_info1) {
+	1: return ID_49_mbactros2540_open_crane;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_crane_cargo, cargo_type_in_veh) {
+	STEL: mbactros2540_crane_steel_group;
+	STAL: mbactros2540_crane_steel_group;
+	// add further FIRS steel and iron product types here
+	mbactros2540_crane_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbactros2540_switch_graphics_crane, position_in_consist) {
+	0: mbactros2540_switch_graphics_crane_cargo;
+	trailer_mbactros2540_switch_graphics_crane_cargo;
+}
+
+// tarpaulin
+item(FEAT_ROADVEHS, ID_49_mbactros2540_open_crane) {
+	property{
+		name: string(TRUCK_MB_ACTROS_2540_CRANE);
+		introduction_date:date(1996,01,01);
+		reliability_decay:18;
+		vehicle_life:10;
+        model_life:20;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 8t + 16t in trailer
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED, CC_COVERED);
+		cargo_disallow_refit: [WOOD, LVST];
+		variant_group: ID_49_mbactros2540_tarpaulin;
+	}
+	graphics {
+		default: mbactros2540_switch_graphics_crane;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: mbactros2540_cb_cargo_capacity;
+		articulated_part:mbactros2540_crane_cb_articulation;
+	}
+}

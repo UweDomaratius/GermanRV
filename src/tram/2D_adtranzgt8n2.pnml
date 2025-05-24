@@ -1,0 +1,198 @@
+template t_adtranzgt8n2_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3,  -9]
+	[ 34, y, 18, 16,  -9,  -6]
+	[ 66, y, 22, 16, -11, -10]
+    [ 98, y, 18, 16,  -9,  -8]
+    [130, y,  6, 18,  -3,  -9]
+    [162, y, 18, 16, -13,  -7]
+    [194, y, 22, 16,  -7, -10]
+    [226, y, 18, 16,  -8,  -9]
+}
+
+template t_adtranzgt8n2_middle(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3, -9]
+	[ 34, y, 17, 16,  -9, -6]
+	[ 66, y, 21, 12, -11, -6]
+    [ 98, y, 18, 16,  -9, -8]
+    [130, y,  6, 18,  -3, -9]
+    [162, y, 18, 16, -15, -6]
+    [194, y, 21, 12, -13, -6]
+    [226, y, 18, 16,  -6, -8]
+}
+
+template t_adtranzgt8n2_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3, -9]
+	[ 34, y, 17, 15,  -9, -5]
+	[ 66, y, 22, 12, -11, -6]
+    [ 98, y, 18, 15, -11, -8]
+    [130, y,  6, 18,  -3, -9]
+    [162, y, 18, 15, -14, -5]
+    [194, y, 22, 12, -11, -6]
+    [226, y, 18, 15,  -7, -7]
+}
+
+spriteset(adtranzgt8n2_2cc_front, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_front(40)
+}
+spriteset(adtranzgt8n2_2cc_front_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_front(72)
+}
+
+spriteset(adtranzgt8n2_2cc_middle1, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(104)
+}
+spriteset(adtranzgt8n2_2cc_middle1_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(136)
+}
+
+spriteset(adtranzgt8n2_2cc_middle2, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(168)
+}
+spriteset(adtranzgt8n2_2cc_middle2_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(200)
+}
+
+spriteset(adtranzgt8n2_2cc_back, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_back(232)
+}
+
+spriteset(adtranzgt8n2_2cc_back_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_back(264)
+}
+
+spriteset(adtranzgt8n2_false_color_front, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_front(296)
+}
+
+spriteset(adtranzgt8n2_false_color_front_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_front(328)
+}
+
+spriteset(adtranzgt8n2_false_color_middle1, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(360)
+}
+
+spriteset(adtranzgt8n2_false_color_middle1_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(392)
+}
+
+spriteset(adtranzgt8n2_false_color_middle2, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(424)
+}
+
+spriteset(adtranzgt8n2_false_color_middle2_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_middle(456)
+}
+
+spriteset(adtranzgt8n2_false_color_back, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_back(488)
+}
+
+spriteset(adtranzgt8n2_false_color_back_loading, "graphics/adtranzgt8n2.pcx") {
+	t_adtranzgt8n2_back(520)
+}
+
+spritegroup adtranzgt8n2_2cc_front_group {
+	loading: adtranzgt8n2_2cc_front_loading;
+	loaded:  adtranzgt8n2_2cc_front;
+}
+
+spritegroup adtranzgt8n2_2cc_middle1_group {
+	loading: adtranzgt8n2_2cc_middle1_loading;
+	loaded:  adtranzgt8n2_2cc_middle1;
+}
+
+spritegroup adtranzgt8n2_2cc_middle2_group {
+	loading: adtranzgt8n2_2cc_middle2_loading;
+	loaded:  adtranzgt8n2_2cc_middle1;
+}
+
+spritegroup adtranzgt8n2_2cc_back_group {
+	loading: adtranzgt8n2_2cc_back_loading;
+	loaded:  adtranzgt8n2_2cc_back;
+}
+
+spritegroup adtranzgt8n2_false_color_front_group {
+	loading: adtranzgt8n2_false_color_front_loading;
+	loaded:  adtranzgt8n2_false_color_front;
+}
+
+spritegroup adtranzgt8n2_false_color_middle1_group {
+	loading: adtranzgt8n2_false_color_middle1_loading;
+	loaded:  adtranzgt8n2_false_color_middle1;
+}
+
+spritegroup adtranzgt8n2_false_color_middle2_group {
+	loading: adtranzgt8n2_false_color_middle2_loading;
+	loaded:  adtranzgt8n2_false_color_middle2;
+}
+
+spritegroup adtranzgt8n2_false_color_back_group {
+	loading: adtranzgt8n2_false_color_back_loading;
+	loaded:  adtranzgt8n2_false_color_back;
+}
+
+spriteset(adtranzgt8n2_menu, "graphics/adtranzgt8n2.pcx") {
+	[  194, 552,  45,15,  -22, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, adtranzgt8n2_graphics_2cc, position_in_consist) {
+	0: adtranzgt8n2_2cc_front_group;
+	1: adtranzgt8n2_2cc_middle1_group;
+	2: adtranzgt8n2_2cc_middle2_group;
+	adtranzgt8n2_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, adtranzgt8n2_graphics_false_color, position_in_consist) {
+	0: adtranzgt8n2_false_color_front_group;
+	1: adtranzgt8n2_false_color_middle1_group;
+	2: adtranzgt8n2_false_color_middle2_group;
+	adtranzgt8n2_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, adtranzgt8n2_graphics, cargo_subtype) {
+	0: adtranzgt8n2_graphics_2cc;
+	adtranzgt8n2_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, adtranzgt8n2_cb_articulation, extra_callback_info1) {
+	1..3: return ID_2D_ADTRANZ_GT8N2;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_2D_ADTRANZ_GT8N2) {
+	property{
+		name: string(TRAM_ADTRANZ_GT8N2);
+		introduction_date:date(1997,01,01);
+		reliability_decay:21;
+		vehicle_life:30;
+        model_life:255;
+        loading_speed:18;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:60 km/h;
+        running_cost_factor:111;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:52; // quarter of the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:191;
+		length:6;
+        power:653 hp;
+        weight:40.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: adtranzgt8n2_graphics;
+		purchase: adtranzgt8n2_menu;
+		articulated_part:adtranzgt8n2_cb_articulation;
+		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
+		cargo_subtype_text: tram_cb_refit_all_cities;
+	}
+}
