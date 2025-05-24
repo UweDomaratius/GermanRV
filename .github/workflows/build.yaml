@@ -30,17 +30,18 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: python -m pip install --upgrade pip setuptools wheel nml
-        # foo
       - name: Build
         run: |
           npm i semantic-release@24.2.5 conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
-          npx semantic-release --debug --dryRun --branches ${{ github.ref_name }}
-          VERSION_SPACES=$(npx semantic-release --debug --dryRun --branches ${{ github.ref_name }} | grep -oP 'Published release \K.*? ')
+          VERSION_SPACES=$(npx semantic-release --dryRun --branches ${{ github.ref_name }} | grep -oP 'Published release \K.*? ')
           VERSION="${VERSION_SPACES// /}" # Remove spaces
-          echo $VERSION
+          
           nmlc --version
+          
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
           sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
           cat changelog.md
+          
+          
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
