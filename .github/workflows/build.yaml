@@ -1,5 +1,7 @@
 name: Build
-on: [push]
+on: 
+  push:
+    branches-ignore: main # the release action builds on main
 
 permissions:
   contents: read # for checkout
@@ -29,9 +31,17 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip setuptools wheel nml
       - name: Build
-        #run: python build.py
         run: |
+          npm i semantic-release@24.2.5 conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
+          VERSION_SPACES=$(npx semantic-release --dryRun --branches ${{ github.ref_name }} | grep -oP 'Published release \K.*? ')
+          VERSION="${VERSION_SPACES// /}" # Remove spaces
+          
           nmlc --version
-          npm i conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
+          
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
+          sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
           cat changelog.md
+          
+          
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
