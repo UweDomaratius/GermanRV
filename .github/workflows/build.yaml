@@ -40,6 +40,7 @@ jobs:
           echo $VERSION
           nmlc --version
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
+          sed -i -e 's/## \[\]/## \[$VERSION\]/' changelog.md
           cat changelog.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
