@@ -1,0 +1,101 @@
+template t_buessing_kaessbohrer_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 20,  -3, -11]
+	[ 34, y, 22, 18, -13, -8]
+	[ 66, y, 24, 13, -12, -7]
+    [ 98, y, 22, 17,  -8, -8]
+    [130, y,  8, 19,  -3, -10]
+    [162, y, 22, 17, -14, -7]
+    [194, y, 24, 13,  -9, -6]
+    [226, y, 22, 18,  -7, -8]
+}
+
+template t_buessing_kaessbohrer_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 17,  -3, -9]
+	[ 34, y, 19, 16, -12, -7]
+	[ 66, y, 19, 12, -10, -6]
+    [ 98, y, 19, 15,  -7, -7]
+    [130, y,  8, 17,  -3, -9]
+    [162, y, 19, 15, -12, -6]
+    [194, y, 19, 12, -13, -5]
+    [226, y, 19, 16,  -5, -7]
+}
+
+spriteset(buessingkaessbohrer_front_blue, "graphics/buessingkaessbohrer.pcx") {
+	t_buessing_kaessbohrer_front(40)
+}
+spriteset(buessingkaessbohrer_front_blue_loading, "graphics/buessingkaessbohrer.pcx") {
+	t_buessing_kaessbohrer_front(72)
+}
+
+spriteset(buessingkaessbohrer_back_blue, "graphics/buessingkaessbohrer.pcx") {
+	t_buessing_kaessbohrer_back(104)
+}
+spriteset(buessingkaessbohrer_back_blue_loading, "graphics/buessingkaessbohrer.pcx") {
+	t_buessing_kaessbohrer_back(136)
+}
+
+spritegroup buessingkaessbohrer_front_blue_group {
+	loading: buessingkaessbohrer_front_blue_loading;
+	loaded:  buessingkaessbohrer_front_blue;
+}
+
+spritegroup buessingkaessbohrer_back_blue_group {
+	loading: buessingkaessbohrer_back_blue_loading;
+	loaded:  buessingkaessbohrer_back_blue;
+}
+
+spriteset(buessing_kaessbohrer_menu, "graphics/buessingkaessbohrer.pcx") {
+	[  194, 168,  43,13,  -21, -6]
+}
+
+switch(FEAT_ROADVEHS, SELF, buessingkaessbohrer_blue_group, position_in_consist) {
+	0: buessingkaessbohrer_front_blue_group;
+	buessingkaessbohrer_back_blue_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, buessing_kaessbohrer_cb_articulation, extra_callback_info1) {
+	1: return ID_09_Buessing_Kaessbohrer;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, buessing_kaessbohrer_cb_length, position_in_consist) {
+	0: return 7;
+	return 6;
+}
+
+item(FEAT_ROADVEHS, ID_09_Buessing_Kaessbohrer) {
+	property{
+		name: string(BUS_BUESSING_KAESSBOHRER);
+		introduction_date:date(1952,01,01);
+		reliability_decay:16;
+		vehicle_life:13;
+        model_life:21;
+        loading_speed:14;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:68 km/h;
+        running_cost_factor:164;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:65; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:122;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:150 hp;
+        weight:12.25 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0.09;
+        retire_early:8;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		purchase: buessing_kaessbohrer_menu;
+		default: buessingkaessbohrer_blue_group;
+		articulated_part:buessing_kaessbohrer_cb_articulation;
+		length: buessing_kaessbohrer_cb_length;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

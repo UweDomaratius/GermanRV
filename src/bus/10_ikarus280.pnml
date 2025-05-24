@@ -1,0 +1,101 @@
+template t_ikarus280_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 20,  -3, -10]
+	[ 34, y, 22, 18, -13, -8]
+	[ 66, y, 25, 12, -12, -6]
+    [ 98, y, 22, 17,  -7, -8]
+    [130, y,  8, 20,  -3, -11]
+    [162, y, 22, 17, -13, -8]
+    [194, y, 25, 12,  -9, -6]
+    [226, y, 22, 18,  -8, -9]
+}
+
+template t_ikarus280_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 15,  -3, -8]
+	[ 34, y, 16, 15, -10, -7]
+	[ 66, y, 17, 12, -8, -6]
+    [ 98, y, 16, 14,  -3, -6]
+    [130, y,  8, 15,  -3, -9]
+    [162, y, 16, 14, -10, -6]
+    [194, y, 17, 12, -12, -6]
+    [226, y, 16, 15,  -5, -8]
+}
+
+spriteset(ikarus280_front_blue, "graphics/ikarus280.pcx") {
+	t_ikarus280_front(40)
+}
+spriteset(ikarus280_front_blue_loading, "graphics/ikarus280.pcx") {
+	t_ikarus280_front(72)
+}
+
+spriteset(ikarus280_back_blue, "graphics/ikarus280.pcx") {
+	t_ikarus280_back(104)
+}
+spriteset(ikarus280_back_blue_loading, "graphics/ikarus280.pcx") {
+	t_ikarus280_back(136)
+}
+
+spritegroup ikarus280_front_blue_group {
+	loading: ikarus280_front_blue_loading;
+	loaded:  ikarus280_front_blue;
+}
+
+spritegroup ikarus280_back_blue_group {
+	loading: ikarus280_back_blue_loading;
+	loaded:  ikarus280_back_blue;
+}
+
+spriteset(ikarus280_menu, "graphics/ikarus280.pcx") {
+	[  194, 168,  42,12,  -21, -6]
+}
+
+switch(FEAT_ROADVEHS, SELF, ikarus280_blue_group, position_in_consist) {
+	0: ikarus280_front_blue_group;
+	ikarus280_back_blue_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, ikarus280_cb_articulation, extra_callback_info1) {
+	1: return ID_10_Ikarus_280;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, ikarus280_cb_length, position_in_consist) {
+	0: return 7;
+	return 6;
+}
+
+item(FEAT_ROADVEHS, ID_10_Ikarus_280) {
+	property{
+		name: string(BUS_IKARUS_280);
+		introduction_date:date(1974,01,01);
+		reliability_decay:16;
+		vehicle_life:17;
+        model_life:33;
+        loading_speed:24;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:60 km/h;
+        running_cost_factor:134;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:71; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:131;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:192 hp;
+        weight:12.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		purchase: ikarus280_menu;
+		default: ikarus280_blue_group;
+		articulated_part:ikarus280_cb_articulation;
+		length: ikarus280_cb_length;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

@@ -1,0 +1,56 @@
+template t_mbo303(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 22,  -3, -12, WHITE]
+	[ 66, y, 26, 19, -13, -10, WHITE]
+	[130, y, 30, 12, -15, -6, WHITE]
+    [194, y, 26, 19,  -9, -8, WHITE]
+    [258, y,  8, 22,  -3, -12, WHITE]
+    [322, y, 26, 19, -15, -9, WHITE]
+    [386, y, 30, 12, -15, -6, WHITE]
+    [450, y, 26, 19,  -9, -9, WHITE]
+}
+
+spriteset(mb_o303_blue, "graphics/mbo303.pcx") {
+	t_mbo303(72)
+}
+spriteset(mb_o303_blue_loading, "graphics/mbo303.pcx") {
+	t_mbo303(136)
+}
+
+spritegroup mb_o303_blue_group {
+	loading: mb_o303_blue_loading;
+	loaded:  mb_o303_blue;
+}
+
+item(FEAT_ROADVEHS, ID_11_MB_O303) {
+	property{
+		name: string(BUS_MB_O303);
+		introduction_date:date(1974,01,01);
+		reliability_decay:16;
+		vehicle_life:20;
+        model_life:32;
+        loading_speed:7;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:88;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:51;
+		default_cargo_type:PASS;
+		cost_factor:101;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:290 hp;
+        weight:14 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:8;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: mb_o303_blue_group;
+		
+		additional_text: return string(STR_BUS_COACH);
+	}
+}

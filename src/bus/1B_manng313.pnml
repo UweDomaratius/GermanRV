@@ -1,0 +1,95 @@
+template t_manng313_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 19,  -4, -10]
+	[ 34, y, 23, 17, -13,  -8] 
+	[ 66, y, 25, 12, -12,  -6]
+    [ 98, y, 23, 17,  -8,  -8]
+    [130, y, 10, 19,  -4, -10]
+    [162, y, 23, 17, -14,  -8]
+    [194, y, 25, 12,  -9,  -6]
+    [226, y, 23, 17,  -7,  -7]
+}
+
+template t_manng313_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 18,  -3, -10]
+	[ 34, y, 20, 16, -15,  -6]
+	[ 66, y, 21, 12, -10,  -6]
+    [ 98, y, 20, 16, -10,  -9]
+    [130, y,  8, 18,  -3, -10]
+    [162, y, 19, 16,  -9,  -9]
+    [194, y, 21, 12, -12,  -6]
+    [226, y, 20, 16,  -2,  -5]
+}
+
+spriteset(manng313_front_blue, "graphics/manng313.pcx") {
+	t_manng313_front(40)
+}
+spriteset(manng313_front_blue_loading, "graphics/manng313.pcx") {
+	t_manng313_front(72)
+}
+
+spriteset(manng313_back_blue, "graphics/manng313.pcx") {
+	t_manng313_back(104)
+}
+spriteset(manng313_back_blue_loading, "graphics/manng313.pcx") {
+	t_manng313_back(136)
+}
+
+spritegroup manng313_front_blue_group {
+	loading: manng313_front_blue_loading;
+	loaded:  manng313_front_blue;
+}
+
+spritegroup manng313_back_blue_group {
+	loading: manng313_back_blue_loading;
+	loaded:  manng313_back_blue;
+}
+
+spriteset(manng313_menu, "graphics/manng313.pcx") {
+	[  194, 168,  46,12,  -23, -6]
+}
+
+switch(FEAT_ROADVEHS, SELF, manng313_blue_group, position_in_consist) {
+	0: manng313_front_blue_group;
+	manng313_back_blue_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, manng313_cb_articulation, extra_callback_info1) {
+	1: return ID_1B_MAN_NG313;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_1B_MAN_NG313) {
+	property{
+		name: string(BUS_MAN_NG313);
+		introduction_date:date(1998,01,01);
+		reliability_decay:18;
+		vehicle_life:20;
+        model_life:40;
+        loading_speed:74;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:154;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:74; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:177;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:6;
+        power:310 hp;
+        weight:15 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		purchase: manng313_menu;
+		default: manng313_blue_group;
+		articulated_part:manng313_cb_articulation;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

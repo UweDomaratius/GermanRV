@@ -1,0 +1,132 @@
+template t_gothaet_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 17,  -3,  -8]
+	[ 34, y, 19, 15,  -7,  -8]
+	[ 66, y, 25, 16, -12, -12]
+    [ 98, y, 19, 15,  -8,  -7]
+    [130, y,  6, 17,  -3,  -9]
+    [162, y, 19, 15, -13,  -7]
+    [194, y, 25, 16, -11, -11]
+    [226, y, 19, 15,  -6,  -8]
+}
+
+template t_gothaet_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 17,  -3, -10]
+	[ 34, y, 19, 15,  -9,  -7]
+	[ 66, y, 25, 11, -12,  -7]
+    [ 98, y, 19, 15, -10,  -8]
+    [130, y,  6, 17,  -3,  -9]
+    [162, y, 19, 15, -11,  -8]
+    [194, y, 25, 11, -14,  -6]
+    [226, y, 19, 15,  -4,  -7]
+}
+
+spriteset(gothaet_2cc_front, "graphics/gothaet.pcx") {
+	t_gothaet_front(40)
+}
+spriteset(gothaet_2cc_front_loading, "graphics/gothaet.pcx") {
+	t_gothaet_front(72)
+}
+
+spriteset(gothaet_2cc_back, "graphics/gothaet.pcx") {
+	t_gothaet_back(104)
+}
+
+spriteset(gothaet_2cc_back_loading, "graphics/gothaet.pcx") {
+	t_gothaet_back(136)
+}
+
+spriteset(gothaet_falsecolor_front, "graphics/gothaet.pcx") {
+	t_gothaet_front(168)
+}
+
+spriteset(gothaet_falsecolor_front_loading, "graphics/gothaet.pcx") {
+	t_gothaet_front(200)
+}
+
+spriteset(gothaet_falsecolor_back, "graphics/gothaet.pcx") {
+	t_gothaet_back(232)
+}
+
+spriteset(gothaet_falsecolor_back_loading, "graphics/gothaet.pcx") {
+	t_gothaet_back(264)
+}
+
+spritegroup gothaet_2cc_front_group {
+	loading: gothaet_2cc_front_loading;
+	loaded:  gothaet_2cc_front;
+}
+
+spritegroup gothaet_false_color_front_group {
+	loading: gothaet_falsecolor_front_loading;
+	loaded:  gothaet_falsecolor_front;
+}
+
+spritegroup gothaet_2cc_back_group {
+	loading: gothaet_2cc_back_loading;
+	loaded:  gothaet_2cc_back;
+}
+
+spritegroup gothaet_false_color_back_group {
+	loading: gothaet_falsecolor_back_loading;
+	loaded:  gothaet_falsecolor_back;
+}
+
+spriteset(gothaet_menu, "graphics/gothaet.pcx") {
+	[  194, 296,  50,16,  -25, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, gothaet_graphics_2cc, position_in_consist) {
+	0: gothaet_2cc_front_group;
+	gothaet_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, gothaet_graphics_false_color, position_in_consist) {
+	0: gothaet_false_color_front_group;
+	gothaet_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, gothaet_graphics, cargo_subtype) {
+	0: gothaet_graphics_2cc;
+	gothaet_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, gothaet_cb_articulation, extra_callback_info1) {
+	1: return ID_25_GothaET;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_25_GothaET) {
+	property{
+		name: string(TRAM_GOTHA_ET);
+		introduction_date:date(1950,01,01);
+		reliability_decay:19;
+		vehicle_life:35;
+        model_life:45;
+        loading_speed:29;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:50 km/h;
+        running_cost_factor:62;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:87; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:125;
+		length:7;
+        power:165 hp;
+        weight:10.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:22;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: gothaet_graphics;
+		purchase: gothaet_menu;
+		articulated_part:gothaet_cb_articulation;
+		colour_mapping: tram_cb_colour_mapping_east_cities_very_old;
+		cargo_subtype_text: tram_cb_refit_east_cities;
+	}
+}

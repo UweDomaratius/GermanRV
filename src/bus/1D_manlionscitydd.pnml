@@ -1,0 +1,60 @@
+template t_manlionscitydd(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 27,  -4, -14]
+	[ 66, y, 30, 24, -17, -13]
+	[130, y, 35, 15, -17,  -9]
+    [194, y, 30, 24,  -8, -12]
+    [258, y, 10, 27,  -4, -14]
+    [322, y, 30, 24, -20, -12]
+    [386, y, 35, 15, -17,  -9]
+    [450, y, 30, 24, -11, -13]
+}
+
+spriteset(man_lionscitydd_blue, "graphics/manlionscitydd.pcx") {
+	t_manlionscitydd(72)
+}
+spriteset(man_lionscitydd_blue_loading, "graphics/manlionscitydd.pcx") {
+	t_manlionscitydd(136)
+}
+
+spritegroup man_lionscitydd_blue_group {
+	loading: man_lionscitydd_blue_loading;
+	loaded:  man_lionscitydd_blue;
+}
+
+spriteset(man_lionscitydd_menu, "graphics/manlionscitydd.pcx") {
+	[  386, 200,  35,14,  -17, -7]
+}
+
+item(FEAT_ROADVEHS, ID_1D_MAN_LionsCityDD) {
+	property{
+		name: string(BUS_MAN_LIONSCITYDD);
+		introduction_date:date(2005,01,01);
+		reliability_decay:17;
+		vehicle_life:20;
+        model_life:255;
+        loading_speed:32;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:85 km/h;
+        running_cost_factor:111;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:128;
+		default_cargo_type:PASS;
+		cost_factor:127;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:8;
+        power:310 hp;
+        weight:17.25 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:9;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: man_lionscitydd_blue_group;
+		purchase: man_lionscitydd_menu;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

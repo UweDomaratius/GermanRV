@@ -1,0 +1,132 @@
+template t_duewag_gt6_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 19,  -3, -10]
+	[ 34, y, 17, 17, -12,  -7]
+	[ 66, y, 22, 15, -11, -11]
+    [ 98, y, 17, 15, -10,  -8]
+    [130, y,  6, 18,  -3, -12]
+    [162, y, 17, 15, -11,  -7]
+    [194, y, 22, 15,  -7,  -9]
+    [226, y, 17, 17,  -5,  -9]
+}
+
+template t_duewag_gt6_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3, -10]
+	[ 34, y, 17, 14, -11,  -5]
+	[ 66, y, 22, 11, -11,  -6]
+    [ 98, y, 17, 15,  -9,  -7]
+    [130, y,  6, 19,  -3, -10]
+    [162, y, 17, 15, -12,  -6]
+    [194, y, 22, 11, -12,  -5]
+    [226, y, 17, 14,  -6,  -7]
+}
+
+spriteset(duewag_gt6_2cc_front, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_front(40)
+}
+spriteset(duewag_gt6_2cc_front_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_front(72)
+}
+
+spriteset(duewag_gt6_2cc_back, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_back(232)
+}
+
+spriteset(duewag_gt6_2cc_back_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_back(264)
+}
+
+spriteset(duewag_gt6_falsecolor_front, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_front(296)
+}
+
+spriteset(duewag_gt6_falsecolor_front_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_front(328)
+}
+
+spriteset(duewag_gt6_falsecolor_back, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_back(552)
+}
+
+spriteset(duewag_gt6_falsecolor_back_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_back(584)
+}
+
+spritegroup duewag_gt6_2cc_front_group {
+	loading: duewag_gt6_2cc_front_loading;
+	loaded:  duewag_gt6_2cc_front;
+}
+
+spritegroup duewag_gt6_2cc_back_group {
+	loading: duewag_gt6_2cc_back_loading;
+	loaded:  duewag_gt6_2cc_back;
+}
+
+spritegroup duewag_gt6_false_color_front_group {
+	loading: duewag_gt6_falsecolor_front_loading;
+	loaded:  duewag_gt6_falsecolor_front;
+}
+
+spritegroup duewag_gt6_false_color_back_group {
+	loading: duewag_gt6_falsecolor_back_loading;
+	loaded:  duewag_gt6_falsecolor_back;
+}
+
+spriteset(duewag_gt6_menu, "graphics/duewaggt6_gt8.pcx") {
+	[  194, 680,  44,15,  -22, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt6_graphics_2cc, position_in_consist) {
+	0: duewag_gt6_2cc_front_group;
+	duewag_gt6_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt6_graphics_false_color, position_in_consist) {
+	0: duewag_gt6_false_color_front_group;
+	duewag_gt6_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt6_graphics, cargo_subtype) {
+	0: duewag_gt6_graphics_2cc;
+	duewag_gt6_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt6_cb_articulation, extra_callback_info1) {
+	1: return ID_26_DuewagGT6;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_26_DuewagGT6) {
+	property{
+		name: string(TRAM_DUEWAG_GT6);
+		introduction_date:date(1956,01,01);
+		reliability_decay:8;
+		vehicle_life:40;
+        model_life:54;
+        loading_speed:14;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:67 km/h;
+        running_cost_factor:43;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:112; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:100;
+		length:7;
+        power:272 hp;
+        weight:20.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:35;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: duewag_gt6_graphics;
+		purchase: duewag_gt6_menu;
+		articulated_part:duewag_gt6_cb_articulation;
+		colour_mapping: tram_cb_colour_mapping_west_cities_very_old;
+		cargo_subtype_text: tram_cb_refit_west_cities;
+	}
+}

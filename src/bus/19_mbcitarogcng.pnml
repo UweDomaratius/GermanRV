@@ -1,0 +1,95 @@
+template t_mbcitarogcng_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 20,  -4, -10]
+	[ 34, y, 24, 18, -13,  -9] 
+	[ 66, y, 27, 13, -12,  -7]
+    [ 98, y, 24, 18,  -9,  -9]
+    [130, y, 10, 20,  -4, -10]
+    [162, y, 24, 18, -13,  -9]
+    [194, y, 27, 13, -11,  -7]
+    [226, y, 24, 18,  -8,  -8]
+}
+
+template t_mbcitarogcng_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 17,  -3,  -9]
+	[ 34, y, 20, 16, -14,  -7]
+	[ 66, y, 19, 13, -10,  -7]
+    [ 98, y, 20, 17, -10, -10]
+    [130, y,  8, 17,  -3, -10]
+    [162, y, 20, 17,  -8, -10]
+    [194, y, 19, 13, -12,  -7]
+    [226, y, 20, 16,  -3,  -6]
+}
+
+spriteset(mbcitarogcng_front_blue, "graphics/mbcitarog.pcx") {
+	t_mbcitarogcng_front(40)
+}
+spriteset(mbcitarogcng_front_blue_loading, "graphics/mbcitarog.pcx") {
+	t_mbcitarogcng_front(72)
+}
+
+spriteset(mbcitarogcng_back_blue, "graphics/mbcitarog.pcx") {
+	t_mbcitarogcng_back(104)
+}
+spriteset(mbcitarogcng_back_blue_loading, "graphics/mbcitarog.pcx") {
+	t_mbcitarogcng_back(136)
+}
+
+spritegroup mbcitarogcng_front_blue_group {
+	loading: mbcitarogcng_front_blue_loading;
+	loaded:  mbcitarogcng_front_blue;
+}
+
+spritegroup mbcitarogcng_back_blue_group {
+	loading: mbcitarogcng_back_blue_loading;
+	loaded:  mbcitarogcng_back_blue;
+}
+
+spriteset(mbcitarogcng_menu, "graphics/mbcitarog.pcx") {
+	[  194, 168,  46,13,  -23, -6]
+}
+
+switch(FEAT_ROADVEHS, SELF, mbcitarogcng_blue_group, position_in_consist) {
+	0: mbcitarogcng_front_blue_group;
+	mbcitarogcng_back_blue_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbcitarogcng_cb_articulation, extra_callback_info1) {
+	1: return ID_19_MB_CITAROGCNG;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_19_MB_CITAROGCNG) {
+	property{
+		name: string(BUS_MB_CITAROGCNG);
+		introduction_date:date(1997,01,01);
+		reliability_decay:23;
+		vehicle_life:20;
+        model_life:40;
+        loading_speed:24;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:91 km/h;
+        running_cost_factor:138;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:72; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:158;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:6;
+        power:326 hp;
+        weight:17.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		purchase: mbcitarogcng_menu;
+		default: mbcitarogcng_blue_group;
+		articulated_part:mbcitarogcng_cb_articulation;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

@@ -1,0 +1,93 @@
+template t_grosserhecht(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 23,  -2, -12]
+	[ 66, y, 23, 18, -11,  -9]
+	[130, y, 32, 15, -15, -10]
+    [194, y, 23, 18, -10,  -9]
+    [258, y,  6, 23,  -2, -12]
+    [322, y, 23, 18, -12,  -9]
+    [386, y, 32, 14, -15,  -8]
+    [450, y, 23, 18, -10,  -9]
+}
+
+spriteset(grosserhecht_2cc, "graphics/grosserhecht.pcx") {
+	t_grosserhecht(72)
+}
+spriteset(grosserhecht_2cc_loading, "graphics/grosserhecht.pcx") {
+	t_grosserhecht(136)
+}
+
+spriteset(grosserhecht_falsecolor, "graphics/grosserhecht.pcx") {
+	t_grosserhecht(200)
+}
+
+spriteset(grosserhecht_falsecolor_loading, "graphics/grosserhecht.pcx") {
+	t_grosserhecht(264)
+}
+
+spriteset(grosserhecht_dresden, "graphics/grosserhecht.pcx") {
+	t_grosserhecht(328)
+}
+
+spriteset(grosserhecht_dresden_loading, "graphics/grosserhecht.pcx") {
+	t_grosserhecht(392)
+}
+
+spritegroup grosserhecht_2cc_group {
+	loading: grosserhecht_2cc_loading;
+	loaded:  grosserhecht_2cc;
+}
+
+spritegroup grosserhecht_false_color_group {
+	loading: grosserhecht_falsecolor_loading;
+	loaded:  grosserhecht_falsecolor;
+}
+
+spritegroup grosserhecht_dresden_group {
+	loading: grosserhecht_dresden_loading;
+	loaded:  grosserhecht_dresden;
+}
+
+switch(FEAT_ROADVEHS, SELF, grosserhecht_cb_colour_mapping, cargo_subtype) {
+	4: CB_FAILED; // extra sprites for Dresden
+	tram_cb_colour_mapping_east_cities_very_old;
+}
+
+switch(FEAT_ROADVEHS, SELF, grosserhecht_graphics, cargo_subtype) {
+	0: grosserhecht_2cc_group;
+    4: grosserhecht_dresden_group;
+	grosserhecht_false_color_group;
+}
+
+item(FEAT_ROADVEHS, ID_23_Grosser_Hecht) {
+	property{
+		name: string(TRAM_GROSSER_HECHT);
+		introduction_date:date(1929,01,01);
+		reliability_decay:19;
+		vehicle_life:35;
+        model_life:45;
+        loading_speed:14;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:17;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:111;
+		default_cargo_type:PASS;
+		cost_factor:34;
+		length:8;
+        power:300 hp;
+        weight:21 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:27;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: grosserhecht_graphics;
+		purchase: grosserhecht_2cc;
+		colour_mapping: grosserhecht_cb_colour_mapping;
+		cargo_subtype_text: tram_cb_refit_east_cities;
+	}
+}

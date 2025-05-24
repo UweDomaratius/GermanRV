@@ -35,13 +35,7 @@ jobs:
           npm i semantic-release@24.2.5 conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
           VERSION_SPACES=$(npx semantic-release --dryRun --branches ${{ github.ref_name }} | grep -oP 'Published release \K.*? ')
           VERSION="${VERSION_SPACES// /}" # Remove spaces
-          
-          nmlc --version
-          
-          npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
-          sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
-          cat changelog.md
-          
+          python build.py $VERSION
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

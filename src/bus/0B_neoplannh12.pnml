@@ -1,0 +1,56 @@
+template t_neoplannh12(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 20,  -3, -10]
+	[ 34, y, 24, 18, -13, -9]
+	[ 66, y, 26, 12, -13, -6]
+    [ 98, y, 24, 18,  -8, -8]
+    [130, y,  8, 20,  -3, -10]
+    [162, y, 24, 18, -15, -8]
+    [194, y, 26, 12, -13, -6]
+    [226, y, 24, 18, -10, -9]
+}
+
+spriteset(neoplannh12_blue, "graphics/neoplannh12.pcx") {
+	t_neoplannh12(40)
+}
+spriteset(neoplannh12_blue_loading, "graphics/neoplannh12.pcx") {
+	t_neoplannh12(72)
+}
+
+spritegroup neoplannh12_blue_group {
+	loading: neoplannh12_blue_loading;
+	loaded:  neoplannh12_blue;
+}
+
+item(FEAT_ROADVEHS, ID_0B_Neoplan_NH12) {
+	property{
+		name: string(BUS_NEOPLAN_NH12);
+		introduction_date:date(1961,01,01);
+		reliability_decay:17;
+		vehicle_life:15;
+        model_life:32;
+        loading_speed:5;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:90 km/h;
+        running_cost_factor:95;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:44;
+		default_cargo_type:TOUR;
+		cost_factor:82;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:170 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:14;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: neoplannh12_blue_group;
+		
+		additional_text: return string(STR_BUS_COACH);
+	}
+}

@@ -1,0 +1,164 @@
+template t_duewag_gt8_middle(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 16,  -3, -10]
+	[ 34, y, 14, 13, -10,  -4]
+	[ 66, y, 17, 11, -11,  -5]
+    [ 98, y, 14, 13,  -8,  -6]
+    [130, y,  6, 16,  -3, -10]
+    [162, y, 14, 13, -10,  -5]
+    [194, y, 17, 11, -11,  -5]
+    [226, y, 14, 13,  -4,  -6]
+}
+
+// Front and back use the same template as the Duewag GT6
+// The 2CC variant reuses the front and back sprites from Duewag GT6
+
+spriteset(duewag_gt8_2cc_middle, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(104)
+}
+spriteset(duewag_gt8_2cc_middle_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(136)
+}
+
+spriteset(duewag_gt8_2cc_middle_modern, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(168)
+}
+spriteset(duewag_gt8_2cc_middle_modern_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(200)
+}
+
+spriteset(duewag_gt8_false_color_middle, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(424)
+}
+spriteset(duewag_gt8_false_color_middle_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(456)
+}
+
+spriteset(duewag_gt8_false_color_middle_modern, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(488)
+}
+spriteset(duewag_gt8_false_color_middle_modern_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt8_middle(520)
+}
+
+spriteset(duewag_gt8_falsecolor_front, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_front(360)
+}
+
+spriteset(duewag_gt8_falsecolor_front_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_front(392)
+}
+
+spriteset(duewag_gt8_falsecolor_back, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_back(616)
+}
+
+spriteset(duewag_gt8_falsecolor_back_loading, "graphics/duewaggt6_gt8.pcx") {
+	t_duewag_gt6_back(648)
+}
+
+spritegroup duewag_gt8_2cc_middle_group {
+	loading: duewag_gt8_2cc_middle_loading;
+	loaded:  duewag_gt8_2cc_middle;
+}
+
+spritegroup duewag_gt8_2cc_middle_modern_group {
+	loading: duewag_gt8_2cc_middle_modern_loading;
+	loaded:  duewag_gt8_2cc_middle_modern;
+}
+
+spritegroup duewag_gt8_false_color_middle_group {
+	loading: duewag_gt8_false_color_middle_loading;
+	loaded:  duewag_gt8_false_color_middle;
+}
+
+spritegroup duewag_gt8_false_color_middle_modern_group {
+	loading: duewag_gt8_false_color_middle_modern_loading;
+	loaded:  duewag_gt8_false_color_middle_modern;
+}
+
+spritegroup duewag_gt8_false_color_front_group {
+	loading: duewag_gt8_falsecolor_front_loading;
+	loaded:  duewag_gt8_falsecolor_front;
+}
+
+spritegroup duewag_gt8_false_color_back_group {
+	loading: duewag_gt8_falsecolor_back_loading;
+	loaded:  duewag_gt8_falsecolor_back;
+}
+
+spriteset(duewag_gt8_menu, "graphics/duewaggt6_gt8.pcx") {
+	[  2, 744,  51,15,  -25, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_cb_colour_mapping, date_of_last_service < date(1991,1,1)) {
+	1: tram_cb_colour_mapping_west_cities_old;
+	tram_cb_colour_mapping_west_cities_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_graphics_2cc_middle, date_of_last_service < date(1991,1,1)) {
+	1: duewag_gt8_2cc_middle_group;
+	duewag_gt8_2cc_middle_modern_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_graphics_false_color_middle, date_of_last_service < date(1991,1,1)) {
+	1: duewag_gt8_false_color_middle_group;
+	duewag_gt8_false_color_middle_modern_group;
+}
+
+// For 2CC, the front and back graphics of Duewag GT6 are reused
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_graphics_2cc, position_in_consist) {
+	0: duewag_gt6_2cc_front_group;
+	1: duewag_gt8_graphics_2cc_middle;
+	duewag_gt6_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_graphics_false_color, position_in_consist) {
+	0: duewag_gt8_false_color_front_group;
+	1: duewag_gt8_graphics_false_color_middle;
+	duewag_gt8_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_graphics, cargo_subtype) {
+	0: duewag_gt8_graphics_2cc;
+	duewag_gt8_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_cb_articulation, extra_callback_info1) {
+	1..2: return ID_28_DuewagGT8;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_28_DuewagGT8) {
+	property{
+		name: string(TRAM_DUEWAG_GT8);
+		introduction_date:date(1956,01,01);
+		reliability_decay:8;
+		vehicle_life:35;
+        model_life:56;
+        loading_speed:14;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:105;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:88; // third of the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:210;
+		length:6;
+        power:408 hp;
+        weight:25 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:30;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: duewag_gt8_graphics;
+		purchase: duewag_gt8_menu;
+		articulated_part:duewag_gt8_cb_articulation;
+		colour_mapping: duewag_gt8_cb_colour_mapping;
+		cargo_subtype_text: tram_cb_refit_west_cities;
+	}
+}

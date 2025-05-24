@@ -1,0 +1,95 @@
+template t_mbcapacity_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 20,  -4,  -9, ANIM]
+	[ 66, y, 25, 19, -12,  -9, ANIM] 
+	[130, y, 28, 13, -13,  -7, ANIM]
+    [194, y, 25, 19,  -9,  -9, ANIM]
+    [258, y, 10, 21,  -4, -10, ANIM]
+    [322, y, 25, 19, -16,  -9, ANIM]
+    [386, y, 28, 13, -11,  -7, ANIM]
+    [450, y, 25, 19,  -9,  -8, ANIM]
+}
+
+template t_mbcapacity_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 19,  -3,  -8, ANIM]
+	[ 66, y, 21, 17, -15,  -6, ANIM]
+	[130, y, 21, 13, -11,  -5, ANIM]
+    [194, y, 21, 17, -12, -10, ANIM]
+    [258, y,  8, 18,  -3, -10, ANIM]
+    [322, y, 20, 17,  -9, -10, ANIM]
+    [386, y, 21, 13, -11,  -7, ANIM]
+    [450, y, 21, 17,  -2,  -5, ANIM]
+}
+
+spriteset(mbcapacity_front_blue, "graphics/mbcapacity.pcx") {
+	t_mbcapacity_front(72)
+}
+spriteset(mbcapacity_front_blue_loading, "graphics/mbcapacity.pcx") {
+	t_mbcapacity_front(136)
+}
+
+spriteset(mbcapacity_back_blue, "graphics/mbcapacity.pcx") {
+	t_mbcapacity_back(200)
+}
+spriteset(mbcapacity_back_blue_loading, "graphics/mbcapacity.pcx") {
+	t_mbcapacity_back(264)
+}
+
+spritegroup mbcapacity_front_blue_group {
+	loading: mbcapacity_front_blue_loading;
+	loaded:  mbcapacity_front_blue;
+}
+
+spritegroup mbcapacity_back_blue_group {
+	loading: mbcapacity_back_blue_loading;
+	loaded:  mbcapacity_back_blue;
+}
+
+spriteset(mbcapacity_menu, "graphics/mbcapacity.pcx") {
+	[  386, 328,  48,12,  -24, -6]
+}
+
+switch(FEAT_ROADVEHS, SELF, mbcapacity_blue_group, position_in_consist) {
+	0: mbcapacity_front_blue_group;
+	mbcapacity_back_blue_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, mbcapacity_cb_articulation, extra_callback_info1) {
+	1: return ID_20_MB_Capacity;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_20_MB_Capacity) {
+	property{
+		name: string(BUS_MB_CAPACITY);
+		introduction_date:date(2007,01,01);
+		reliability_decay:23;
+		vehicle_life:20;
+        model_life:255;
+        loading_speed:96;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:80 km/h;
+        running_cost_factor:200;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:96; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:229;
+        sound_effect:SOUND_DEPARTURE_MODERN_BUS;
+		length:6;
+        power:354 hp;
+        weight:18.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		purchase: mbcapacity_menu;
+		default: mbcapacity_blue_group;
+		articulated_part:mbcapacity_cb_articulation;
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

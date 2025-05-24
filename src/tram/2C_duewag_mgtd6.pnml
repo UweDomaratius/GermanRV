@@ -1,0 +1,174 @@
+template t_duewag_mgtd6_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 21,  -3, -10, ANIM]
+	[ 34, y, 22, 17, -10,  -8, ANIM]
+	[ 66, y, 27, 12, -15,  -8, ANIM]
+    [ 98, y, 21, 17,  -8,  -8, ANIM]
+    [130, y,  6, 21,  -4, -12, ANIM]
+    [162, y, 21, 17, -16,  -7, ANIM]
+    [194, y, 27, 12, -11,  -6, ANIM]
+    [226, y, 22, 17,  -8, -10, ANIM]
+}
+
+template t_duewag_mgtd6_middle(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3,  -9]
+	[ 34, y, 18, 16, -10,  -7]
+	[ 66, y, 21, 16, -10, -12]
+    [ 98, y, 18, 16,  -8,  -8]
+    [130, y,  6, 18,  -3, -12]
+    [162, y, 18, 16, -13,  -7]
+    [194, y, 21, 16, -12, -10]
+    [226, y, 18, 16,  -4,  -9]
+}
+
+template t_duewag_mgtd6_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 21,  -3, -11, ANIM]
+	[ 34, y, 21, 17, -13,  -7, ANIM]
+	[ 66, y, 27, 12, -15,  -8, ANIM]
+    [ 98, y, 22, 17, -12,  -9, ANIM]
+    [130, y,  6, 21,  -3, -11, ANIM]
+    [162, y, 22, 17, -15,  -7, ANIM]
+    [194, y, 27, 12, -15,  -6, ANIM]
+    [226, y, 21, 17,  -4,  -8, ANIM]
+}
+
+spriteset(duewagmgtd6d_2cc_front, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_front(40)
+}
+spriteset(duewagmgtd6d_2cc_front_loading, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_front(72)
+}
+
+spriteset(duewagmgtd6d_2cc_middle, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_middle(104)
+}
+spriteset(duewagmgtd6d_2cc_middle_loading, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_middle(136)
+}
+
+spriteset(duewagmgtd6d_2cc_back, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_back(168)
+}
+
+spriteset(duewagmgtd6d_2cc_back_loading, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_back(200)
+}
+
+spriteset(duewagmgtd6d_false_color_front, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_front(232)
+}
+
+spriteset(duewagmgtd6d_false_color_front_loading, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_front(264)
+}
+
+spriteset(duewagmgtd6d_false_color_middle, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_middle(296)
+}
+
+spriteset(duewagmgtd6d_false_color_middle_loading, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_middle(328)
+}
+
+spriteset(duewagmgtd6d_false_color_back, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_back(360)
+}
+
+spriteset(duewagmgtd6d_false_color_back_loading, "graphics/duewagmgtd6d.pcx") {
+	t_duewag_mgtd6_back(392)
+}
+
+spritegroup duewagmgtd6d_2cc_front_group {
+	loading: duewagmgtd6d_2cc_front_loading;
+	loaded:  duewagmgtd6d_2cc_front;
+}
+
+spritegroup duewagmgtd6d_2cc_middle_group {
+	loading: duewagmgtd6d_2cc_middle_loading;
+	loaded:  duewagmgtd6d_2cc_middle;
+}
+
+spritegroup duewagmgtd6d_2cc_back_group {
+	loading: duewagmgtd6d_2cc_back_loading;
+	loaded:  duewagmgtd6d_2cc_back;
+}
+
+spritegroup duewagmgtd6d_false_color_front_group {
+	loading: duewagmgtd6d_false_color_front_loading;
+	loaded:  duewagmgtd6d_false_color_front;
+}
+
+spritegroup duewagmgtd6d_false_color_middle_group {
+	loading: duewagmgtd6d_false_color_middle_loading;
+	loaded:  duewagmgtd6d_false_color_middle;
+}
+
+spritegroup duewagmgtd6d_false_color_back_group {
+	loading: duewagmgtd6d_false_color_back_loading;
+	loaded:  duewagmgtd6d_false_color_back;
+}
+
+spriteset(duewagmgtd6d_menu, "graphics/duewagmgtd6d.pcx") {
+	[  194, 424,  51,16,  -25, -9]
+}
+
+
+
+switch(FEAT_ROADVEHS, SELF, duewagmgtd6d_graphics_2cc, position_in_consist) {
+	0: duewagmgtd6d_2cc_front_group;
+	1: duewagmgtd6d_2cc_middle_group;
+	duewagmgtd6d_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagmgtd6d_graphics_false_color, position_in_consist) {
+	0: duewagmgtd6d_false_color_front_group;
+	1: duewagmgtd6d_false_color_middle_group;
+	duewagmgtd6d_false_color_back_group;
+}
+
+
+switch(FEAT_ROADVEHS, SELF, duewagmgtd6d_graphics, cargo_subtype) {
+	0: duewagmgtd6d_graphics_2cc;
+	duewagmgtd6d_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, duewagmgtd6d_cb_articulation, extra_callback_info1) {
+	1..2: return ID_2C_DUEWAG_MGTD6D;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_2C_DUEWAG_MGTD6D) {
+	property{
+		name: string(TRAM_DUEWAG_MGTD6D);
+		introduction_date:date(1992,01,01);
+		reliability_decay:22;
+		vehicle_life:30;
+        model_life:48;
+        loading_speed:23;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:96;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:60; // third of the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:166;
+		length:7;
+        power:571 hp;
+        weight:32 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:32;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: duewagmgtd6d_graphics;
+		purchase: duewagmgtd6d_menu;
+		articulated_part:duewagmgtd6d_cb_articulation;
+		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
+		cargo_subtype_text: tram_cb_refit_all_cities;
+	}
+}

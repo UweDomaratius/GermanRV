@@ -1,0 +1,43 @@
+spriteset(buessingnagd2, "graphics/buessingnagd2.pcx") {
+	[  2, 40,  8, 19,  -3, -11]
+	[ 34, 40, 21, 17, -14,  -7]
+	[ 66, 40, 25, 14, -12,  -8]
+    [ 98, 40, 21, 19,  -8, -10]
+    [130, 40,  8, 23,  -3, -14]
+    [162, 40, 22, 19, -16,  -9]
+    [194, 40, 25, 14, -12,  -8]
+    [226, 40, 21, 18,  -7,  -9]
+}
+
+item(FEAT_ROADVEHS, ID_02_BuessingNAG_D2) {
+	property{
+		name: string(BUS_BUESSINGNAG_D2);
+		introduction_date:date(1928,01,01);
+		reliability_decay:22;        
+		vehicle_life:16;
+        model_life:21;
+        loading_speed:11;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:56 km/h;
+        running_cost_factor:20;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:61;
+		default_cargo_type:PASS;
+		cost_factor:19;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:7;
+        power:70 hp;
+        weight:7 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:7;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: buessingnagd2;
+		
+		additional_text: return string(STR_BUS_CITY);
+	}
+}

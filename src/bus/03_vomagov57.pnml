@@ -1,0 +1,74 @@
+template t_vomagov57(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 20,  -3,  -9]
+	[ 34, y, 24, 14, -13,  -4]
+	[ 66, y, 26, 11, -13,  -5]
+    [ 98, y, 24, 17,  -6,  -5]
+    [130, y,  8, 20,  -3, -10]
+    [162, y, 24, 17, -14,  -6]
+    [194, y, 26, 11, -13,  -5]
+    [226, y, 24, 14,  -9,  -4]
+}
+
+spriteset(vomagov57_blue, "graphics/vomagov57.pcx") {
+	t_vomagov57(40)
+}
+spriteset(vomagov57_blue_loading, "graphics/vomagov57.pcx") {
+	t_vomagov57(72)
+}
+spriteset(vomagov57_green, "graphics/vomagov57.pcx") {
+	t_vomagov57(104)
+}
+spriteset(vomagov57_green_loading, "graphics/vomagov57.pcx") {
+	t_vomagov57(136)
+}
+
+spritegroup vomagov57_blue_group {
+	loading: vomagov57_blue_loading;
+	loaded:  vomagov57_blue;
+}
+spritegroup vomagov57_green_group {
+	loading: vomagov57_green_loading;
+	loaded:  vomagov57_green;
+}
+
+// when refitted to tourists, only half the capacity is available
+switch(FEAT_ROADVEHS, SELF, vomagov57_cb_refitted_capacity, cargo_type_in_veh) {
+	TOUR: return 22;
+	return 44;
+}
+
+item(FEAT_ROADVEHS, ID_03_Vomag_OV57) {
+	property{
+		name: string(BUS_VOMAG_OV57);
+		introduction_date:date(1928,01,01);
+		reliability_decay:21;        
+		vehicle_life:15;
+        model_life:25;
+        loading_speed:7;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:24;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:44;
+		default_cargo_type:PASS;
+		cost_factor:21;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:8;
+        power:110 hp;
+        weight:7.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:8;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		TOUR: vomagov57_green_group;
+		default: vomagov57_blue_group;
+		
+		additional_text: return string(STR_BUS_REGIONAL);
+		cargo_capacity: vomagov57_cb_refitted_capacity;
+	}
+}

@@ -1,0 +1,96 @@
+template t_trailer_hs140(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 19,  -3, -11]
+	[ 66, y, 22, 18, -11, -11]
+	[130, y, 23, 14, -11,  -8]
+    [194, y, 23, 19,  -6, -10]
+    [258, y,  8, 18,  -3, -11]
+    [322, y, 23, 19, -13, -12]
+    [386, y, 23, 14, -13,  -8]
+    [450, y, 23, 18, -10, -11]
+}
+
+spriteset(trailer_henschelhs140_void, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(72)
+}
+
+spriteset(trailer_henschelhs140_closed_van, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(136)
+}
+spriteset(trailer_henschelhs140_closed_van_loading, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(200)
+}
+
+spriteset(trailer_henschelhs140_tarpaulin, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(264)
+}
+
+spriteset(trailer_henschelhs140_tarpaulin_empty, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(328)
+}
+
+spriteset(trailer_henschelhs140_tarpaulin_full, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(392)
+}
+
+spriteset(trailer_henschelhs140_tanker, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(456)
+}
+
+spriteset(trailer_henschelhs140_open_empty, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(520)
+}
+
+spriteset(trailer_henschelhs140_open_bulk_half_full, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(584)
+}
+
+spriteset(trailer_henschelhs140_open_bulk_full, "graphics/trailer_henschelhs140.pcx") {
+	t_trailer_hs140(648)
+}
+
+spritegroup trailer_henschelhs140_open_bulk_group {
+	loading: [trailer_henschelhs140_void, trailer_henschelhs140_open_bulk_half_full, trailer_henschelhs140_open_bulk_full];
+	loaded:  [trailer_henschelhs140_void, trailer_henschelhs140_open_bulk_half_full, trailer_henschelhs140_open_bulk_full];
+}
+
+spritegroup trailer_henschelhs140_closed_van_group {
+	loading: trailer_henschelhs140_closed_van_loading;
+	loaded:  trailer_henschelhs140_closed_van;
+}
+
+spritegroup trailer_henschelhs140_tarpaulin_group {
+	loading: [trailer_henschelhs140_tarpaulin_empty, trailer_henschelhs140_tarpaulin_full];
+	loaded: trailer_henschelhs140_tarpaulin;
+}
+
+spritegroup trailer_henschelhs140_tanker_group {
+	loading: trailer_henschelhs140_tanker;
+	loaded: trailer_henschelhs140_tanker;
+}
+
+
+switch(FEAT_ROADVEHS, SELF, trailer_henschelhs140_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	trailer_henschelhs140_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_henschelhs140_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100)]
+)
+{
+	trailer_henschelhs140_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, trailer_henschelhs140_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: trailer_henschelhs140_graphics_open_bulk_spritestack1;
+	trailer_henschelhs140_graphics_open_bulk_spritestack0;
+}

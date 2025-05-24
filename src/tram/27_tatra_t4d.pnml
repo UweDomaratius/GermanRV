@@ -1,0 +1,227 @@
+template t_tatrat4d_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 24,  -3, -12]
+	[ 66, y, 22, 19,  -9, -10]
+	[130, y, 34, 16, -17, -12]
+    [194, y, 22, 18, -11,  -9]
+    [258, y,  6, 24,  -3, -12]
+    [322, y, 22, 18, -13,  -9]
+    [386, y, 34, 16, -20, -11]
+    [450, y, 22, 19,  -8, -11]
+}
+
+template t_tatrat4d_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 24,  -3, -12]
+	[ 66, y, 22, 17, -14,  -5]
+	[130, y, 34, 11, -17,  -7]
+    [194, y, 22, 18, -17, -12]
+    [258, y,  6, 24,  -3, -12]
+    [322, y, 22, 18,  -7, -12]
+    [386, y, 34, 11, -14,  -6]
+    [450, y, 22, 17,  -2,  -6]
+}
+
+spriteset(tatrat4d_2cc_front, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(72)
+}
+spriteset(tatrat4d_2cc_front_loading, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(136)
+}
+
+spriteset(tatrat4d_2cc_front_modern_pantograph, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(200)
+}
+spriteset(tatrat4d_2cc_front_loading_modern_pantograph, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(264)
+}
+
+spriteset(tatrat4d_2cc_back, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(328)
+}
+
+spriteset(tatrat4d_2cc_back_loading, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(392)
+}
+
+spriteset(tatrat4d_falsecolor_front, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(456)
+}
+
+spriteset(tatrat4d_falsecolor_front_loading, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(520)
+}
+
+spriteset(tatrat4d_falsecolor_front_modern_pantograph, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(584)
+}
+
+spriteset(tatrat4d_falsecolor_front_loading_modern_pantograph, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(648)
+}
+
+spriteset(tatrat4d_falsecolor_back, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(712)
+}
+
+spriteset(tatrat4d_falsecolor_back_loading, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(776)
+}
+
+spriteset(tatrat4d_falsecolor_back_modern, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(840)
+}
+
+spriteset(tatrat4d_falsecolor_back_loading_modern, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(904)
+}
+
+spriteset(tatrat4d_chemnitz_front, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(968)
+}
+
+spriteset(tatrat4d_chemnitz_front_loading, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_front(1032)
+}
+
+spriteset(tatrat4d_chemnitz_back, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(1096)
+}
+
+spriteset(tatrat4d_chemnitz_back_loading, "graphics/tatrat4d.pcx") {
+	t_tatrat4d_back(1160)
+}
+
+spritegroup tatrat4d_2cc_front_group {
+	loading: tatrat4d_2cc_front_loading;
+	loaded:  tatrat4d_2cc_front;
+}
+
+spritegroup tatrat4d_2cc_front_group_modern {
+	loading: tatrat4d_2cc_front_loading_modern_pantograph;
+	loaded:  tatrat4d_2cc_front_modern_pantograph;
+}
+
+spritegroup tatrat4d_2cc_back_group {
+	loading: tatrat4d_2cc_back_loading;
+	loaded:  tatrat4d_2cc_back;
+}
+
+spritegroup tatrat4d_false_color_front_group {
+	loading: tatrat4d_falsecolor_front_loading;
+	loaded:  tatrat4d_falsecolor_front;
+}
+
+spritegroup tatrat4d_false_color_front_group_modern {
+	loading: tatrat4d_falsecolor_front_loading_modern_pantograph;
+	loaded:  tatrat4d_falsecolor_front_modern_pantograph;
+}
+
+spritegroup tatrat4d_false_color_back_group {
+	loading: tatrat4d_falsecolor_back_loading;
+	loaded:  tatrat4d_falsecolor_back;
+}
+
+spritegroup tatrat4d_false_color_back_group_modern {
+	loading: tatrat4d_falsecolor_back_loading_modern;
+	loaded:  tatrat4d_falsecolor_back_modern;
+}
+
+spritegroup tatrat4d_chemnitz_front_group {
+	loading: tatrat4d_chemnitz_front_loading;
+	loaded:  tatrat4d_chemnitz_front;
+}
+
+spritegroup tatrat4d_chemnitz_back_group {
+	loading: tatrat4d_chemnitz_back_loading;
+	loaded:  tatrat4d_chemnitz_back;
+}
+
+spriteset(tatrat4d_menu, "graphics/tatrat4d.pcx") {
+	[  386, 1224,  51,16,  -25, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_cb_colour_mapping, date_of_last_service < date(1991,1,1)) {
+	1: tram_cb_colour_mapping_east_cities_old;
+	tram_cb_colour_mapping_east_cities_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_2cc_old, position_in_consist) {
+	0: tatrat4d_2cc_front_group;
+	tatrat4d_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_false_color_old, position_in_consist) {
+	0: tatrat4d_false_color_front_group;
+	tatrat4d_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_2cc_modern, position_in_consist) {
+	0: tatrat4d_2cc_front_group_modern;
+	tatrat4d_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_chemnitz_modern, position_in_consist) {
+	0: tatrat4d_chemnitz_front_group;
+	tatrat4d_chemnitz_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_false_color_modern, position_in_consist) {
+	0: tatrat4d_false_color_front_group_modern;
+	tatrat4d_false_color_back_group_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_old, cargo_subtype) {
+	0: tatrat4d_graphics_2cc_old;
+	tatrat4d_graphics_false_color_old;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics_modern, cargo_subtype) {
+	0: tatrat4d_graphics_2cc_modern;
+	3: tatrat4d_graphics_chemnitz_modern;
+	tatrat4d_graphics_false_color_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_graphics, date_of_last_service < date(1991,1,1)) {
+	1: tatrat4d_graphics_old;
+	tatrat4d_graphics_modern;
+}
+
+switch(FEAT_ROADVEHS, SELF, tatrat4d_cb_articulation, extra_callback_info1) {
+	1: return ID_27_TatraT4D;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_27_TatraT4D) {
+	property{
+		name: string(TRAM_TATRA_T4D);
+		introduction_date:date(1967,01,01);
+		reliability_decay:16;
+		vehicle_life:35;
+        model_life:55;
+        loading_speed:18;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:60 km/h;
+        running_cost_factor:82;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:107; // half the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:165;
+		length:8;
+        power:240 hp;
+        weight:17 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:29;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: tatrat4d_graphics;
+		purchase: tatrat4d_menu;
+		articulated_part:tatrat4d_cb_articulation;
+		colour_mapping: tatrat4d_cb_colour_mapping;
+		cargo_subtype_text: tram_cb_refit_east_cities;
+	}
+}

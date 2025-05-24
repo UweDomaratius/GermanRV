@@ -1,0 +1,110 @@
+template t_benz2cnb(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 18,  -3, -10]
+	[ 34, y, 22, 14, -13,  -4]
+	[ 66, y, 23, 12, -13,  -6]
+    [ 98, y, 20, 16,  -7,  -6]
+    [130, y,  8, 18,  -3,  -9]
+    [162, y, 20, 16, -13,  -5]
+    [194, y, 23, 12, -11,  -6]
+    [226, y, 22, 14,  -8,  -5]
+}
+
+spriteset(benz2cnb_blue_empty, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(40)
+}
+spriteset(benz2cnb_blue_empty_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(72)
+}
+spriteset(benz2cnb_blue_third_full, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(104)
+}
+spriteset(benz2cnb_blue_third_full_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(136)
+}
+spriteset(benz2cnb_blue_twothird_full, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(168)
+}
+spriteset(benz2cnb_blue_twothird_full_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(200)
+}
+spriteset(benz2cnb_blue_full, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(232)
+}
+spriteset(benz2cnb_blue_full_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(264)
+}
+spriteset(benz2cnb_green_empty, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(296)
+}
+spriteset(benz2cnb_green_empty_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(328)
+}
+spriteset(benz2cnb_green_third_full, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(360)
+}
+spriteset(benz2cnb_green_third_full_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(392)
+}
+spriteset(benz2cnb_green_twothird_full, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(424)
+}
+spriteset(benz2cnb_green_twothird_full_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(456)
+}
+spriteset(benz2cnb_green_full, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(488)
+}
+spriteset(benz2cnb_green_full_loading, "graphics/benz2cnb.pcx") {
+	t_benz2cnb(520)
+}
+
+spritegroup benz2cnb_blue_group {
+	loading: [benz2cnb_blue_empty_loading, benz2cnb_blue_third_full_loading, benz2cnb_blue_twothird_full_loading, benz2cnb_blue_full_loading];
+	loaded:  [benz2cnb_blue_empty, benz2cnb_blue_third_full, benz2cnb_blue_twothird_full, benz2cnb_blue_full];
+}
+spritegroup benz2cnb_green_group {
+	loading: [benz2cnb_green_empty_loading, benz2cnb_green_third_full_loading, benz2cnb_green_twothird_full_loading, benz2cnb_green_full_loading];
+	loaded:  [benz2cnb_green_empty, benz2cnb_green_third_full, benz2cnb_green_twothird_full, benz2cnb_green_full];
+}
+
+// when refitted to tourists, only half the capacity is available
+switch(FEAT_ROADVEHS, SELF, benz2cnb_cb_refitted_capacity, cargo_type_in_veh) {
+	TOUR: return 19;
+	return 38;
+}
+
+item(FEAT_ROADVEHS, ID_01_Benz_2CNb) {
+	property{
+		name: string(BUS_BENZ_2CNB);
+		introduction_date:date(1925,01,01);
+		reliability_decay:23;        
+		vehicle_life:11;
+        model_life:16;
+        loading_speed:5;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:46 km/h;
+        running_cost_factor:19;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:39;
+		default_cargo_type:PASS;
+		cost_factor:12;
+        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+		length:7;
+        power:55 hp;
+        weight:5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:3;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		TOUR: benz2cnb_green_group;
+		default: benz2cnb_blue_group;
+		
+		additional_text: return string(STR_BUS_REGIONAL);
+		cargo_capacity: benz2cnb_cb_refitted_capacity;
+	}
+}

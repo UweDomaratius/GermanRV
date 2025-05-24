@@ -1,0 +1,219 @@
+template t_bombardierflexity_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 19,  -3, -10, ANIM]
+	[ 34, y, 23, 17,  -7,  -9, ANIM]
+	[ 66, y, 26, 16, -13, -10, ANIM]
+    [ 98, y, 22, 20, -14, -12, ANIM]
+    [130, y,  6, 22,  -3, -10, ANIM]
+    [162, y, 22, 20, -14, -10, ANIM]
+    [194, y, 26, 16, -10, -10, ANIM]
+    [226, y, 23, 17,  -8,  -9, ANIM]
+}
+
+template t_bombardierflexity_middle_short(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 14,  -3, -7, ANIM]
+	[ 34, y, 15, 14,  -5, -7, ANIM]
+	[ 66, y, 13, 11,  -7, -6, ANIM]
+    [ 98, y, 15, 14, -10, -8, ANIM]
+    [130, y,  6, 14,  -3, -7, ANIM]
+    [162, y, 15, 14, -11, -6, ANIM]
+    [194, y, 13, 11, -12, -6, ANIM]
+    [226, y, 15, 14,  -5, -8, ANIM]
+}
+
+template t_bombardierflexity_middle_long(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3,  -9, ANIM]
+	[ 34, y, 19, 16,  -8,  -8, ANIM]
+	[ 66, y, 21, 12, -10,  -6, ANIM]
+    [ 98, y, 19, 16, -13, -10, ANIM]
+    [130, y,  6, 18,  -3,  -9, ANIM]
+    [162, y, 19, 16, -11,  -8, ANIM]
+    [194, y, 21, 12, -14,  -6, ANIM]
+    [226, y, 19, 16,  -6,  -9, ANIM]
+}
+
+template t_bombardierflexity_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 20,  -3, -10, ANIM]
+	[ 34, y, 22, 18, -11,  -8, ANIM]
+	[ 66, y, 26, 12, -13,  -6, ANIM]
+    [ 98, y, 23, 17, -17, -11, ANIM]
+    [130, y,  6, 19,  -3, -10, ANIM]
+    [162, y, 23, 17, -13,  -8, ANIM]
+    [194, y, 26, 12, -15,  -6, ANIM]
+    [226, y, 21, 18,  -6,  -9, ANIM]
+}
+
+spriteset(bombardierflexity_2cc_front, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_front(40)
+}
+spriteset(bombardierflexity_2cc_front_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_front(72)
+}
+
+spriteset(bombardierflexity_2cc_middleshort, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_short(104)
+}
+spriteset(bombardierflexity_2cc_middleshort_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_short(136)
+}
+
+spriteset(bombardierflexity_2cc_middlelong, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_long(168)
+}
+spriteset(bombardierflexity_2cc_middlelong_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_long(200)
+}
+
+spriteset(bombardierflexity_2cc_back, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_back(232)
+}
+
+spriteset(bombardierflexity_2cc_back_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_back(264)
+}
+
+spriteset(bombardierflexity_false_color_front, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_front(296)
+}
+
+spriteset(bombardierflexity_false_color_front_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_front(328)
+}
+
+spriteset(bombardierflexity_false_color_middleshort, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_short(360)
+}
+
+spriteset(bombardierflexity_false_color_middleshort_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_short(392)
+}
+
+spriteset(bombardierflexity_false_color_middlelong, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_long(424)
+}
+
+spriteset(bombardierflexity_false_color_middlelong_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_middle_long(456)
+}
+
+spriteset(bombardierflexity_false_color_back, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_back(488)
+}
+
+spriteset(bombardierflexity_false_color_back_loading, "graphics/bombardierflexity.pcx") {
+	t_bombardierflexity_back(520)
+}
+
+spritegroup bombardierflexity_2cc_front_group {
+	loading: bombardierflexity_2cc_front_loading;
+	loaded:  bombardierflexity_2cc_front;
+}
+
+spritegroup bombardierflexity_2cc_middleshort_group {
+	loading: bombardierflexity_2cc_middleshort_loading;
+	loaded:  bombardierflexity_2cc_middleshort;
+}
+
+spritegroup bombardierflexity_2cc_middlelong_group {
+	loading: bombardierflexity_2cc_middlelong_loading;
+	loaded:  bombardierflexity_2cc_middlelong;
+}
+
+spritegroup bombardierflexity_2cc_back_group {
+	loading: bombardierflexity_2cc_back_loading;
+	loaded:  bombardierflexity_2cc_back;
+}
+
+spritegroup bombardierflexity_false_color_front_group {
+	loading: bombardierflexity_false_color_front_loading;
+	loaded:  bombardierflexity_false_color_front;
+}
+
+spritegroup bombardierflexity_false_color_middleshort_group {
+	loading: bombardierflexity_false_color_middleshort_loading;
+	loaded:  bombardierflexity_false_color_middleshort;
+}
+
+spritegroup bombardierflexity_false_color_middlelong_group {
+	loading: bombardierflexity_false_color_middlelong_loading;
+	loaded:  bombardierflexity_false_color_middlelong;
+}
+
+spritegroup bombardierflexity_false_color_back_group {
+	loading: bombardierflexity_false_color_back_loading;
+	loaded:  bombardierflexity_false_color_back;
+}
+
+spriteset(bombardierflexity_menu, "graphics/bombardierflexity.pcx") {
+	[  194, 552,  51,16,  -25, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, bombardierflexity_graphics_2cc, position_in_consist) {
+	0: bombardierflexity_2cc_front_group;
+	1: bombardierflexity_2cc_middleshort_group;
+	2: bombardierflexity_2cc_middlelong_group;
+	3: bombardierflexity_2cc_middleshort_group;
+	bombardierflexity_2cc_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, bombardierflexity_graphics_false_color, position_in_consist) {
+	0: bombardierflexity_false_color_front_group;
+	1: bombardierflexity_false_color_middleshort_group;
+	2: bombardierflexity_false_color_middlelong_group;
+	3: bombardierflexity_false_color_middleshort_group;
+	bombardierflexity_false_color_back_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, bombardierflexity_graphics, cargo_subtype) {
+	0: bombardierflexity_graphics_2cc;
+	bombardierflexity_graphics_false_color;
+}
+
+switch(FEAT_ROADVEHS, SELF, bombardierflexity_cb_articulation, extra_callback_info1) {
+	1..4: return ID_2E_BOMBARDIER_FLEXITY;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, bombardierflexity_cb_length, position_in_consist) {
+	1: return 5;
+	3: return 5;
+	return 6;
+}
+
+item(FEAT_ROADVEHS, ID_2E_BOMBARDIER_FLEXITY) {
+	property{
+		name: string(TRAM_BOMBARDIER_FLEXITY);
+		introduction_date:date(2003,01,01);
+		reliability_decay:21;
+		vehicle_life:30;
+        model_life:255;
+        loading_speed:13;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:139;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:52; // fifth of the capacity since it is articulated
+		default_cargo_type:PASS;
+		cost_factor:239;
+		length:6;
+        power:925 hp;
+        weight:56.75 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_PASSENGERS);
+	}
+	graphics {
+		default: bombardierflexity_graphics;
+		purchase: bombardierflexity_menu;
+		articulated_part:bombardierflexity_cb_articulation;
+		length: bombardierflexity_cb_length;
+		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
+		cargo_subtype_text: tram_cb_refit_all_cities;
+	}
+}

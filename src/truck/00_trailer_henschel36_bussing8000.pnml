@@ -1,0 +1,110 @@
+template t_trailer_henschel36_bussing8000(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 18,  -3, -10]
+	[ 34, y, 22, 17, -16,  -7]
+	[ 66, y, 25, 13, -13,  -7]
+    [ 98, y, 25, 20, -14, -12]
+    [130, y,  8, 21,  -3, -11]
+    [162, y, 25, 20,  -8, -13]
+    [194, y, 25, 13, -15,  -7]
+    [226, y, 22, 17,  -4,  -7]
+}
+
+spriteset(henschel36_bussing8000_void, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(8)
+}
+
+spriteset(henschel36_bussing8000_closed_van, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(40)
+}
+spriteset(henschel36_bussing8000_closed_van_loading, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(72)
+}
+
+spriteset(henschel36_bussing8000_tarpaulin, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(104)
+}
+
+spriteset(henschel36_bussing8000_tarpaulin_empty, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(136)
+}
+
+spriteset(henschel36_bussing8000_tarpaulin_full, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(168)
+}
+
+spriteset(henschel36_bussing8000_tanker, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(200)
+}
+
+spriteset(henschel36_bussing8000_open_crates, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(232)
+}
+
+spriteset(henschel36_bussing8000_open_empty, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(264)
+}
+
+spriteset(henschel36_bussing8000_open_bulk_half_full, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(296)
+}
+
+spriteset(henschel36_bussing8000_open_bulk_full, "graphics/trailer_henschel36w3_bussing8000.pcx") {
+	t_trailer_henschel36_bussing8000(328)
+}
+
+spritegroup henschel36_bussing8000_open_bulk_group {
+	loading: [henschel36_bussing8000_void, henschel36_bussing8000_open_bulk_half_full, henschel36_bussing8000_open_bulk_full];
+	loaded:  [henschel36_bussing8000_void, henschel36_bussing8000_open_bulk_half_full, henschel36_bussing8000_open_bulk_full];
+}
+
+spritegroup henschel36_bussing8000_open_group {
+	loading: [henschel36_bussing8000_open_empty, henschel36_bussing8000_open_crates];
+	loaded:  [henschel36_bussing8000_open_empty, henschel36_bussing8000_open_crates];
+}
+
+spritegroup henschel36_bussing8000_closed_van_group {
+	loading: henschel36_bussing8000_closed_van_loading;
+	loaded:  henschel36_bussing8000_closed_van;
+}
+
+spritegroup henschel36_bussing8000_tarpaulin_group {
+	loading: [henschel36_bussing8000_tarpaulin_empty, henschel36_bussing8000_tarpaulin_full];
+	loaded: henschel36_bussing8000_tarpaulin;
+}
+
+spritegroup henschel36_bussing8000_tanker_group {
+	loading: henschel36_bussing8000_tanker;
+	loaded: henschel36_bussing8000_tanker;
+}
+
+
+switch(FEAT_ROADVEHS, SELF, henschel36_bussing8000_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	henschel36_bussing8000_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel36_bussing8000_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100)]
+)
+{
+	henschel36_bussing8000_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, henschel36_bussing8000_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: henschel36_bussing8000_graphics_open_bulk_spritestack1;
+	henschel36_bussing8000_graphics_open_bulk_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, henschel36_bussing8000_graphics_open, (cargo_classes & bitmask(CC_BULK)) == bitmask(CC_BULK)) {
+	1: henschel36_bussing8000_graphics_open_bulk_spritestack;
+	henschel36_bussing8000_open_group;
+}

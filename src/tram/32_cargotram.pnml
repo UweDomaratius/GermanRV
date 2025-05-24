@@ -1,0 +1,210 @@
+template t_cargotram_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 19,  -3, -10]
+	[ 34, y, 18, 16, -10,  -6]
+	[ 66, y, 26, 15, -13, -10]
+    [ 98, y, 18, 17,  -7,  -7]
+    [130, y,  6, 19,  -3, -12]
+    [162, y, 18, 17, -13,  -8]
+    [194, y, 25, 15,  -9, -10]
+    [226, y, 18, 16,  -5,  -6]
+}
+
+template t_cargotram_middle(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 18,  -3, -10]
+	[ 34, y, 18, 16, -10,  -6]
+	[ 66, y, 24, 10, -12,  -6]
+    [ 98, y, 18, 16,  -7,  -6]
+    [130, y,  6, 18,  -3, -12]
+    [162, y, 18, 16, -13,  -7]
+    [194, y, 24, 10, -12,  -5]
+    [226, y, 18, 16,  -5,  -6]
+}
+
+template t_cargotram_back(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  6, 19,  -3, -10]
+	[ 34, y, 18, 16, -10,  -6]
+	[ 66, y, 25, 10, -13,  -6]
+    [ 98, y, 18, 15,  -7,  -5]
+    [130, y,  6, 19,  -3, -12]
+    [162, y, 18, 14, -13,  -5]
+    [194, y, 25, 10, -13,  -5]
+    [226, y, 18, 16,  -5,  -6]
+}
+
+spriteset(cargotram_2cc_front, "graphics/cargotram.pcx") {
+	t_cargotram_front(40)
+}
+spriteset(cargotram_2cc_front_loading_1, "graphics/cargotram.pcx") {
+	t_cargotram_front(72)
+}
+spriteset(cargotram_2cc_front_loading_2, "graphics/cargotram.pcx") {
+	t_cargotram_front(104)
+}
+spriteset(cargotram_2cc_front_loading_3, "graphics/cargotram.pcx") {
+	t_cargotram_front(136)
+}
+spriteset(cargotram_2cc_middle, "graphics/cargotram.pcx") {
+	t_cargotram_middle(168)
+}
+spriteset(cargotram_2cc_middle_loading_1, "graphics/cargotram.pcx") {
+	t_cargotram_middle(200)
+}
+spriteset(cargotram_2cc_middle_loading_2, "graphics/cargotram.pcx") {
+	t_cargotram_middle(232)
+}
+spriteset(cargotram_2cc_middle_loading_3, "graphics/cargotram.pcx") {
+	t_cargotram_middle(264)
+}
+spriteset(cargotram_2cc_back, "graphics/cargotram.pcx") {
+	t_cargotram_back(296)
+}
+spriteset(cargotram_2cc_back_loading_1, "graphics/cargotram.pcx") {
+	t_cargotram_back(328)
+}
+spriteset(cargotram_2cc_back_loading_2, "graphics/cargotram.pcx") {
+	t_cargotram_back(360)
+}
+spriteset(cargotram_2cc_back_loading_3, "graphics/cargotram.pcx") {
+	t_cargotram_back(392)
+}
+spriteset(cargotram_dresden_front, "graphics/cargotram.pcx") {
+	t_cargotram_front(424)
+}
+spriteset(cargotram_dresden_front_loading_1, "graphics/cargotram.pcx") {
+	t_cargotram_front(456)
+}
+spriteset(cargotram_dresden_front_loading_2, "graphics/cargotram.pcx") {
+	t_cargotram_front(488)
+}
+spriteset(cargotram_dresden_front_loading_3, "graphics/cargotram.pcx") {
+	t_cargotram_front(520)
+}
+spriteset(cargotram_dresden_middle, "graphics/cargotram.pcx") {
+	t_cargotram_middle(552)
+}
+spriteset(cargotram_dresden_middle_loading_1, "graphics/cargotram.pcx") {
+	t_cargotram_middle(584)
+}
+spriteset(cargotram_dresden_middle_loading_2, "graphics/cargotram.pcx") {
+	t_cargotram_middle(616)
+}
+spriteset(cargotram_dresden_middle_loading_3, "graphics/cargotram.pcx") {
+	t_cargotram_middle(648)
+}
+spriteset(cargotram_dresden_back, "graphics/cargotram.pcx") {
+	t_cargotram_back(680)
+}
+spriteset(cargotram_dresden_back_loading_1, "graphics/cargotram.pcx") {
+	t_cargotram_back(712)
+}
+spriteset(cargotram_dresden_back_loading_2, "graphics/cargotram.pcx") {
+	t_cargotram_back(744)
+}
+spriteset(cargotram_dresden_back_loading_3, "graphics/cargotram.pcx") {
+	t_cargotram_back(776)
+}
+
+spritegroup cargotram_2cc_front_group {
+	loading: [cargotram_2cc_front_loading_1, cargotram_2cc_front_loading_2, cargotram_2cc_front_loading_3];
+	loaded:  [cargotram_2cc_front];
+}
+
+spritegroup cargotram_2cc_middle_group {
+	loading: [cargotram_2cc_middle_loading_1, cargotram_2cc_middle_loading_2, cargotram_2cc_middle_loading_3];
+	loaded:  [cargotram_2cc_middle];
+}
+
+spritegroup cargotram_2cc_back_group {
+	loading: [cargotram_2cc_back_loading_1, cargotram_2cc_back_loading_2, cargotram_2cc_back_loading_3];
+	loaded:  [cargotram_2cc_back];
+}
+
+spritegroup cargotram_dresden_front_group {
+	loading: [cargotram_dresden_front_loading_1, cargotram_dresden_front_loading_2, cargotram_dresden_front_loading_3];
+	loaded:  [cargotram_dresden_front];
+}
+
+spritegroup cargotram_dresden_middle_group {
+	loading: [cargotram_dresden_middle_loading_1, cargotram_dresden_middle_loading_2, cargotram_dresden_middle_loading_3];
+	loaded:  [cargotram_dresden_middle];
+}
+
+spritegroup cargotram_dresden_back_group {
+	loading: [cargotram_dresden_back_loading_1, cargotram_dresden_back_loading_2, cargotram_dresden_back_loading_3];
+	loaded:  [cargotram_dresden_back];
+}
+
+spriteset(cargotram_menu, "graphics/cargotram.pcx") {
+	[  194, 808,  45,15,  -22, -9]
+}
+
+switch(FEAT_ROADVEHS, SELF, cargotram_2cc_graphics, position_in_consist) {
+	0: cargotram_2cc_front_group;
+	4: cargotram_2cc_back_group;
+	cargotram_2cc_middle_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, cargotram_dresden_graphics, position_in_consist) {
+	0: cargotram_dresden_front_group;
+	4: cargotram_dresden_back_group;
+	cargotram_dresden_middle_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, cargotram_graphics, cargo_subtype) {
+	1: cargotram_dresden_graphics;
+	cargotram_2cc_graphics;
+}
+
+switch(FEAT_ROADVEHS, SELF, cargotram_cb_cargo_subtype, cargo_subtype) {
+	0: return string(COLOR_2CC);
+	1: return string(COLOR_DRESDEN);
+	return CB_RESULT_NO_TEXT;
+}
+
+switch(FEAT_ROADVEHS, SELF, cargotram_cb_colour_mapping, cargo_subtype) {
+	1: return tram_palettes + CT_DRESDEN_MODERN;
+	return CB_FAILED;
+}
+
+switch(FEAT_ROADVEHS, SELF, cargotram_cb_articulation, extra_callback_info1) {
+	1..4: return ID_32_Cargotram;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+item(FEAT_ROADVEHS, ID_32_Cargotram) {
+	property{
+		name: string(TRAM_CARGOTRAM);
+		introduction_date:date(2000,01,01);
+		reliability_decay:20;
+		vehicle_life:30;
+        model_life:45;
+        loading_speed:4;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:50 km/h;
+        running_cost_factor:147;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12;
+		default_cargo_type:GOOD;
+		cost_factor:253;
+		length:7;
+        power:1224 hp;
+        weight:63.75 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_TRAM);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_PIECE_GOODS, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_OVERSIZED);
+		non_refittable_cargo_classes:bitmask(CC_PASSENGERS, CC_BULK, CC_LIQUID, CC_NON_POURABLE);
+	}
+	graphics {
+		default: cargotram_graphics;
+		purchase: cargotram_menu;
+		cargo_subtype_text:cargotram_cb_cargo_subtype;
+		colour_mapping:cargotram_cb_colour_mapping;
+		articulated_part:cargotram_cb_articulation;
+	}
+}

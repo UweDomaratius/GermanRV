@@ -1,0 +1,110 @@
+template t_trailer_bussing5000(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 17,  -3, -10]
+	[ 34, y, 22, 17, -15,  -8]
+	[ 66, y, 24, 13, -13,  -7]
+    [ 98, y, 22, 19, -10, -10]
+    [130, y,  8, 21,  -3, -11]
+    [162, y, 22, 19, -10, -10]
+    [194, y, 24, 13, -15,  -7]
+    [226, y, 22, 17,  -5,  -8]
+}
+
+spriteset(trailer_bussing5000_void, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(8)
+}
+
+spriteset(trailer_bussing5000_closed_van, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(40)
+}
+spriteset(trailer_bussing5000_closed_van_loading, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(72)
+}
+
+spriteset(trailer_bussing5000_tarpaulin, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(104)
+}
+
+spriteset(trailer_bussing5000_tarpaulin_empty, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(136)
+}
+
+spriteset(trailer_bussing5000_tarpaulin_full, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(168)
+}
+
+spriteset(trailer_bussing5000_tanker, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(200)
+}
+
+spriteset(trailer_bussing5000_open_empty, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(232)
+}
+
+spriteset(trailer_bussing5000_open_bulk_half_full, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(264)
+}
+
+spriteset(trailer_bussing5000_open_bulk_full, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(296)
+}
+
+spriteset(trailer_bussing5000_open_crates, "graphics/trailer_bussing5000.pcx") {
+	t_trailer_bussing5000(328)
+}
+
+spritegroup trailer_bussing5000_open_bulk_group {
+	loading: [trailer_bussing5000_void, trailer_bussing5000_open_bulk_half_full, trailer_bussing5000_open_bulk_full];
+	loaded:  [trailer_bussing5000_void, trailer_bussing5000_open_bulk_half_full, trailer_bussing5000_open_bulk_full];
+}
+
+spritegroup trailer_bussing5000_open_group {
+	loading: [trailer_bussing5000_open_empty, trailer_bussing5000_open_crates];
+	loaded:  [trailer_bussing5000_open_empty, trailer_bussing5000_open_crates];
+}
+
+spritegroup trailer_bussing5000_closed_van_group {
+	loading: trailer_bussing5000_closed_van_loading;
+	loaded:  trailer_bussing5000_closed_van;
+}
+
+spritegroup trailer_bussing5000_tarpaulin_group {
+	loading: [trailer_bussing5000_tarpaulin_empty, trailer_bussing5000_tarpaulin_full];
+	loaded: trailer_bussing5000_tarpaulin;
+}
+
+spritegroup trailer_bussing5000_tanker_group {
+	loading: trailer_bussing5000_tanker;
+	loaded: trailer_bussing5000_tanker;
+}
+
+
+switch(FEAT_ROADVEHS, SELF, trailer_bussing5000_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	trailer_bussing5000_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_bussing5000_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100)]
+)
+{
+	trailer_bussing5000_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, trailer_bussing5000_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: trailer_bussing5000_graphics_open_bulk_spritestack1;
+	trailer_bussing5000_graphics_open_bulk_spritestack0;
+}
+
+switch(FEAT_ROADVEHS, SELF, trailer_bussing5000_graphics_open, (cargo_classes & bitmask(CC_BULK)) == bitmask(CC_BULK)) {
+	1: trailer_bussing5000_graphics_open_bulk_spritestack;
+	trailer_bussing5000_open_group;
+}

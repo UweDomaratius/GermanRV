@@ -1,0 +1,185 @@
+##grflangid 0x01
+##plural 0
+# This is the English language file
+
+# GRF name and description definitions
+STR_GRF_NAME        :{TITLE} {VERSION}
+STR_GRF_DESCRIPTION :German road vehicles for OpenTTD{}Daniel Böhme, Uwe Domaratius, Roland Kahlert, Stephan Krause, Hansel Kruzer{}Special thanks to Michael Blunck{}{COPYRIGHT}2006-2025 {}License: CC-BY-NC-SA v4.0
+
+STR_BUS_CITY    :{BLACK}Usage: {ORANGE}city lines
+STR_BUS_COACH   :{BLACK}Usage: {ORANGE}coach
+STR_BUS_REGIONAL:{BLACK}Usage: {ORANGE}regional lines
+
+STR_TRUCK_AUTOREFIT:{BLACK}Refittable in stations.
+
+# Buses
+BUS_VOMAG_P20            :Vomag P20f
+BUS_BENZ_2CNB            :Benz 2CNb
+BUS_BUESSINGNAG_D2       :Büssing-NAG D2
+BUS_VOMAG_OV57           :Vomag OV57
+BUS_MB_OP3750            :Mercedes-Benz OP 3750
+BUS_OPEL_BLITZ           :Opel Blitz
+BUS_MB_O4500             :Mercedes-Benz O 4500
+BUS_MB_O3500             :Mercedes-Benz O 3500
+BUS_BUESSING_D2U         :Büssing D2U
+BUS_BUESSING_KAESSBOHRER :Büssing-Kässbohrer
+BUS_IKARUS_66            :Ikarus 66
+BUS_NEOPLAN_NH12         :Neoplan NH 12 Hamburg
+BUS_BUESSING_LUDEWIGAERO :Büssing Ludewig Aero
+BUS_MB_O305              :Mercedes-Benz O 305
+BUS_MAN_SU240            :MAN SÜ 240
+BUS_IKARUS_260           :Ikarus 260.02
+BUS_IKARUS_280           :Ikarus 280.02
+BUS_MB_O303              :Mercedes-Benz O 303
+BUS_MAN_SD200            :MAN SD 200
+BUS_SETRA_S215UL         :Setra S 215 UL
+BUS_MB_O405              :Mercedes-Benz O 405
+BUS_MB_O405G             :Mercedes-Benz O 405 G
+BUS_SETRA_S328DT         :Setra S 328 DT
+BUS_NEOPLAN_N4032        :Neoplan N4032 Megashuttle
+BUS_SETRA_S315NF         :Setra S 315 NF
+BUS_MB_CITAROGCNG        :Mercedes-Benz Citaro G CNG
+BUS_MAN_NL263            :MAN NL 263
+BUS_MAN_NG313            :MAN NG 313
+BUS_NEOPLAN_SKYLINERL    :Neoplan Skyliner L
+BUS_MAN_LIONSCITYDD      :MAN Lion's City DD
+BUS_SETRA_S419UL         :Setra S 419 UL
+BUS_MB_CITAROBZ          :Mercedes-Benz Citaro BZ
+BUS_MB_CAPACITY          :Mercedes-Benz CapaCity
+
+# Trams
+TRAM_PSB_TW21            :TW 21
+TRAM_BERLIN_T24          :Berlin T24
+TRAM_GROSSER_HECHT       :Großer Hecht
+TRAM_WESTWAGGON_T2       :Westwaggon T2
+TRAM_GOTHA_ET            :Gotha ET
+TRAM_DUEWAG_GT6          :Duewag GT6
+TRAM_TATRA_T4D           :Tatra T4D
+TRAM_DUEWAG_GT8          :Duewag GT8
+TRAM_TATRA_KT4D          :Tatra KT4D
+TRAM_DUEWAG_B80          :Duewag B80 C/D
+TRAM_TATRA_T6A2          :Tata T6A2
+TRAM_DUEWAG_MGTD6D       :Duewag/Siemens MGT6D
+TRAM_ADTRANZ_GT8N2       :Adtranz GT8N2
+TRAM_BOMBARDIER_FLEXITY  :Bombardier Flexity NGTD12
+TRAM_ALSTOM_REGIOCITADIS :Alstom RegioCitadis
+TRAM_GTW21               :GTw 21
+TRAM_GTW35               :GTw 35
+TRAM_CARGOTRAM           :Cargotram
+
+# Trucks
+TRUCK_BUSSING_IIIGL_OPEN      :Büssing III GL (dump truck)
+TRUCK_BUSSING_IIIGL_TARPAULIN :Büssing III GL (flatbed with tarpaulin)
+TRUCK_BUSSING_IIIGL_TANKER    :Büssing III GL (tanker)
+TRUCK_BUSSING_IIIGL_CLOSED    :Büssing III GL (box truck)
+
+TRUCK_BUSSING_VIGL_OPEN       :Büssing VI GL (dump truck)
+TRUCK_BUSSING_VIGL_TARPAULIN  :Büssing VI GL (flatbed with tarpaulin)
+TRUCK_BUSSING_VIGL_TANKER     :Büssing VI GL (tanker)
+TRUCK_BUSSING_VIGL_CLOSED     :Büssing VI GL (box truck)
+
+TRUCK_HENSCHEL_36W3_OPEN      :Henschel 36 W3 (dump truck)
+TRUCK_HENSCHEL_36W3_TARPAULIN :Henschel 36 W3 (flatbed with tarpaulin)
+TRUCK_HENSCHEL_36W3_TANKER    :Henschel 36 W3 (tanker)
+TRUCK_HENSCHEL_36W3_CLOSED    :Henschel 36 W3 (box truck)
+
+TRUCK_BUESSING_5000_OPEN      :Büssing-NAG 5000 (dump truck)
+TRUCK_BUESSING_5000_TARPAULIN :Büssing-NAG 5000 (flatbed with tarpaulin)
+TRUCK_BUESSING_5000_TANKER    :Büssing-NAG 5000 (tanker)
+TRUCK_BUESSING_5000_CLOSED    :Büssing-NAG 5000 (box truck)
+
+TRUCK_BUESSING_8000_OPEN      :Büssing 8000 (dump truck)
+TRUCK_BUESSING_8000_TARPAULIN :Büssing 8000 (flatbed with tarpaulin)
+TRUCK_BUESSING_8000_TANKER    :Büssing 8000 (tanker)
+TRUCK_BUESSING_8000_CLOSED    :Büssing 8000 (box truck)
+
+TRUCK_HENSCHEL_HS140_OPEN     :Henschel HS 140 (dump truck)
+TRUCK_HENSCHEL_HS140_TARPAULIN:Henschel HS 140 (flatbed with tarpaulin)
+TRUCK_HENSCHEL_HS140_TANKER   :Henschel HS 140 (tanker)
+TRUCK_HENSCHEL_HS140_CLOSED   :Henschel HS 140 (box truck)
+
+TRUCK_MB_ACTROS_2540_OPEN        :Mercedes-Benz Actros 2540 (dump truck)
+TRUCK_MB_ACTROS_2540_TARPAULIN   :Mercedes-Benz Actros 2540 (flatbed with tarpaulin)
+TRUCK_MB_ACTROS_2540_TANKER      :Mercedes-Benz Actros 2540 (tanker)
+TRUCK_MB_ACTROS_2540_SILO        :Mercedes-Benz Actros 2540 (silo)
+TRUCK_MB_ACTROS_2540_LIVESTOCK   :Mercedes-Benz Actros 2540 (livestock)
+TRUCK_MB_ACTROS_2540_WOOD        :Mercedes-Benz Actros 2540 (wood transporter)
+TRUCK_MB_ACTROS_2540_VEHICLES    :Mercedes-Benz Actros 2540 (vehicle transporter)
+TRUCK_MB_ACTROS_2540_CONTAINER   :Mercedes-Benz Actros 2540 (container)
+TRUCK_MB_ACTROS_2540_REFRIGERATED:Mercedes-Benz Actros 2540 (refrigerated truck)
+TRUCK_MB_ACTROS_2540_CRANE       :Mercedes-Benz Actros 2540 (open flatbed with crane)
+
+TRUCK_MB_ACTROS_4143_OPEN      :Mercedes-Benz Actros 4143K
+
+TRUCK_MB_AXOR_1840_OPEN        :Mercedes-Benz Axor 1840 (dump truck)
+TRUCK_MB_AXOR_1840_TARPAULIN   :Mercedes-Benz Axor 1840 (flatbed with tarpaulin)
+TRUCK_MB_AXOR_1840_TANKER      :Mercedes-Benz Axor 1840 (tanker)
+TRUCK_MB_AXOR_1840_SILO        :Mercedes-Benz Axor 1840 (silo)
+TRUCK_MB_AXOR_1840_LIVESTOCK   :Mercedes-Benz Axor 1840 (livestock)
+TRUCK_MB_AXOR_1840_STAKE       :Mercedes-Benz Axor 1840 (flatbed with stakes)
+TRUCK_MB_AXOR_1840_REFRIGERATED:Mercedes-Benz Axor 1840 (refrigerated truck)
+TRUCK_MB_AXOR_1840_FLATBED     :Mercedes-Benz Axor 1840 (flatbed)
+TRUCK_MB_AXOR_1840_CONTAINER   :Mercedes-Benz Axor 1840 (container)
+
+TRUCK_MB_ACTROS2_4146_OPEN     :Mercedes-Benz Actros 2 4146K
+
+TRUCK_MB_ACTROS2_2541_OPEN        :Mercedes-Benz Actros 2 2541 (dump truck)
+TRUCK_MB_ACTROS2_2541_TARPAULIN   :Mercedes-Benz Actros 2 2541 (flatbed with tarpaulin)
+TRUCK_MB_ACTROS2_2541_TANKER      :Mercedes-Benz Actros 2 2541 (tanker)
+TRUCK_MB_ACTROS2_2541_SILO        :Mercedes-Benz Actros 2 2541 (silo)
+TRUCK_MB_ACTROS2_2541_LIVESTOCK   :Mercedes-Benz Actros 2 2541 (livestock)
+TRUCK_MB_ACTROS2_2541_WOOD        :Mercedes-Benz Actros 2 2541 (wood transporter)
+TRUCK_MB_ACTROS2_2541_VEHICLES    :Mercedes-Benz Actros 2 2541 (vehicle transporter)
+TRUCK_MB_ACTROS2_2541_CONTAINER   :Mercedes-Benz Actros 2 2541 (container)
+TRUCK_MB_ACTROS2_2541_REFRIGERATED:Mercedes-Benz Actros 2 2541 (refrigerated truck)
+TRUCK_MB_ACTROS2_2541_CRANE       :Mercedes-Benz Actros 2 2541 (open flatbed with crane)
+
+TRUCK_MAN_TGA_41660_XXL : MAN TGA XXL
+
+TRUCK_MAN_TGX_OPEN        :MAN TGX (dump truck)
+TRUCK_MAN_TGX_TARPAULIN   :MAN TGX (flatbed with tarpaulin)
+TRUCK_MAN_TGX_TANKER      :MAN TGX (tanker)
+TRUCK_MAN_TGX_SILO        :MAN TGX (silo)
+TRUCK_MAN_TGX_LIVESTOCK   :MAN TGX (livestock)
+TRUCK_MAN_TGX_STAKE       :MAN TGX (flatbed with stakes)
+TRUCK_MAN_TGX_REFRIGERATED:MAN TGX (refrigerated truck)
+TRUCK_MAN_TGX_FLATBED     :MAN TGX (flatbed)
+TRUCK_MAN_TGX_CONTAINER   :MAN TGX (container)
+
+# recoloring schemes
+COLOR_2CC        : (2CC)
+COLOR_BERLIN     : (Berlin)
+COLOR_BOCHUM     : (Bochum)
+COLOR_BRANDENBURG: (Brandenburg)
+COLOR_BREMEN     : (Bremen)
+COLOR_CHEMNITZ   : (Chemnitz)
+COLOR_DRESDEN    : (Dresden)
+COLOR_DARMSTADT  : (Darmstadt)
+COLOR_DUSSELDORF : (Düsseldorf)
+COLOR_ERFURT     : (Erfurt)
+COLOR_FFM        : (Frankfurt/Main)
+COLOR_FFO        : (Frankfurt/Oder)
+COLOR_GERA       : (Gera)
+COLOR_GORLITZ    : (Görlitz)
+COLOR_GOTHA      : (Gotha)
+COLOR_HALLE      : (Halle)
+COLOR_HANNOVER   : (Hannover)
+COLOR_HEIDELBERG : (Heidelberg)
+COLOR_KARLSRUHE  : (Karlsruhe)
+COLOR_KASSEL     : (Kassel)
+COLOR_KOLN       : (Cologne)
+COLOR_LEIPZIG    : (Leipzig)
+COLOR_MAGDEBURG  : (Magdeburg)
+COLOR_MAINZ      : (Mainz)
+COLOR_MUHLHEIM   : (Mühlheim)
+COLOR_MUNICH     : (Munich)
+COLOR_NUREMBERG  : (Nuremberg)
+COLOR_POTSDAM    : (Potsdam)
+COLOR_ROSTOCK    : (Rostock)
+COLOR_SAARBRUCKEN: (Saarbrücken)
+COLOR_SCHWERIN   : (Schwerin)
+COLOR_STUTTGART  : (Stuttgart)
+
+STR_ERR_OPENTTD_VERSION:{ORANGE}E00:{TITLE} requires OpenTTD 14.0 or newer
+STR_ERR_DYNAMIC_ENGINES:dynamic engines enabled
+STR_ERR_DRIVING_SIDE:driving_side right

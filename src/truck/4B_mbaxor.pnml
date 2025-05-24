@@ -1,0 +1,483 @@
+template t_mbaxor_front(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y, 10, 17,  -3, -11]
+	[ 66, y, 16, 15, -12,  -5]
+	[130, y, 15, 14,  -7,  -8]
+    [194, y, 16, 13, -11,  -8]
+    [258, y, 10, 16,  -3, -11]
+    [322, y, 16, 13,  -4,  -9]
+    [386, y, 15, 14,  -5,  -7]
+    [450, y, 16, 15,  -3,  -6]
+}
+
+spriteset(mb_axor, "graphics/mbaxor1840.pcx") {
+	t_mbaxor_front(72)
+}
+
+spriteset(mb_axor_tarpaulin_menu, "graphics/mantgx.pcx") {
+	[  2, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_refrigerated_menu, "graphics/mantgx.pcx") {
+	[  66, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_tanker_menu, "graphics/mantgx.pcx") {
+	[ 130, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_livestock_menu, "graphics/mantgx.pcx") {
+	[ 194, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_open_menu, "graphics/mantgx.pcx") {
+	[ 258, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_stake_menu, "graphics/mantgx.pcx") {
+	[ 322, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_flatbed_menu, "graphics/mantgx.pcx") {
+	[ 386, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_container_menu, "graphics/mantgx.pcx") {
+	[ 386, 8,  35,14,  -22, -8]
+}
+
+spriteset(mb_axor_silo_menu, "graphics/mantgx.pcx") {
+	[ 450, 8,  35,14,  -22, -8]
+}
+
+// truck has 0t capacity, trailer has 26t
+switch(FEAT_ROADVEHS, SELF, mb_axor_cb_cargo_capacity, position_in_consist) {
+	0: return 0;
+	return 26;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_open_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_open;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_open, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_graphics_open_bulk_spritestack;
+}
+
+// open
+item(FEAT_ROADVEHS, ID_4B_mb_axor_open) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_OPEN);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK);
+		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_open;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_open_cb_articulation;
+		purchase: mb_axor_open_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_tarpaulin_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_tarpaulin;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_tarpaulin, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_tarpaulin_group;
+}
+
+// tarpaulin
+item(FEAT_ROADVEHS, ID_4B_mb_axor_tarpaulin) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_TARPAULIN);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+	}
+	graphics {
+		default: mb_axor_switch_graphics_tarpaulin;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_tarpaulin_cb_articulation;
+		purchase: mb_axor_tarpaulin_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_tanker_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_tanker;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_tanker, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_tanker_group;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_tanker) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_TANKER);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_LIQUID);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_tanker;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_tanker_cb_articulation;
+		purchase: mb_axor_tanker_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_livestock_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_livestock;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_livestock, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_livestock_group;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_livestock) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_LIVESTOCK);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:LVST;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_livestock;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_livestock_cb_articulation;
+		purchase: mb_axor_livestock_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_silo_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_silo;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_silo, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_silo_group;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_silo) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_SILO);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_POWDERIZED);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_silo;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_silo_cb_articulation;
+		purchase: mb_axor_silo_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_stake_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_stake;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_stake, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_graphics_stake;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_stake) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_STAKE);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		refit_cost:0;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		cargo_allow_refit: [WOOD,WDPR,STEL]; // todo: add more fitting cargos
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_stake;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_stake_cb_articulation;
+		purchase: mb_axor_stake_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_refrigerated_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_refrigerated;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_refrigerated, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_refrigerated_group;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_refrigerated) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_REFRIGERATED);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		refit_cost:0;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_REFRIGERATED);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_refrigerated;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_refrigerated_cb_articulation;
+		purchase: mb_axor_refrigerated_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_flatbed_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_flatbed;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_flatbed, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_machinery_group;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_flatbed) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_FLATBED);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		refit_cost:0;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_flatbed;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_flatbed_cb_articulation;
+		purchase: mb_axor_flatbed_menu;
+	}
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_container_cb_articulation, extra_callback_info1) {
+	1: return ID_4B_mb_axor_container;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, mb_axor_switch_graphics_container, position_in_consist) {
+	0: mb_axor;
+	trailer_mantgx_mbaxor_graphics_container_spritestack;
+}
+
+item(FEAT_ROADVEHS, ID_4B_mb_axor_container) {
+	property{
+		name: string(TRUCK_MB_AXOR_1840_CONTAINER);
+		introduction_date:date(2000,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:100 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:13; // 26t in trailer
+		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		refit_cost:0;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
+		length:8;
+        power:400 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
+		variant_group: ID_4B_mb_axor_tarpaulin;
+	}
+	graphics {
+		default: mb_axor_switch_graphics_container;
+		cargo_capacity: mb_axor_cb_cargo_capacity;
+		purchase_cargo_capacity: return 13; // doubled due to articulation
+		articulated_part:mb_axor_container_cb_articulation;
+		purchase: mb_axor_container_menu;
+	}
+}
