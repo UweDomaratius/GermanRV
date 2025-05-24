@@ -36,18 +36,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         # first run a dry run of the release to get the version number to be compiled into the grf
-        # then build the grf
-        # then create the changelog
-        # zip grf + changelog + readme
+        # then build the grf and create the changelog
+        # zip grf + changelog
         # create the actual release
         run: |
           npm i semantic-release@24.2.5 conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
           VERSION_SPACES=$(npx semantic-release --dryRun --branches ${{ github.ref_name }} | grep -oP 'Published release \K.*? ')
           VERSION="${VERSION_SPACES// /}" # Remove spaces
-          nmlc --version
+          python build.py $VERSION
           
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
           sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
-          cat changelog.md
           
-          npx semantic-release --dry-run
+          cp build/german_rvs.grf german_rvs.grf
+          zip german_rvs.zip changelog.md german_rvs.grf
+          
+          npx semantic-release
