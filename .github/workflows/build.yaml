@@ -40,3 +40,5 @@ jobs:
           nmlc --version
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
           cat changelog.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
