@@ -34,4 +34,4 @@ jobs:
           nmlc --version
           npm i conventional-changelog-conventionalcommits
           npx conventional-changelog --help
-          npx conventional-changelog -p conventional-commits -r 0 -o build/changelog.md
+          npx conventional-changelog -p conventionalcommits -r 0 -o build/changelog.md
