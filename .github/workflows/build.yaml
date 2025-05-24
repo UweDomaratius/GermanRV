@@ -34,7 +34,11 @@ jobs:
         run: |
           npm i semantic-release@24.2.5 conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
           npx semantic-release --debug --dryRun  --branches ${{ github.ref_name }}
+<<<<<<< Updated upstream
           VERSION_SPACES=$(npx semantic-release --dryRun | grep -oP 'Published release \K.*? ')
+=======
+          VERSION_SPACES=$(npx semantic-release --branches ${{ github.ref_name }} --dryRun | grep -oP 'Published release \K.*? ')
+>>>>>>> Stashed changes
           VERSION="${VERSION_SPACES// /}" # Remove spaces
           echo $VERSION
           nmlc --version
