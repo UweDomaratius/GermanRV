@@ -12,11 +12,11 @@ inputs = [
     "src/recolour.pnml",
 ]
 
-buses = glob.glob("src/bus/*.pnml")
+buses = sorted(glob.glob("src/bus/*.pnml"))
 inputs.extend(buses)
-trams = glob.glob("src/tram/*.pnml")
+trams = sorted(glob.glob("src/tram/*.pnml"))
 inputs.extend(trams)
-trucks = glob.glob("src/truck/*.pnml")
+trucks = sorted(glob.glob("src/truck/*.pnml"))
 inputs.extend(trucks)
 
 # clean the build dir, we'll recreate all files
@@ -58,8 +58,6 @@ for key,value in constants.items():
 with open('build/german_rvs.nml', 'w') as file:
   file.write(filedata)
   
-subprocess.run(["cat","build/german_rvs.nml"])
-
 # call nmlc to create the grf output
 subprocess.run(["nmlc", "-c", "--grf", "build/german_rvs.grf","build/german_rvs.nml"])
 
