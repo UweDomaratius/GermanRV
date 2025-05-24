@@ -38,6 +38,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         # first run a dry run of the release to get the version number to be compiled into the grf
         run: |
+          VERSION_SPACES=$(npx semantic-release --dryRun | grep -oP 'Published release \K.*? ')
+          VERSION="${VERSION_SPACES// /}" # Remove spaces
+          echo $VERSION
           nmlc --version
           npm i conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md

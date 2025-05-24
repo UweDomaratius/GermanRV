@@ -30,61 +30,11 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: python -m pip install --upgrade pip setuptools wheel nml
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v3.2.1
-        with:
-          versionSpec: '6.3.x'
-      - name: Determine Version
-        id: version_step # step id used as a reference for output values
-        uses: gittools/actions/gitversion/execute@v3.2.1
-          
-      - name: Display GitVersion variables (without prefix)
-        run: |
-          echo "FullSemVer (env.fullSemVer)            : ${{ env.fullSemVer }}"
-          echo "FullSemVer (env.GitVersion_FullSemVer) : ${{ env.GitVersion_FullSemVer }}"
-        
-      - name: Display GitVersion outputs (step output without prefix)
-        run: |
-          echo "FullSemVer (steps.version_step.outputs.fullSemVer)            : ${{ steps.version_step.outputs.fullSemVer }}"
-      - name: Display GitVersion outputs (step output with prefix)
-        run: |
-          echo "FullSemVer (steps.version_step.outputs.GitVersion_FullSemVer) : ${{ steps.version_step.outputs.GitVersion_FullSemVer }}"
-      - name: Display mapped local env (outputs without prefix)
-        env:
-          myvar_fullSemVer: ${{ steps.version_step.outputs.fullSemVer }}
-        run: |
-          echo "FullSemVer (env.myvar_fullSemVer)            : ${{ env.myvar_fullSemVer }}"
-      - name: Display mapped local env (outputs with prefix)
-        env:
-          myvar_GitVersion_FullSemVer: ${{ steps.version_step.outputs.GitVersion_FullSemVer }}
-        run: |
-          echo "FullSemVer (env.myvar_GitVersion_FullSemVer) : ${{ env.myvar_GitVersion_FullSemVer }}"
-      - name: Display mapped local env (pwsh - outputs without prefix)
-        shell: pwsh
-        env:
-          myvar_fullSemVer: ${{ steps.version_step.outputs.fullSemVer }}
-        run: |
-          echo "FullSemVer (env.myvar_fullSemVer)            : $env:myvar_fullSemVer"
-      - name: Display mapped local env (pwsh - outputs with prefix)
-        shell: pwsh
-        env:
-          myvar_GitVersion_FullSemVer: ${{ steps.version_step.outputs.GitVersion_FullSemVer }}
-        run: |
-          echo "FullSemVer (env.myvar_GitVersion_FullSemVer) : $env:myvar_GitVersion_FullSemVer"
-      - name: Display mapped local env (bash - outputs without prefix)
-        shell: bash
-        env:
-          myvar_fullSemVer: ${{ steps.version_step.outputs.fullSemVer }}
-        run: |
-          echo "FullSemVer (myvar_fullSemVer)            : $myvar_fullSemVer"
-      - name: Display mapped local env (bash - outputs with prefix)
-        shell: bash
-        env:
-          myvar_GitVersion_FullSemVer: ${{ steps.version_step.outputs.GitVersion_FullSemVer }}
-        run: |
-          echo "FullSemVer (myvar_GitVersion_FullSemVer) : $myvar_GitVersion_FullSemVer"
       - name: Build
         run: |
+          VERSION_SPACES=$(npx semantic-release --dryRun | grep -oP 'Published release \K.*? ')
+          VERSION="${VERSION_SPACES// /}" # Remove spaces
+          echo $VERSION
           nmlc --version
           npm i conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
