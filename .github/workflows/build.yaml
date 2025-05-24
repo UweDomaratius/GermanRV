@@ -30,6 +30,7 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: python -m pip install --upgrade pip setuptools wheel nml
+        # foo
       - name: Build
         run: |
           npm i semantic-release@24.2.5 conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
