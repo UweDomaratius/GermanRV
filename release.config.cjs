@@ -10,5 +10,6 @@ module.exports = {
 	  {
         "assets": ["changelog.md"]
 	  }
+    ]
   ]
 };
