@@ -36,7 +36,7 @@ jobs:
           VERSION_SPACES=$(npx semantic-release --dryRun --branches ${{ github.ref_name }} | grep -oP 'Published release \K.*? ')
           VERSION="${VERSION_SPACES// /}" # Remove spaces
           
-          nmlc --version
+          python build.py $VERSION
           
           npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
           sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
