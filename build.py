@@ -57,6 +57,8 @@ for key,value in constants.items():
 # Write the file out again
 with open('build/german_rvs.nml', 'w') as file:
   file.write(filedata)
+  
+subprocess.run(["cat"],"build/german_rvs.nml"])
 
 # call nmlc to create the grf output
 subprocess.run(["nmlc", "-c", "--grf", "build/german_rvs.grf","build/german_rvs.nml"])
