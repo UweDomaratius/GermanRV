@@ -37,11 +37,5 @@ jobs:
           VERSION="${VERSION_SPACES// /}" # Remove spaces
           python build.py $VERSION
           
-          npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
-          sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
-          
-          cp build/german_rvs.grf german_rvs.grf
-          zip german_rvs.zip changelog.md german_rvs.grf
-          
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
