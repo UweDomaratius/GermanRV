@@ -26,16 +26,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      # TODO: build the grf and the changelog file to be included in the release zip
-      #- name: Release
-      #  run: |
-      #    python build.py # build the grf
-      #    npx conventional-changelog -p conventional-commit -r 0 
-      
-      
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip setuptools wheel nml
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # first run a dry run of the release to get the version number to be compiled into the grf
         run: |
+          VERSION_SPACES=$(npx semantic-release --dryRun | grep -oP 'Published release \K.*? ')
+          VERSION="${VERSION_SPACES// /}" # Remove spaces
+          echo $VERSION
+          nmlc --version
+          npm i conventional-changelog-conventionalcommits@9.0.0 conventional-changelog@7.0.2
+          npx conventional-changelog -p conventionalcommits -r 0 -f -o changelog.md
           npx semantic-release --dry-run
