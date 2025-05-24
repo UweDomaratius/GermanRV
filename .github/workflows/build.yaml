@@ -41,6 +41,8 @@ jobs:
           sed -i -e "s/## \[\]/## \[$VERSION\]/" changelog.md
           cat changelog.md
           
+          cp build/german_rvs.grf german_rvs.grf
+          zip german_rvs.zip changelog.md german_rvs.grf
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
