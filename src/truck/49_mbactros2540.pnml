@@ -122,6 +122,46 @@ spriteset(mbactros2540_vehicles_full, "graphics/mbactros2540.pcx") {
 	t_mbactros_2540(1480)
 }
 
+spriteset(mbactros2540_refrigerated_menu, "graphics/mbactros2540.pcx") {
+    [ 2, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_tarpaulin_menu, "graphics/mbactros2540.pcx") {
+    [ 65, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_open_crane_menu, "graphics/mbactros2540.pcx") {
+    [ 130, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_open_menu, "graphics/mbactros2540.pcx") {
+    [ 194, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_livestock_menu, "graphics/mbactros2540.pcx") {
+    [ 258, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_tanker_menu, "graphics/mbactros2540.pcx") {
+    [ 322, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_silo_menu, "graphics/mbactros2540.pcx") {
+    [ 386, 38,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_wood_menu, "graphics/mbactros2540.pcx") {
+    [ 2, 173,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_container_menu, "graphics/mbactros2540.pcx") {
+    [ 66, 173,  51,14,  -25, -7]
+}
+
+spriteset(mbactros2540_vehicles_menu, "graphics/mbactros2540.pcx") {
+    [ 130, 173,  51,14,  -25, -7]
+}
+
 spritegroup mbactros2540_open_bulk_group {
 	loading: [mbactros2540_void, mbactros2540_open_bulk_half_full, mbactros2540_open_bulk_full];
 	loaded:  [mbactros2540_void, mbactros2540_open_bulk_half_full, mbactros2540_open_bulk_full];
@@ -295,6 +335,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_open_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		articulated_part:mbactros2540_open_cb_articulation;
+		purchase: mbactros2540_open_menu;
 	}
 }
 
@@ -377,10 +418,10 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_tarpaulin_with_trailer) {
 	}
 	graphics {
 		default: mbactros2540_switch_graphics_tarpaulin;
-		purchase: mbactros2540_tarpaulin;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		articulated_part:mbactros2540_tarpaulin_cb_articulation;
+		purchase: mbactros2540_tarpaulin_menu;
 	}
 }
 
@@ -461,6 +502,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_silo_with_trailer) {
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2540_silo_cb_articulation;
+		purchase: mbactros2540_silo_menu;
 	}
 }
 
@@ -541,6 +583,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_tanker_with_trailer) {
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2540_tanker_cb_articulation;
+		purchase:mbactros2540_tanker_menu;
 	}
 }
 
@@ -617,10 +660,10 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_livestock_with_trailer) {
 	}
 	graphics {
 		default: mbactros2540_switch_graphics_livestock;
-		purchase: mbactros2540_livestock;
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2540_livestock_cb_articulation;
+		purchase: mbactros2540_livestock_menu;
 	}
 }
 
@@ -703,6 +746,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_wood_with_trailer) {
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		articulated_part:mbactros2540_wood_cb_articulation;
+		purchase:mbactros2540_wood_menu;
 	}
 }
 
@@ -815,7 +859,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_vehicles) {
 	graphics {
 		default: mbactros2540_switch_graphics_vehicles;
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
-		additional_text: return string(STR_CFG_TRUCK_TRAILER);
+		additional_text: return string(STR_CFG_TRUCK);
 		random_trigger: mbactros2540_graphics_vehicles_random_freight_color;
 	}
 }
@@ -852,6 +896,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_vehicles_with_trailer) {
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2540_vehicles_cb_articulation;
 		random_trigger: mbactros2540_graphics_vehicles_random_freight_color;
+		purchase:mbactros2540_vehicles_menu;
 	}
 }
 
@@ -1008,6 +1053,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_container_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		articulated_part:mbactros2540_container_cb_articulation;
 		random_trigger: mbactros2540_graphics_container_random_freight_color;
+		purchase:mbactros2540_container_menu;
 	}
 }
 
@@ -1090,6 +1136,7 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_refrigerated_with_trailer) {
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2540_refrigerated_cb_articulation;
+		purchase:mbactros2540_refrigerated_menu;
 	}
 }
 
@@ -1183,5 +1230,6 @@ item(FEAT_ROADVEHS, ID_49_mbactros2540_open_crane_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mbactros2540_cb_cargo_capacity;
 		articulated_part:mbactros2540_crane_cb_articulation;
+		purchase:mbactros2540_open_crane_menu;
 	}
 }

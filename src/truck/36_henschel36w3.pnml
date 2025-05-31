@@ -53,6 +53,22 @@ spriteset(henschel36w3_open_crates, "graphics/henschel36w3.pcx") {
 	t_henschel36w3(648)
 }
 
+spriteset(henschel36w3_open_menu, "graphics/henschel36w3.pcx") {
+	[ 66, 168,  53,13,  -26, -7]
+}
+
+spriteset(henschel36w3_tarpaulin_menu, "graphics/henschel36w3.pcx") {
+	[ 130, 168,  53,13,  -26, -7]
+}
+
+spriteset(henschel36w3_closed_menu, "graphics/henschel36w3.pcx") {
+	[ 2, 168,  53,13,  -26, -7]
+}
+
+spriteset(henschel36w3_tanker_menu, "graphics/henschel36w3.pcx") {
+	[ 194, 168,  53,13,  -26, -7]
+}
+
 spritegroup henschel36w3_open_bulk_group {
 	loading: [henschel36w3_void, henschel36w3_open_bulk_half_full, henschel36w3_open_bulk_full];
 	loaded:  [henschel36w3_void, henschel36w3_open_bulk_half_full, henschel36w3_open_bulk_full];
@@ -196,6 +212,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_open_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_open_cb_articulation;
+		purchase: henschel36w3_open_menu;
 	}
 }
 
@@ -240,6 +257,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tarpaulin) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_tarpaulin;
+		purchase: henschel36w3_tarpaulin;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 	}
@@ -272,12 +290,14 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tarpaulin_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+		variant_group: ID_36_henschel36w3_tarpaulin;
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_tarpaulin;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_tarpaulin_cb_articulation;
+		purchase: henschel36w3_tarpaulin_menu;
 	}
 }
 
@@ -362,6 +382,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_closed_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_closed_cb_articulation;
+		purchase: henschel36w3_closed_menu;
 	}
 }
 
@@ -442,5 +463,6 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tanker_with_trailer) {
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:henschel36w3_tanker_cb_articulation;
+		purchase: henschel36w3_tanker_menu;
 	}
 }

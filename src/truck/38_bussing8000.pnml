@@ -53,6 +53,22 @@ spriteset(bussing8000_tanker, "graphics/buessing8000.pcx") {
 	t_bussing8000(648)
 }
 
+spriteset(bussing8000_open_menu, "graphics/buessing8000.pcx") {
+	[ 66, 39,  53,13,  -26, -7]
+}
+
+spriteset(bussing8000_tarpaulin_menu, "graphics/buessing8000.pcx") {
+	[ 2, 39,  53,13,  -26, -7]
+}
+
+spriteset(bussing8000_closed_menu, "graphics/buessing8000.pcx") {
+	[ 130, 39,  53,13,  -26, -7]
+}
+
+spriteset(bussing8000_tanker_menu, "graphics/buessing8000.pcx") {
+	[ 194, 39,  53,13,  -26, -7]
+}
+
 spritegroup bussing8000_open_bulk_group {
 	loading: [bussing8000_void, bussing8000_open_bulk_half_full, bussing8000_open_bulk_full];
 	loaded:  [bussing8000_void, bussing8000_open_bulk_half_full, bussing8000_open_bulk_full];
@@ -196,6 +212,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_open_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing8000_cb_cargo_capacity;
 		articulated_part:bussing8000_open_cb_articulation;
+		purchase: bussing8000_open_menu;
 	}
 }
 
@@ -278,6 +295,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tarpaulin_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing8000_cb_cargo_capacity;
 		articulated_part:bussing8000_tarpaulin_cb_articulation;
+		purchase: bussing8000_tarpaulin_menu;
 	}
 }
 
@@ -362,6 +380,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_closed_with_trailer) {
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing8000_cb_cargo_capacity;
 		articulated_part:bussing8000_closed_cb_articulation;
+		purchase: bussing8000_closed_menu;
 	}
 }
 
@@ -442,5 +461,6 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tanker_with_trailer) {
 		cargo_capacity: bussing8000_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:bussing8000_tanker_cb_articulation;
+		purchase: bussing8000_tanker_menu;
 	}
 }
