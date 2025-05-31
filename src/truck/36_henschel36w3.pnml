@@ -53,6 +53,22 @@ spriteset(henschel36w3_open_crates, "graphics/henschel36w3.pcx") {
 	t_henschel36w3(648)
 }
 
+spriteset(henschel36w3_open_menu, "graphics/henschel36w3.pcx") {
+	[ 66, 168,  53,13,  -26, -7]
+}
+
+spriteset(henschel36w3_tarpaulin_menu, "graphics/henschel36w3.pcx") {
+	[ 130, 168,  53,13,  -26, -7]
+}
+
+spriteset(henschel36w3_closed_menu, "graphics/henschel36w3.pcx") {
+	[ 2, 168,  53,13,  -26, -7]
+}
+
+spriteset(henschel36w3_tanker_menu, "graphics/henschel36w3.pcx") {
+	[ 194, 168,  53,13,  -26, -7]
+}
+
 spritegroup henschel36w3_open_bulk_group {
 	loading: [henschel36w3_void, henschel36w3_open_bulk_half_full, henschel36w3_open_bulk_full];
 	loaded:  [henschel36w3_void, henschel36w3_open_bulk_half_full, henschel36w3_open_bulk_full];
@@ -139,6 +155,42 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_open) {
         running_cost_factor:7;
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:9;
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:170 hp;
+        weight:15 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		variant_group: ID_36_henschel36w3_tarpaulin;
+	}
+	graphics {
+		default: henschel36w3_switch_graphics_open;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: henschel36w3_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_36_henschel36w3_open_with_trailer) {
+	property{
+		name: string(TRUCK_HENSCHEL_36W3_OPEN);
+		introduction_date:date(1932,01,01);
+		reliability_decay:18;
+		vehicle_life:9;
+        model_life:40;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:12; // 9t + 15t in trailer
 		default_cargo_type:COAL;
 		cost_factor:4;
@@ -157,9 +209,10 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_open) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_open;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_open_cb_articulation;
+		purchase: henschel36w3_open_menu;
 	}
 }
 
@@ -187,7 +240,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tarpaulin) {
         running_cost_factor:7;
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
-        cargo_capacity:12; // 9t + 15t in trailer
+        cargo_capacity:9;
 		default_cargo_type:GOOD;
 		cost_factor:4;
 		refit_cost:0;
@@ -204,9 +257,47 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tarpaulin) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_tarpaulin;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		purchase: henschel36w3_tarpaulin;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: henschel36w3_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_36_henschel36w3_tarpaulin_with_trailer) {
+	property{
+		name: string(TRUCK_HENSCHEL_36W3_TARPAULIN);
+		introduction_date:date(1932,01,01);
+		reliability_decay:18;
+		vehicle_life:9;
+        model_life:40;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:12; // 9t + 15t in trailer
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:170 hp;
+        weight:15 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+		variant_group: ID_36_henschel36w3_tarpaulin;
+	}
+	graphics {
+		default: henschel36w3_switch_graphics_tarpaulin;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_tarpaulin_cb_articulation;
+		purchase: henschel36w3_tarpaulin_menu;
 	}
 }
 
@@ -222,6 +313,42 @@ switch(FEAT_ROADVEHS, SELF, henschel36w3_switch_graphics_closed, position_in_con
 
 // closed_van
 item(FEAT_ROADVEHS, ID_36_henschel36w3_closed) {
+	property{
+		name: string(TRUCK_HENSCHEL_36W3_CLOSED);
+		introduction_date:date(1932,01,01);
+		reliability_decay:18;
+		vehicle_life:9;
+        model_life:40;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:9;
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:170 hp;
+        weight:15 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		variant_group: ID_36_henschel36w3_tarpaulin;
+	}
+	graphics {
+		default: henschel36w3_switch_graphics_closed;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: henschel36w3_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_36_henschel36w3_closed_with_trailer) {
 	property{
 		name: string(TRUCK_HENSCHEL_36W3_CLOSED);
 		introduction_date:date(1932,01,01);
@@ -252,9 +379,10 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_closed) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_closed;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_closed_cb_articulation;
+		purchase: henschel36w3_closed_menu;
 	}
 }
 
@@ -270,6 +398,40 @@ switch(FEAT_ROADVEHS, SELF, henschel36w3_switch_graphics_tanker, position_in_con
 
 // tanker
 item(FEAT_ROADVEHS, ID_36_henschel36w3_tanker) {
+	property{
+		name: string(TRUCK_HENSCHEL_36W3_TANKER);
+		introduction_date:date(1932,01,01);
+		reliability_decay:18;
+		vehicle_life:9;
+        model_life:40;
+        loading_speed:6;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:9;
+		default_cargo_type:OIL_;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:170 hp;
+        weight:15 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:0;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_LIQUID);
+		variant_group: ID_36_henschel36w3_tarpaulin;
+	}
+	graphics {
+		default: henschel36w3_switch_graphics_tanker;
+		cargo_capacity: henschel36w3_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK);
+	}
+}
+
+item(FEAT_ROADVEHS, ID_36_henschel36w3_tanker_with_trailer) {
 	property{
 		name: string(TRUCK_HENSCHEL_36W3_TANKER);
 		introduction_date:date(1932,01,01);
@@ -299,6 +461,8 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tanker) {
 	graphics {
 		default: henschel36w3_switch_graphics_tanker;
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:henschel36w3_tanker_cb_articulation;
+		purchase: henschel36w3_tanker_menu;
 	}
 }

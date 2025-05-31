@@ -1,0 +1,8 @@
+##grflangid 0x00
+##plural 0
+# This is the English (US) language file
+# Most strings are the same as for the default english.lng
+
+STR_CFG_TRUCK            :{BLACK}Configuration: {ORANGE}truck
+STR_CFG_TRUCK_TRAILER    :{BLACK}Configuration: {ORANGE}truck with trailer
+STR_CFG_TRUCK_SEMITRAILER:{BLACK}Configuration: {ORANGE}semi-trailer truck

@@ -6,11 +6,16 @@
 STR_GRF_NAME        :{TITLE} {VERSION}
 STR_GRF_DESCRIPTION :German road vehicles for OpenTTD{}Daniel Böhme, Uwe Domaratius, Roland Kahlert, Stephan Krause, Hansel Kruzer{}Special thanks to Michael Blunck{}{COPYRIGHT}2006-2025 {}License: CC-BY-NC-SA v4.0
 
+STR_PURCHASE_MENU2 :{STRING}{}{STRING}
+
 STR_BUS_CITY    :{BLACK}Usage: {ORANGE}city lines
 STR_BUS_COACH   :{BLACK}Usage: {ORANGE}coach
 STR_BUS_REGIONAL:{BLACK}Usage: {ORANGE}regional lines
 
-STR_TRUCK_AUTOREFIT:{BLACK}Refittable in stations.
+STR_TRUCK_AUTOREFIT      :{BLACK}Refittable in stations.
+STR_CFG_TRUCK            :{BLACK}Configuration: {ORANGE}lorry
+STR_CFG_TRUCK_TRAILER    :{BLACK}Configuration: {ORANGE}lorry with trailer
+STR_CFG_TRUCK_SEMITRAILER:{BLACK}Configuration: {ORANGE}articulated lorry
 
 # Buses
 BUS_VOMAG_P20            :Vomag P20f

@@ -87,6 +87,6 @@ item(FEAT_ROADVEHS, ID_4D_mbactros2_4146k_open) {
 	}
 	graphics {
 		default: mbactros2_4146k_switch_graphics_open;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
 	}
 }
