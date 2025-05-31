@@ -99,7 +99,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_open) {
 	}
 	graphics {
 		default: mantgx_switch_graphics_open;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mantgx_cb_cargo_capacity;
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_open_cb_articulation;
@@ -148,7 +148,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_tarpaulin) {
 	}
 	graphics {
 		default: mantgx_switch_graphics_tarpaulin;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mantgx_cb_cargo_capacity;
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_tarpaulin_cb_articulation;
@@ -196,6 +196,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_tanker) {
 	graphics {
 		default: mantgx_switch_graphics_tanker;
 		cargo_capacity: mantgx_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_tanker_cb_articulation;
 		purchase: mantgx_tanker_menu;
@@ -241,6 +242,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_livestock) {
 	graphics {
 		default: mantgx_switch_graphics_livestock;
 		cargo_capacity: mantgx_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_livestock_cb_articulation;
 		purchase: mantgx_livestock_menu;
@@ -287,6 +289,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_silo) {
 	graphics {
 		default: mantgx_switch_graphics_silo;
 		cargo_capacity: mantgx_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_silo_cb_articulation;
 		purchase: mantgx_silo_menu;
@@ -334,7 +337,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_stake) {
 	graphics {
 		default: mantgx_switch_graphics_stake;
 		cargo_capacity: mantgx_cb_cargo_capacity;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_stake_cb_articulation;
 		purchase: mantgx_stake_menu;
@@ -382,6 +385,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_refrigerated) {
 	graphics {
 		default: mantgx_switch_graphics_refrigerated;
 		cargo_capacity: mantgx_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_refrigerated_cb_articulation;
 		purchase: mantgx_refrigerated_menu;
@@ -429,6 +433,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_flatbed) {
 	graphics {
 		default: mantgx_switch_graphics_flatbed;
 		cargo_capacity: mantgx_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_flatbed_cb_articulation;
 		purchase: mantgx_flatbed_menu;
@@ -477,6 +482,7 @@ item(FEAT_ROADVEHS, ID_51_mantgx_container) {
 	graphics {
 		default: mantgx_switch_graphics_container;
 		cargo_capacity: mantgx_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mantgx_container_cb_articulation;
 		purchase: mantgx_container_menu;

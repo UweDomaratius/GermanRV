@@ -157,7 +157,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_open) {
 	}
 	graphics {
 		default: bussing5000_switch_graphics_open;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing5000_cb_cargo_capacity;
 		articulated_part:bussing5000_open_cb_articulation;
 	}
@@ -204,7 +204,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_tarpaulin) {
 	}
 	graphics {
 		default: bussing5000_switch_graphics_tarpaulin;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing5000_cb_cargo_capacity;
 		articulated_part:bussing5000_tarpaulin_cb_articulation;
 	}
@@ -252,7 +252,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_closed) {
 	}
 	graphics {
 		default: bussing5000_switch_graphics_closed;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing5000_cb_cargo_capacity;
 		articulated_part:bussing5000_closed_cb_articulation;
 	}
@@ -299,6 +299,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_tanker) {
 	graphics {
 		default: bussing5000_switch_graphics_tanker;
 		cargo_capacity: bussing5000_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:bussing5000_tanker_cb_articulation;
 	}
 }

@@ -157,7 +157,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_open) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_open;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_open_cb_articulation;
 	}
@@ -204,7 +204,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tarpaulin) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_tarpaulin;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_tarpaulin_cb_articulation;
 	}
@@ -252,7 +252,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_closed) {
 	}
 	graphics {
 		default: henschel36w3_switch_graphics_closed;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
 		articulated_part:henschel36w3_closed_cb_articulation;
 	}
@@ -299,6 +299,7 @@ item(FEAT_ROADVEHS, ID_36_henschel36w3_tanker) {
 	graphics {
 		default: henschel36w3_switch_graphics_tanker;
 		cargo_capacity: henschel36w3_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:henschel36w3_tanker_cb_articulation;
 	}
 }

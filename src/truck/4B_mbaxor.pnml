@@ -98,7 +98,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_open) {
 	}
 	graphics {
 		default: mb_axor_switch_graphics_open;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mb_axor_cb_cargo_capacity;
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_open_cb_articulation;
@@ -147,7 +147,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_tarpaulin) {
 	}
 	graphics {
 		default: mb_axor_switch_graphics_tarpaulin;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mb_axor_cb_cargo_capacity;
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_tarpaulin_cb_articulation;
@@ -195,6 +195,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_tanker) {
 	graphics {
 		default: mb_axor_switch_graphics_tanker;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_tanker_cb_articulation;
 		purchase: mb_axor_tanker_menu;
@@ -240,6 +241,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_livestock) {
 	graphics {
 		default: mb_axor_switch_graphics_livestock;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_livestock_cb_articulation;
 		purchase: mb_axor_livestock_menu;
@@ -286,6 +288,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_silo) {
 	graphics {
 		default: mb_axor_switch_graphics_silo;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_silo_cb_articulation;
 		purchase: mb_axor_silo_menu;
@@ -333,7 +336,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_stake) {
 	graphics {
 		default: mb_axor_switch_graphics_stake;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_stake_cb_articulation;
 		purchase: mb_axor_stake_menu;
@@ -381,6 +384,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_refrigerated) {
 	graphics {
 		default: mb_axor_switch_graphics_refrigerated;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_refrigerated_cb_articulation;
 		purchase: mb_axor_refrigerated_menu;
@@ -428,6 +432,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_flatbed) {
 	graphics {
 		default: mb_axor_switch_graphics_flatbed;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_flatbed_cb_articulation;
 		purchase: mb_axor_flatbed_menu;
@@ -476,6 +481,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_container) {
 	graphics {
 		default: mb_axor_switch_graphics_container;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		purchase_cargo_capacity: return 13; // doubled due to articulation
 		articulated_part:mb_axor_container_cb_articulation;
 		purchase: mb_axor_container_menu;

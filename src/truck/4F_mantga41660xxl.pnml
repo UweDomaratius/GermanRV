@@ -74,6 +74,6 @@ item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
 	}
 	graphics {
 		default: mantga41660xxl_switch_graphics;
-		additional_text: return string(STR_TRUCK_AUTOREFIT);
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 	}
 }
