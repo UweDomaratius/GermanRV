@@ -139,6 +139,42 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_open) {
         running_cost_factor:7;
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:8;
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:110 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		variant_group: ID_38_bussing8000_tarpaulin;
+	}
+	graphics {
+		default: bussing8000_switch_graphics_open;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: bussing8000_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_38_bussing8000_open_with_trailer) {
+	property{
+		name: string(TRUCK_BUESSING_8000_OPEN);
+		introduction_date:date(1948,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:12; // 8t + 16t in trailer
 		default_cargo_type:COAL;
 		cost_factor:4;
@@ -175,6 +211,41 @@ switch(FEAT_ROADVEHS, SELF, bussing8000_switch_graphics_tarpaulin, position_in_c
 
 // tarpaulin
 item(FEAT_ROADVEHS, ID_38_bussing8000_tarpaulin) {
+	property{
+		name: string(TRUCK_BUESSING_8000_TARPAULIN);
+		introduction_date:date(1948,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:8;
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:110 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+	}
+	graphics {
+		default: bussing8000_switch_graphics_tarpaulin;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: bussing8000_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_38_bussing8000_tarpaulin_with_trailer) {
 	property{
 		name: string(TRUCK_BUESSING_8000_TARPAULIN);
 		introduction_date:date(1948,01,01);
@@ -234,6 +305,42 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_closed) {
         running_cost_factor:7;
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:8;
+		default_cargo_type:GOOD;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:110 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		variant_group: ID_38_bussing8000_tarpaulin;
+	}
+	graphics {
+		default: bussing8000_switch_graphics_closed;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: bussing8000_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_38_bussing8000_closed_with_trailer) {
+	property{
+		name: string(TRUCK_BUESSING_8000_CLOSED);
+		introduction_date:date(1948,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:12; // 8t + 16t in trailer
 		default_cargo_type:GOOD;
 		cost_factor:4;
@@ -270,6 +377,40 @@ switch(FEAT_ROADVEHS, SELF, bussing8000_switch_graphics_tanker, position_in_cons
 
 // tanker
 item(FEAT_ROADVEHS, ID_38_bussing8000_tanker) {
+	property{
+		name: string(TRUCK_BUESSING_8000_TANKER);
+		introduction_date:date(1948,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:65 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:8;
+		default_cargo_type:OIL_;
+		cost_factor:4;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:110 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:12;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		refittable_cargo_classes:bitmask(CC_LIQUID);
+		variant_group: ID_38_bussing8000_tarpaulin;
+	}
+	graphics {
+		default: bussing8000_switch_graphics_tanker;
+		cargo_capacity: bussing8000_cb_cargo_capacity;
+		additional_text: return string(STR_CFG_TRUCK);
+	}
+}
+
+item(FEAT_ROADVEHS, ID_38_bussing8000_tanker_with_trailer) {
 	property{
 		name: string(TRUCK_BUESSING_8000_TANKER);
 		introduction_date:date(1948,01,01);
