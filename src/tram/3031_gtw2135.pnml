@@ -210,33 +210,6 @@ switch(FEAT_ROADVEHS, SELF, gtw21_graphics, position_in_consist) {
 	gtw21_graphics_wagons;
 }
 
-//switch(FEAT_ROADVEHS, SELF, gtw21_cb_colour_bulk_freight, cargo_type_in_veh) {
-//	AORE: return bulk_palettes + CT_BAUXIT;
-//	CLAY: return bulk_palettes + CT_CLAY;
-//    COAL: return bulk_palettes + CT_COAL;
-//    COKE: return bulk_palettes + CT_COKE;
-//    CORE: return bulk_palettes + CT_COPPER_ORE;
-//    FERT: return bulk_palettes + CT_FERTILIZER;
-//    GRAI: return bulk_palettes + CT_GRAIN;
-//    GRVL: return bulk_palettes + CT_GRAVEL;
-//    IORE: return bulk_palettes + CT_IRON_ORE;
-//    KAOL: return bulk_palettes + CT_KAOLIN;
-//    LIME: return bulk_palettes + CT_LIMESTONE;
-//    MNO2: return bulk_palettes + CT_MANGANESE;
-//    NITR: return bulk_palettes + CT_NITRATE;
-//    OLSD: return bulk_palettes + CT_OIL_SEEDS;
-//    PEAT: return bulk_palettes + CT_PEAT;
-//    PHOS: return bulk_palettes + CT_PHOSPHATE;
-//    POTA: return bulk_palettes + CT_POTASH;
-//    PORE: return bulk_palettes + CT_PYRIT;
-//    SALT: return bulk_palettes + CT_SALT;
-//    SAND: return bulk_palettes + CT_SAND;
-//    SCRP: return bulk_palettes + CT_SCRAP_METAL;
-//    SULP: return bulk_palettes + CT_SULPHUR;
-//    WDPR: return bulk_palettes + CT_WOOD_PRODUCTS;
-//	return PALETTE_USE_DEFAULT;
-//}
-
 switch(FEAT_ROADVEHS, SELF, gtw21_cb_colour_mapping, position_in_consist > 0 && (cargo_classes & bitmask(CC_BULK)) == bitmask(CC_BULK)) {
 	1: cb_colour_bulk_freight;
 	return CB_FAILED;
@@ -245,6 +218,11 @@ switch(FEAT_ROADVEHS, SELF, gtw21_cb_colour_mapping, position_in_consist > 0 && 
 switch(FEAT_ROADVEHS, SELF, gtw21_cb_articulation, extra_callback_info1) {
 	1..3: return ID_30_GTw21;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, gtw21_cb_cargo_capacity, position_in_consist) {
+	0: return 0;
+	return (8 * 16) / cargo_unit_weight;
 }
 
 item(FEAT_ROADVEHS, ID_30_GTw21) {
@@ -277,6 +255,8 @@ item(FEAT_ROADVEHS, ID_30_GTw21) {
 		default: gtw21_graphics;
 		purchase: gtw21_menu;
 		colour_mapping:gtw21_cb_colour_mapping;
+		cargo_capacity: gtw21_cb_cargo_capacity;
+		purchase_cargo_capacity: return 6;
 		articulated_part:gtw21_cb_articulation;
 	}
 }
@@ -284,6 +264,11 @@ item(FEAT_ROADVEHS, ID_30_GTw21) {
 switch(FEAT_ROADVEHS, SELF, gtw35_graphics, position_in_consist) {
 	0: gtw35;
 	gtw21_graphics_wagons; // shared wagons for GTw21 and GTw35
+}
+
+switch(FEAT_ROADVEHS, SELF, gtw35_cb_cargo_capacity, position_in_consist) {
+	0: return 0;
+	return (10 * 16) / cargo_unit_weight;
 }
 
 switch(FEAT_ROADVEHS, SELF, gtw35_cb_articulation, extra_callback_info1) {
@@ -321,6 +306,8 @@ item(FEAT_ROADVEHS, ID_31_GTw35) {
 		default: gtw35_graphics;
 		purchase: gtw35_menu;
 		colour_mapping:gtw21_cb_colour_mapping; // logic is shared between GTw21 and GTw35
+		purchase_cargo_capacity: return 8;
+		cargo_capacity:gtw35_cb_cargo_capacity;
 		articulated_part:gtw35_cb_articulation;
 	}
 }
