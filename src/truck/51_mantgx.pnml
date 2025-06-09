@@ -54,7 +54,7 @@ spriteset(mantgx_silo_menu, "graphics/mantgx.pcx") {
 // truck has 0t capacity, trailer has 26t
 switch(FEAT_ROADVEHS, SELF, mantgx_cb_cargo_capacity, position_in_consist) {
 	0: return 0;
-	return 26;
+	return (26 * 16) / cargo_unit_weight;
 }
 
 switch(FEAT_ROADVEHS, SELF, mantgx_open_cb_articulation, extra_callback_info1) {

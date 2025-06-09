@@ -250,8 +250,8 @@ switch(FEAT_ROADVEHS, SELF, mbactros2_2541_graphics_open_bulk_spritestack,
 
 // truck has 8t capacity, trailer has 16t
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_cb_cargo_capacity, position_in_consist) {
-	0: return 8;
-	return 16;
+	0: return (8 * 16) / cargo_unit_weight;
+	return (16 * 16) / cargo_unit_weight;
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_switch_graphics_open, position_in_consist) {

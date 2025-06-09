@@ -44,6 +44,11 @@ switch(FEAT_ROADVEHS, SELF, mantga41660xxl_switch_graphics, position_in_consist)
 	mantga41660xxl_trailer_group;
 }
 
+switch(FEAT_ROADVEHS, SELF,mantga41660xxl_cb_cargo_capacity, position_in_consist) {
+	0: return 0;
+	return (80 * 16) / cargo_unit_weight;
+}
+
 item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
 	property{
 		name: string(TRUCK_MAN_TGA_41660_XXL);
@@ -74,6 +79,8 @@ item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
 	}
 	graphics {
 		default: mantga41660xxl_switch_graphics;
+		cargo_capacity: mantga41660xxl_cb_cargo_capacity;
+		purchase_cargo_capacity: return 40; // doubled due to articulation
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 	}
 }

@@ -140,6 +140,7 @@ item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_open) {
 	}
 	graphics {
 		default: buessingVIGL_graphics_open;
+		cargo_capacity: return (7 * 16) / cargo_unit_weight;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
 	}
 }
@@ -175,6 +176,7 @@ item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_tarpaulin) {
 	}
 	graphics {
 		default: buessingVIGL_tarpaulin_group;
+		cargo_capacity: return (7 * 16) / cargo_unit_weight;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
 	}
 }
@@ -211,6 +213,7 @@ item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_closed) {
 	}
 	graphics {
 		default: buessingVIGL_closed_van_group;
+		cargo_capacity: return (7 * 16) / cargo_unit_weight;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
 	}
 }
@@ -245,6 +248,7 @@ item(FEAT_ROADVEHS, ID_34_BUSSING_VIGL_tanker) {
 	}
 	graphics {
 		default: buessingVIGL_tanker_group;
+		cargo_capacity: return (7 * 16) / cargo_unit_weight;
 		additional_text: return string(STR_CFG_TRUCK);
 	}
 }
