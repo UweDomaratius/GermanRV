@@ -203,6 +203,7 @@ item(FEAT_ROADVEHS, ID_32_Cargotram) {
 	graphics {
 		default: cargotram_graphics;
 		purchase: cargotram_menu;
+		cargo_capacity: return (12 * 16) / cargo_unit_weight;
 		cargo_subtype_text:cargotram_cb_cargo_subtype;
 		colour_mapping:cargotram_cb_colour_mapping;
 		articulated_part:cargotram_cb_articulation;
