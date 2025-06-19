@@ -58,11 +58,11 @@ spriteset(bussing5000_open_menu, "graphics/buessing5000.pcx") {
 }
 
 spriteset(bussing5000_tarpaulin_menu, "graphics/buessing5000.pcx") {
-	[ 130, 104,  51,13,  -25, -7]
+	[   2, 104,  51,13,  -25, -7]
 }
 
 spriteset(bussing5000_closed_menu, "graphics/buessing5000.pcx") {
-	[ 2, 104,  51,13,  -25, -7]
+	[ 130, 104,  51,13,  -25, -7]
 }
 
 spriteset(bussing5000_tanker_menu, "graphics/buessing5000.pcx") {
@@ -290,6 +290,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_tarpaulin_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+		variant_group: ID_37_bussing5000_tarpaulin;
 	}
 	graphics {
 		default: bussing5000_switch_graphics_tarpaulin;
