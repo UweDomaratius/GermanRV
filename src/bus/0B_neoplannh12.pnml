@@ -22,6 +22,11 @@ spritegroup neoplannh12_blue_group {
 	loaded:  neoplannh12_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, neoplannh12_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 44 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_0B_Neoplan_NH12) {
 	property{
 		name: string(BUS_NEOPLAN_NH12);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_0B_Neoplan_NH12) {
 	}
 	graphics {
 		default: neoplannh12_blue_group;
-		
+		cargo_capacity: neoplannh12_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_COACH);
 	}
 }

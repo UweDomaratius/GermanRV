@@ -220,9 +220,12 @@ switch(FEAT_ROADVEHS, SELF, gtw21_cb_articulation, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
-switch(FEAT_ROADVEHS, SELF, gtw21_cb_cargo_capacity, position_in_consist) {
+
+switch(FEAT_ROADVEHS, SELF, gtw21_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0),
+	position_in_consist]) {
 	0: return 0;
-	return (8 * 16) / cargo_unit_weight;
+	return (8 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
 }
 
 item(FEAT_ROADVEHS, ID_30_GTw21) {
@@ -256,7 +259,7 @@ item(FEAT_ROADVEHS, ID_30_GTw21) {
 		purchase: gtw21_menu;
 		colour_mapping:gtw21_cb_colour_mapping;
 		cargo_capacity: gtw21_cb_cargo_capacity;
-		purchase_cargo_capacity: return 6;
+		purchase_cargo_capacity: return 6 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100;
 		articulated_part:gtw21_cb_articulation;
 	}
 }
@@ -266,9 +269,11 @@ switch(FEAT_ROADVEHS, SELF, gtw35_graphics, position_in_consist) {
 	gtw21_graphics_wagons; // shared wagons for GTw21 and GTw35
 }
 
-switch(FEAT_ROADVEHS, SELF, gtw35_cb_cargo_capacity, position_in_consist) {
+switch(FEAT_ROADVEHS, SELF, gtw35_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0),
+	position_in_consist]) {
 	0: return 0;
-	return (10 * 16) / cargo_unit_weight;
+	return (10 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
 }
 
 switch(FEAT_ROADVEHS, SELF, gtw35_cb_articulation, extra_callback_info1) {
@@ -306,7 +311,7 @@ item(FEAT_ROADVEHS, ID_31_GTw35) {
 		default: gtw35_graphics;
 		purchase: gtw35_menu;
 		colour_mapping:gtw21_cb_colour_mapping; // logic is shared between GTw21 and GTw35
-		purchase_cargo_capacity: return 8;
+		purchase_cargo_capacity: return 8 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100;
 		cargo_capacity:gtw35_cb_cargo_capacity;
 		articulated_part:gtw35_cb_articulation;
 	}

@@ -22,6 +22,11 @@ spritegroup man_nl263_blue_group {
 	loaded:  man_nl263_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, man_nl263_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 98 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_1A_MAN_NL263) {
 	property{
 		name: string(BUS_MAN_NL263);
@@ -50,6 +55,7 @@ item(FEAT_ROADVEHS, ID_1A_MAN_NL263) {
 	}
 	graphics {
 		default: man_nl263_blue_group;
+		cargo_capacity: man_nl263_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

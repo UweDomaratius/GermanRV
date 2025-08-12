@@ -69,9 +69,11 @@ spritegroup benz2cnb_green_group {
 }
 
 // when refitted to tourists, only half the capacity is available
-switch(FEAT_ROADVEHS, SELF, benz2cnb_cb_refitted_capacity, cargo_type_in_veh) {
-	TOUR: return 19;
-	return 38;
+switch(FEAT_ROADVEHS, SELF, benz2cnb_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0),
+	cargo_type_in_veh]) {
+	TOUR: return 19 * LOAD_TEMP(0) / 100;
+	return 38 * LOAD_TEMP(0) / 100;
 }
 
 item(FEAT_ROADVEHS, ID_01_Benz_2CNb) {

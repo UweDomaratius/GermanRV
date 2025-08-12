@@ -22,6 +22,11 @@ spritegroup buessingludewigaero_blue_group {
 	loaded:  buessingludewigaero_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, buessingludewigaero_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 130 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_0C_Buessing_Ludewig_Aero) {
 	property{
 		name: string(BUS_BUESSING_LUDEWIGAERO);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_0C_Buessing_Ludewig_Aero) {
 	}
 	graphics {
 		default: buessingludewigaero_blue_group;
-		
+		cargo_capacity: buessingludewigaero_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

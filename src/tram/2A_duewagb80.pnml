@@ -101,6 +101,11 @@ switch(FEAT_ROADVEHS, SELF, duewagb80_cb_articulation, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, duewagb80_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 91 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_2A_Duewag_B80) {
 	property{
 		name: string(TRAM_DUEWAG_B80);
@@ -132,5 +137,6 @@ item(FEAT_ROADVEHS, ID_2A_Duewag_B80) {
 		articulated_part:duewagb80_cb_articulation;
 		colour_mapping: duewagb80_cb_colour_mapping;
 		cargo_subtype_text: tram_cb_refit_west_cities;
+		cargo_capacity: duewagb80_cb_refitted_capacity;
 	}
 }

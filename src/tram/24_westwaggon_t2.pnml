@@ -97,6 +97,11 @@ switch(FEAT_ROADVEHS, SELF, westwaggont2_cb_articulation, extra_callback_info1) 
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, westwaggont2_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 68 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_24_WestwaggonT2) {
 	property{
 		name: string(TRAM_WESTWAGGON_T2);
@@ -128,5 +133,6 @@ item(FEAT_ROADVEHS, ID_24_WestwaggonT2) {
 		articulated_part:westwaggont2_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_west_cities_very_old;
 		cargo_subtype_text: tram_cb_refit_west_cities;
+		cargo_capacity: westwaggont2_cb_refitted_capacity;
 	}
 }

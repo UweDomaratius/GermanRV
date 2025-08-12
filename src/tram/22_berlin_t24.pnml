@@ -40,6 +40,11 @@ switch(FEAT_ROADVEHS, SELF, berlint24_graphics, cargo_subtype) {
 	berlint24_false_color_group;
 }
 
+switch(FEAT_ROADVEHS, SELF, berlint24_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 59 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_22_BERLIN_T24) {
 	property{
 		name: string(TRAM_BERLIN_T24);
@@ -69,6 +74,7 @@ item(FEAT_ROADVEHS, ID_22_BERLIN_T24) {
 		default: berlint24_graphics;
 		purchase: berlint24_2cc;
 		colour_mapping: tram_cb_colour_mapping_historic_cities;
+		cargo_capacity: berlint24_cb_refitted_capacity;
 		cargo_subtype_text: tram_cb_refit_historic_cities;
 	}
 }

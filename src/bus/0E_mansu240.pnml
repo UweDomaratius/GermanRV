@@ -22,6 +22,11 @@ spritegroup man_su240_blue_group {
 	loaded:  man_su240_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, man_su240_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 94 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_0E_MAN_SU240) {
 	property{
 		name: string(BUS_MAN_SU240);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_0E_MAN_SU240) {
 	}
 	graphics {
 		default: man_su240_blue_group;
-		
+		cargo_capacity: man_su240_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_REGIONAL);
 	}
 }

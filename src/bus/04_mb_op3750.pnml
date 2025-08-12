@@ -22,6 +22,11 @@ spritegroup mb_op3750_blue_group {
 	loaded:  mb_op3750_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, mb_op3750_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 45 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_04_MB_OP3750) {
 	property{
 		name: string(BUS_MB_OP3750);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_04_MB_OP3750) {
 	}
 	graphics {
 		default: mb_op3750_blue_group;
-		
+		cargo_capacity: mb_op3750_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_COACH);
 	}
 }

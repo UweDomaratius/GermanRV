@@ -26,6 +26,10 @@ spriteset(setras328dt_menu, "graphics/setras328dt.pcx") {
 	[  386, 200,  32,14,  -16, -7]
 }
 
+switch(FEAT_ROADVEHS, SELF, setras328dt_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 70 * LOAD_TEMP(0) / 100;
+}
 
 item(FEAT_ROADVEHS, ID_16_SETRA_S328DT) {
 	property{
@@ -56,6 +60,7 @@ item(FEAT_ROADVEHS, ID_16_SETRA_S328DT) {
 	graphics {
 		default: setras328dt_blue_group;
 		purchase: setras328dt_menu;
+		cargo_capacity: setras328dt_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

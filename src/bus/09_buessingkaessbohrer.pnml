@@ -65,6 +65,11 @@ switch(FEAT_ROADVEHS, SELF, buessing_kaessbohrer_cb_length, position_in_consist)
 	return 6;
 }
 
+switch(FEAT_ROADVEHS, SELF, buessing_kaessbohrer_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 65 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_09_Buessing_Kaessbohrer) {
 	property{
 		name: string(BUS_BUESSING_KAESSBOHRER);
@@ -95,6 +100,7 @@ item(FEAT_ROADVEHS, ID_09_Buessing_Kaessbohrer) {
 		purchase: buessing_kaessbohrer_menu;
 		default: buessingkaessbohrer_blue_group;
 		articulated_part:buessing_kaessbohrer_cb_articulation;
+		cargo_capacity: buessing_kaessbohrer_cb_refitted_capacity;
 		length: buessing_kaessbohrer_cb_length;
 		additional_text: return string(STR_BUS_CITY);
 	}

@@ -147,6 +147,11 @@ switch(FEAT_ROADVEHS, SELF, tatrat6_cb_articulation, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, tatrat6_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 115 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_2B_TATRA_T6A2) {
 	property{
 		name: string(TRAM_TATRA_T6A2);
@@ -178,5 +183,6 @@ item(FEAT_ROADVEHS, ID_2B_TATRA_T6A2) {
 		articulated_part:tatrat6_cb_articulation;
 		colour_mapping: tatrat6_cb_colour_mapping;
 		cargo_subtype_text: tram_cb_refit_east_cities;
+		cargo_capacity: tatrat6_cb_refitted_capacity;
 	}
 }

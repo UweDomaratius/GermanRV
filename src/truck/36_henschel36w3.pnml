@@ -126,9 +126,11 @@ switch(FEAT_ROADVEHS, SELF, henschel36w3_graphics_open, (cargo_classes & bitmask
 }
 
 // truck has 9t capacity, trailer has 15t
-switch(FEAT_ROADVEHS, SELF, henschel36w3_cb_cargo_capacity, position_in_consist) {
-	0: return (9 * 16) / cargo_unit_weight;
-	return (15 * 16) / cargo_unit_weight;
+switch(FEAT_ROADVEHS, SELF, henschel36w3_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0),
+	position_in_consist]) {
+	0: return (9 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
+	return (15 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
 }
 
 switch(FEAT_ROADVEHS, SELF, henschel36w3_open_cb_articulation, extra_callback_info1) {

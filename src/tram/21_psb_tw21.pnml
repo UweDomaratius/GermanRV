@@ -42,6 +42,14 @@ switch(FEAT_ROADVEHS, SELF, tw21_graphics, cargo_type_in_veh) {
 	tw21_passenger_graphics;
 }
 
+switch(FEAT_ROADVEHS, SELF, tw21_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0),
+	 STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 1),
+	cargo_type_in_veh]) {
+	MAIL: return 36 * LOAD_TEMP(1) / 100;
+	return 36 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_21_PSB_TW21) {
 	property{
 		name: string(TRAM_PSB_TW21);
@@ -70,6 +78,7 @@ item(FEAT_ROADVEHS, ID_21_PSB_TW21) {
 	graphics {
 		default: tw21_graphics;
 		purchase: tw21_2cc;
+		cargo_capacity: tw21_cb_refitted_capacity;
 		colour_mapping: tw21_cb_colour_mapping;
 		cargo_subtype_text: tw21_cb_refit_city;
 	}

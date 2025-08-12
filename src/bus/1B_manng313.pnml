@@ -60,6 +60,11 @@ switch(FEAT_ROADVEHS, SELF, manng313_cb_articulation, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, manng313_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 74 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_1B_MAN_NG313) {
 	property{
 		name: string(BUS_MAN_NG313);
@@ -90,6 +95,7 @@ item(FEAT_ROADVEHS, ID_1B_MAN_NG313) {
 		purchase: manng313_menu;
 		default: manng313_blue_group;
 		articulated_part:manng313_cb_articulation;
+		cargo_capacity: manng313_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

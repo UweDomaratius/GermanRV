@@ -4,7 +4,31 @@ grf {
 	desc: string(STR_GRF_DESCRIPTION);
 	version: 0;
 	min_compatible_version: 0;
+	
+	param {
+		param_cargo_capacity {
+			type: int;
+			name: string(STR_PARAM_CARGO_CAPACITY);
+			desc: string(STR_PARAM_CARGO_CAPACITY_DESC);
+			min_value: 1;
+			max_value: 500;
+			def_value: 100;
+		}
+	}
+	param {
+		param_passenger_capacity {
+			type: int;
+			name: string(STR_PARAM_PASSENGER_CAPACITY);
+			desc: string(STR_PARAM_PASSENGER_CAPACITY_DESC);
+			min_value: 1;
+			max_value: 500;
+			def_value: 100;
+		}
+	}
 }
+
+
+
 
 if (ttd_platform != PLATFORM_OPENTTD || openttd_version < version_openttd(14, 0)) {
 	error(FATAL, REQUIRES_OPENTTD, string(STR_ERR_OPENTTD_VERSION));

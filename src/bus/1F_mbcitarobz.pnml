@@ -22,6 +22,11 @@ spritegroup mbcitarobz_blue_group {
 	loaded:  mbcitarobz_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, mbcitarobz_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 70 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_1F_MB_CitaroBZ) {
 	property{
 		name: string(BUS_MB_CITAROBZ);
@@ -50,6 +55,7 @@ item(FEAT_ROADVEHS, ID_1F_MB_CitaroBZ) {
 	}
 	graphics {
 		default: mbcitarobz_blue_group;
+		cargo_capacity: mbcitarobz_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

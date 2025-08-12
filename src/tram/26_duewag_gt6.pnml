@@ -97,6 +97,11 @@ switch(FEAT_ROADVEHS, SELF, duewag_gt6_cb_articulation, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, duewag_gt6_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 112 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_26_DuewagGT6) {
 	property{
 		name: string(TRAM_DUEWAG_GT6);
@@ -127,6 +132,7 @@ item(FEAT_ROADVEHS, ID_26_DuewagGT6) {
 		purchase: duewag_gt6_menu;
 		articulated_part:duewag_gt6_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_west_cities_very_old;
+		cargo_capacity: duewag_gt6_cb_refitted_capacity;
 		cargo_subtype_text: tram_cb_refit_west_cities;
 	}
 }

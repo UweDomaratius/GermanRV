@@ -163,6 +163,11 @@ switch(FEAT_ROADVEHS, SELF, adtranzgt8n2_cb_articulation, extra_callback_info1) 
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, adtranzgt8n2_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 52 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_2D_ADTRANZ_GT8N2) {
 	property{
 		name: string(TRAM_ADTRANZ_GT8N2);
@@ -194,5 +199,6 @@ item(FEAT_ROADVEHS, ID_2D_ADTRANZ_GT8N2) {
 		articulated_part:adtranzgt8n2_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
 		cargo_subtype_text: tram_cb_refit_all_cities;
+		cargo_capacity: adtranzgt8n2_cb_refitted_capacity;
 	}
 }

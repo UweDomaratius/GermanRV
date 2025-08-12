@@ -9,6 +9,11 @@ spriteset(buessingnagd2, "graphics/buessingnagd2.pcx") {
     [226, 40, 21, 18,  -7,  -9]
 }
 
+switch(FEAT_ROADVEHS, SELF, buessingnagd2_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 61 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_02_BuessingNAG_D2) {
 	property{
 		name: string(BUS_BUESSINGNAG_D2);
@@ -37,7 +42,7 @@ item(FEAT_ROADVEHS, ID_02_BuessingNAG_D2) {
 	}
 	graphics {
 		default: buessingnagd2;
-		
+		cargo_capacity: buessingnagd2_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

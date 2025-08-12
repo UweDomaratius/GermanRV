@@ -26,6 +26,11 @@ spriteset(neoplan_skylinerl_menu, "graphics/neoplanskyliner.pcx") {
 	[  386, 200,  36,14,  -16, -7]
 }
 
+switch(FEAT_ROADVEHS, SELF, neoplan_skyliner1_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 78 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_1C_Neoplan_SkylinerL) {
 	property{
 		name: string(BUS_NEOPLAN_SKYLINERL);
@@ -55,6 +60,7 @@ item(FEAT_ROADVEHS, ID_1C_Neoplan_SkylinerL) {
 	graphics {
 		default: neoplan_skylinerl_blue_group;
 		purchase: neoplan_skylinerl_menu;
+		cargo_capacity: neoplan_skyliner1_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_COACH);
 	}
 }

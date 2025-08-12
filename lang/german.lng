@@ -6,6 +6,11 @@
 STR_GRF_NAME        :{TITLE} {VERSION}
 STR_GRF_DESCRIPTION :Deutsche Straßenfahrzeuge für OpenTTD{}Daniel Böhme, Uwe Domaratius, Roland Kahlert, Stephan Krause, Hansel Kruzer{}Mit besonderem Dank an Michael Blunck{}{COPYRIGHT}2006-2025 {}License: CC-BY-NC-SA v4.0
 
+STR_PARAM_PASSENGER_CAPACITY: Passagierkapazität (%)
+STR_PARAM_PASSENGER_CAPACITY_DESC: Skaliert die Menge an Passagieren, die ein Fahrzeug transportieren kann.
+STR_PARAM_CARGO_CAPACITY: Frachtkapazität (%)
+STR_PARAM_CARGO_CAPACITY_DESC: Skaliert die Menge an Fracht, die ein Fahrzeug transportieren kann.
+
 STR_BUS_CITY    :{BLACK}Verwendung: {ORANGE}Stadtbus
 STR_BUS_COACH   :{BLACK}Verwendung: {ORANGE}Reisebus
 STR_BUS_REGIONAL:{BLACK}Verwendung: {ORANGE}Regionalbus
