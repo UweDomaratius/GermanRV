@@ -183,6 +183,11 @@ switch(FEAT_ROADVEHS, SELF, bombardierflexity_cb_length, position_in_consist) {
 	return 6;
 }
 
+switch(FEAT_ROADVEHS, SELF, bombardierflexity_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 52 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_2E_BOMBARDIER_FLEXITY) {
 	property{
 		name: string(TRAM_BOMBARDIER_FLEXITY);
@@ -215,5 +220,6 @@ item(FEAT_ROADVEHS, ID_2E_BOMBARDIER_FLEXITY) {
 		length: bombardierflexity_cb_length;
 		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
 		cargo_subtype_text: tram_cb_refit_all_cities;
+		cargo_capacity: bombardierflexity_cb_refitted_capacity;
 	}
 }

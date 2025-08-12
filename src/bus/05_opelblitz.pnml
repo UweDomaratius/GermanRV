@@ -33,9 +33,11 @@ spritegroup opelblitz_green_group {
 }
 
 // when refitted to tourists, only half the capacity is available
-switch(FEAT_ROADVEHS, SELF, opelblitz_cb_refitted_capacity, cargo_type_in_veh) {
-	TOUR: return 17;
-	return 35;
+switch(FEAT_ROADVEHS, SELF, opelblitz_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0),
+	cargo_type_in_veh]) {
+	TOUR: return 17 * LOAD_TEMP(0) / 100;
+	return 35 * LOAD_TEMP(0) / 100;
 }
 
 item(FEAT_ROADVEHS, ID_05_Opel_Blitz) {

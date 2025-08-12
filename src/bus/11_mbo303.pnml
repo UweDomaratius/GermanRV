@@ -22,6 +22,11 @@ spritegroup mb_o303_blue_group {
 	loaded:  mb_o303_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, mb_o303_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 51 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_11_MB_O303) {
 	property{
 		name: string(BUS_MB_O303);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_11_MB_O303) {
 	}
 	graphics {
 		default: mb_o303_blue_group;
-		
+		cargo_capacity: mb_o303_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_COACH);
 	}
 }

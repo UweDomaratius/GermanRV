@@ -59,6 +59,11 @@ switch(FEAT_ROADVEHS, SELF, grosserhecht_graphics, cargo_subtype) {
 	grosserhecht_false_color_group;
 }
 
+switch(FEAT_ROADVEHS, SELF, grosserhecht_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 111 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_23_Grosser_Hecht) {
 	property{
 		name: string(TRAM_GROSSER_HECHT);
@@ -88,6 +93,7 @@ item(FEAT_ROADVEHS, ID_23_Grosser_Hecht) {
 		default: grosserhecht_graphics;
 		purchase: grosserhecht_2cc;
 		colour_mapping: grosserhecht_cb_colour_mapping;
+		cargo_capacity: grosserhecht_cb_refitted_capacity;
 		cargo_subtype_text: tram_cb_refit_east_cities;
 	}
 }

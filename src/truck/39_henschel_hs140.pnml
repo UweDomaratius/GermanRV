@@ -31,9 +31,11 @@ spriteset(henschel_hs140_open_menu, "graphics/henschelhs140.pcx") {
 }
 
 // truck has 0t capacity, trailer has 24t
-switch(FEAT_ROADVEHS, SELF, henschel_hs140_cb_cargo_capacity, position_in_consist) {
+switch(FEAT_ROADVEHS, SELF, henschel_hs140_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0),
+	position_in_consist]) {
 	0: return 0;
-	return (24 * 16) / cargo_unit_weight;
+	return (24 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight * 100);
 }
 
 switch(FEAT_ROADVEHS, SELF, henschel_hs140_open_cb_articulation, extra_callback_info1) {
@@ -80,7 +82,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_open) {
 		default: henschel_hs140_switch_graphics_open;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel_hs140_cb_cargo_capacity;
-		purchase_cargo_capacity: return 12; // doubled due to articulation
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:henschel_hs140_open_cb_articulation;
 		purchase: henschel_hs140_open_menu;
 	}
@@ -129,7 +131,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_tarpaulin) {
 		default: henschel_hs140_switch_graphics_tarpaulin;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel_hs140_cb_cargo_capacity;
-		purchase_cargo_capacity: return 12; // doubled due to articulation
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:henschel_hs140_tarpaulin_cb_articulation;
 		purchase: henschel_hs140_tarpaulin_menu;
 	}
@@ -179,7 +181,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_closed) {
 		default: henschel_hs140_switch_graphics_closed;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: henschel_hs140_cb_cargo_capacity;
-		purchase_cargo_capacity: return 12; // doubled due to articulation
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:henschel_hs140_closed_cb_articulation;
 		purchase: henschel_hs140_closed_menu;
 	}
@@ -227,7 +229,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_tanker) {
 		default: henschel_hs140_switch_graphics_tanker;
 		cargo_capacity: henschel_hs140_cb_cargo_capacity;
 		additional_text: return string(STR_CFG_TRUCK_SEMITRAILER);
-		purchase_cargo_capacity: return 12; // doubled due to articulation
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:henschel_hs140_tanker_cb_articulation;
 		purchase: henschel_hs140_tanker_menu;
 	}

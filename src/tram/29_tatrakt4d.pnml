@@ -269,6 +269,11 @@ switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_length, position_in_consist % 2) {
 	return 8;
 }
 
+switch(FEAT_ROADVEHS, SELF, tatrakt4d_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 65 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_29_TatraKT4D) {
 	property{
 		name: string(TRAM_TATRA_KT4D);
@@ -301,5 +306,6 @@ item(FEAT_ROADVEHS, ID_29_TatraKT4D) {
 		colour_mapping: tatrakt4d_cb_colour_mapping;
 		length: tatrakt4d_cb_length;
 		cargo_subtype_text: tatrakt4d_cb_refit_city;
+		cargo_capacity: tatrakt4d_cb_refitted_capacity;
 	}
 }

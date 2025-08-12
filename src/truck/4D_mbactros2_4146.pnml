@@ -56,6 +56,11 @@ switch(FEAT_ROADVEHS, SELF, mbactros2_4146k_switch_graphics_open,
 	mbactros2_4146k_graphics_open_bulk_spritestack0;
 }
 
+switch(FEAT_ROADVEHS, SELF, mbactros2_4146k_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0)]) {
+	return (30 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
+}
+
 // open
 item(FEAT_ROADVEHS, ID_4D_mbactros2_4146k_open) {
 	property{
@@ -87,7 +92,7 @@ item(FEAT_ROADVEHS, ID_4D_mbactros2_4146k_open) {
 	}
 	graphics {
 		default: mbactros2_4146k_switch_graphics_open;
-		cargo_capacity: return (30 * 16) / cargo_unit_weight;
+		cargo_capacity: mbactros2_4146k_cb_cargo_capacity;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
 	}
 }

@@ -35,7 +35,7 @@ version = "VERSION:"+version
 
 with open('custom_tags.txt', 'w') as file:
   file.write(version)
-  file.write("\nTITLE: German Road Vehicles")
+  file.write("\nTITLE :German Road Vehicles")
 
 # create the actual nml file by concatenating all inputs
 with open('build/german_rvs.nml','wb') as output:
@@ -44,7 +44,6 @@ with open('build/german_rvs.nml','wb') as output:
             shutil.copyfileobj(fd, output)
             output.write(b"\n")
             
-
 # replace the defined constants
 # Read in the file
 with open('build/german_rvs.nml', 'r') as file:
@@ -61,7 +60,6 @@ with open('build/german_rvs.nml', 'w') as file:
 # call nmlc to create the grf output
 subprocess.run(["nmlc", "-c", "--grf", "build/german_rvs.grf","build/german_rvs.nml"])
 
-#shutil.copyfile('custom_tags.orig', 'custom_tags.txt')
 dt = now.strftime("%Y-%m-%d_%H-%M-%S")
 grfdate="build/german_rvs_"+dt+".grf"
 shutil.copyfile('build/german_rvs.grf', grfdate)

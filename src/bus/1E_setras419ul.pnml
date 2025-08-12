@@ -22,6 +22,11 @@ spritegroup setras419ul_blue_group {
 	loaded:  setras419ul_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, setras419ul_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 130 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_1E_Setra_S419UL) {
 	property{
 		name: string(BUS_SETRA_S419UL);
@@ -51,5 +56,6 @@ item(FEAT_ROADVEHS, ID_1E_Setra_S419UL) {
 	graphics {
 		default: setras419ul_blue_group;
 		additional_text: return string(STR_BUS_REGIONAL);
+		cargo_capacity: setras419ul_cb_refitted_capacity;
 	}
 }

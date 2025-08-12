@@ -126,9 +126,11 @@ switch(FEAT_ROADVEHS, SELF, bussing8000_graphics_open, (cargo_classes & bitmask(
 }
 
 // truck has 8t capacity, trailer has 16t
-switch(FEAT_ROADVEHS, SELF, bussing8000_cb_cargo_capacity, position_in_consist) {
-	0: return (8 * 16) / cargo_unit_weight;
-	return (16 * 16) / cargo_unit_weight;
+switch(FEAT_ROADVEHS, SELF, bussing8000_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0),
+	position_in_consist]) {
+	0: return (8 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
+	return (16 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
 }
 
 switch(FEAT_ROADVEHS, SELF, bussing8000_open_cb_articulation, extra_callback_info1) {

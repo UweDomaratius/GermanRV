@@ -22,6 +22,11 @@ spritegroup buessing_d2u_blue_group {
 	loaded:  buessing_d2u_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, buessing_d2u_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 91 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_08_Buessing_D2U) {
 	property{
 		name: string(BUS_BUESSING_D2U);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_08_Buessing_D2U) {
 	}
 	graphics {
 		default: buessing_d2u_blue_group;
-		
+		cargo_capacity: buessing_d2u_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

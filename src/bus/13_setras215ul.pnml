@@ -22,6 +22,11 @@ spritegroup setras215ul_blue_group {
 	loaded:  setras215ul_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, setras215ul_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 100 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_13_Setra_S215_UL) {
 	property{
 		name: string(BUS_SETRA_S215UL);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_13_Setra_S215_UL) {
 	}
 	graphics {
 		default: setras215ul_blue_group;
-		
+		cargo_capacity: setras215ul_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_REGIONAL);
 	}
 }

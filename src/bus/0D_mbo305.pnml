@@ -22,6 +22,11 @@ spritegroup mb_o305_blue_group {
 	loaded:  mb_o305_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, mb_o305_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 114 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_0D_MB_O305) {
 	property{
 		name: string(BUS_MB_O305);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_0D_MB_O305) {
 	}
 	graphics {
 		default: mb_o305_blue_group;
-		
+		cargo_capacity: mb_o305_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

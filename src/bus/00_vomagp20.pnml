@@ -69,9 +69,11 @@ spritegroup vomagp20_green_group {
 }
 
 // when refitted to tourists, only half the capacity is available
-switch(FEAT_ROADVEHS, SELF, vomagp20_cb_refitted_capacity, cargo_type_in_veh) {
-	TOUR: return 9;
-	return 18;
+switch(FEAT_ROADVEHS, SELF, vomagp20_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0),
+	cargo_type_in_veh]) {
+	TOUR: return 9 * LOAD_TEMP(0) / 100;
+	return 18 * LOAD_TEMP(0) / 100;
 }
 
 item(FEAT_ROADVEHS, ID_00_Vomag_P20) {
@@ -103,7 +105,6 @@ item(FEAT_ROADVEHS, ID_00_Vomag_P20) {
 	graphics {
 		TOUR: vomagp20_green_group;
 		default: vomagp20_blue_group;
-		
 		additional_text: return string(STR_BUS_REGIONAL);
 		cargo_capacity: vomagp20_cb_refitted_capacity;
 	}

@@ -44,6 +44,10 @@ spriteset(mansd200_menu, "graphics/mansd200.pcx") {
 	[  386, 265,  29,14,  -14, -7]
 }
 
+switch(FEAT_ROADVEHS, SELF, man_sd200_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 100 * LOAD_TEMP(0) / 100;
+}
 
 item(FEAT_ROADVEHS, ID_12_MAN_SD200) {
 	property{
@@ -74,6 +78,7 @@ item(FEAT_ROADVEHS, ID_12_MAN_SD200) {
 	graphics {
 		default: mansd200_blue_group;
 		purchase: mansd200_menu;
+		cargo_capacity: man_sd200_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

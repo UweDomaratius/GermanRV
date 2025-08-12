@@ -129,6 +129,11 @@ switch(FEAT_ROADVEHS, SELF, duewag_gt8_cb_articulation, extra_callback_info1) {
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
+switch(FEAT_ROADVEHS, SELF, duewag_gt8_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 88 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_28_DuewagGT8) {
 	property{
 		name: string(TRAM_DUEWAG_GT8);
@@ -159,6 +164,7 @@ item(FEAT_ROADVEHS, ID_28_DuewagGT8) {
 		purchase: duewag_gt8_menu;
 		articulated_part:duewag_gt8_cb_articulation;
 		colour_mapping: duewag_gt8_cb_colour_mapping;
+		cargo_capacity: duewag_gt8_cb_refitted_capacity;
 		cargo_subtype_text: tram_cb_refit_west_cities;
 	}
 }

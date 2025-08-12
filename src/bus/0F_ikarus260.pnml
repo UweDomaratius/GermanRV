@@ -22,6 +22,11 @@ spritegroup ikarus260_blue_group {
 	loaded:  ikarus260_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, ikarus260_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 98 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_0F_Ikarus_260) {
 	property{
 		name: string(BUS_IKARUS_260);
@@ -50,7 +55,7 @@ item(FEAT_ROADVEHS, ID_0F_Ikarus_260) {
 	}
 	graphics {
 		default: ikarus260_blue_group;
-		
+		cargo_capacity: ikarus260_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

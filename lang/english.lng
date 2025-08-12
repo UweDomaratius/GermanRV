@@ -6,6 +6,11 @@
 STR_GRF_NAME        :{TITLE} {VERSION}
 STR_GRF_DESCRIPTION :German road vehicles for OpenTTD{}Daniel Böhme, Uwe Domaratius, Roland Kahlert, Stephan Krause, Hansel Kruzer{}Special thanks to Michael Blunck{}{COPYRIGHT}2006-2025 {}License: CC-BY-NC-SA v4.0
 
+STR_PARAM_PASSENGER_CAPACITY: Passenger capacity percentage
+STR_PARAM_PASSENGER_CAPACITY_DESC: Scales the amount of passengers the vehicles can carry.
+STR_PARAM_CARGO_CAPACITY: Cargo capacity percentage
+STR_PARAM_CARGO_CAPACITY_DESC: Scales the amount of cargo the vehicles can carry.
+
 STR_PURCHASE_MENU2 :{STRING}{}{STRING}
 
 STR_BUS_CITY    :{BLACK}Usage: {ORANGE}city lines

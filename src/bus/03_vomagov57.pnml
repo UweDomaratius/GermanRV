@@ -33,9 +33,11 @@ spritegroup vomagov57_green_group {
 }
 
 // when refitted to tourists, only half the capacity is available
-switch(FEAT_ROADVEHS, SELF, vomagov57_cb_refitted_capacity, cargo_type_in_veh) {
-	TOUR: return 22;
-	return 44;
+switch(FEAT_ROADVEHS, SELF, vomagov57_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0),
+	cargo_type_in_veh]) {
+	TOUR: return 22 * LOAD_TEMP(0) / 100;
+	return 44 * LOAD_TEMP(0) / 100;
 }
 
 item(FEAT_ROADVEHS, ID_03_Vomag_OV57) {

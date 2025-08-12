@@ -22,6 +22,11 @@ spritegroup setras315nf_blue_group {
 	loaded:  setras315nf_blue;
 }
 
+switch(FEAT_ROADVEHS, SELF, setras315nf_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 83 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_18_Setra_S315NF) {
 	property{
 		name: string(BUS_SETRA_S315NF);
@@ -51,5 +56,6 @@ item(FEAT_ROADVEHS, ID_18_Setra_S315NF) {
 	graphics {
 		default: setras315nf_blue_group;
 		additional_text: return string(STR_BUS_REGIONAL);
+		cargo_capacity: setras315nf_cb_refitted_capacity;
 	}
 }

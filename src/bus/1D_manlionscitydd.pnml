@@ -26,6 +26,11 @@ spriteset(man_lionscitydd_menu, "graphics/manlionscitydd.pcx") {
 	[  386, 200,  35,14,  -17, -7]
 }
 
+switch(FEAT_ROADVEHS, SELF, man_lionscitydd_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 128 * LOAD_TEMP(0) / 100;
+}
+
 item(FEAT_ROADVEHS, ID_1D_MAN_LionsCityDD) {
 	property{
 		name: string(BUS_MAN_LIONSCITYDD);
@@ -55,6 +60,7 @@ item(FEAT_ROADVEHS, ID_1D_MAN_LionsCityDD) {
 	graphics {
 		default: man_lionscitydd_blue_group;
 		purchase: man_lionscitydd_menu;
+		cargo_capacity: man_lionscitydd_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }

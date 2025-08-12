@@ -26,6 +26,10 @@ spriteset(neoplann4032_menu, "graphics/neoplann4032.pcx") {
 	[  386, 200,  39,14,  -19, -7]
 }
 
+switch(FEAT_ROADVEHS, SELF, neoplann4032_cb_refitted_capacity, 
+	[STORE_TEMP(param_passenger_capacity == 0 ? 100 : param_passenger_capacity, 0)]) {
+	return 180 * LOAD_TEMP(0) / 100;
+}
 
 item(FEAT_ROADVEHS, ID_17_Neoplan_N4032) {
 	property{
@@ -56,6 +60,7 @@ item(FEAT_ROADVEHS, ID_17_Neoplan_N4032) {
 	graphics {
 		default: neoplann4032_blue_group;
 		purchase: neoplann4032_menu;
+		cargo_capacity: neoplann4032_cb_refitted_capacity;
 		additional_text: return string(STR_BUS_CITY);
 	}
 }
