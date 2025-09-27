@@ -79,8 +79,10 @@ item(FEAT_ROADVEHS, ID_21_PSB_TW21) {
 	graphics {
 		default: tw21_graphics;
 		purchase: tw21_2cc;
+		sound_effect:tram_cb_sound;
 		cargo_capacity: tw21_cb_refitted_capacity;
 		colour_mapping: tw21_cb_colour_mapping;
 		cargo_subtype_text: tw21_cb_refit_city;
 	}
 }
+

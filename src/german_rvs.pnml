@@ -55,3 +55,9 @@ cargotable {
 	PORE, SALT, SAND, SCRP,
 	SULP, VEHI
 }
+
+switch(FEAT_ROADVEHS, SELF, tram_cb_sound, getbits(extra_callback_info1, 0, 8))
+{
+	SOUND_EVENT_START: return sound("src/bell1.wav");
+	return CB_RESULT_NO_SOUND;
+}

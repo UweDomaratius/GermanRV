@@ -93,6 +93,7 @@ item(FEAT_ROADVEHS, ID_23_Grosser_Hecht) {
 	graphics {
 		default: grosserhecht_graphics;
 		purchase: grosserhecht_2cc;
+		sound_effect:tram_cb_sound;
 		colour_mapping: grosserhecht_cb_colour_mapping;
 		cargo_capacity: grosserhecht_cb_refitted_capacity;
 		cargo_subtype_text: tram_cb_refit_east_cities;

@@ -226,6 +226,7 @@ item(FEAT_ROADVEHS, ID_27_TatraT4D) {
 	graphics {
 		default: tatrat4d_graphics;
 		purchase: tatrat4d_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:tatrat4d_cb_articulation;
 		colour_mapping: tatrat4d_cb_colour_mapping;
 		cargo_subtype_text: tram_cb_refit_east_cities;

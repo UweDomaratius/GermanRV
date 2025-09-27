@@ -131,6 +131,7 @@ item(FEAT_ROADVEHS, ID_26_DuewagGT6) {
 	graphics {
 		default: duewag_gt6_graphics;
 		purchase: duewag_gt6_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:duewag_gt6_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_west_cities_very_old;
 		cargo_capacity: duewag_gt6_cb_refitted_capacity;

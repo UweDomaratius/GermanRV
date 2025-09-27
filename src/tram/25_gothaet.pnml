@@ -131,6 +131,7 @@ item(FEAT_ROADVEHS, ID_25_GothaET) {
 	graphics {
 		default: gothaet_graphics;
 		purchase: gothaet_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:gothaet_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_east_cities_very_old;
 		cargo_capacity: gothaet_cb_refitted_capacity;

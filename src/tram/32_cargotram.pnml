@@ -209,6 +209,7 @@ item(FEAT_ROADVEHS, ID_32_Cargotram) {
 	graphics {
 		default: cargotram_graphics;
 		purchase: cargotram_menu;
+		sound_effect:tram_cb_sound;
 		cargo_capacity: cargotram_cb_refitted_capacity;
 		cargo_subtype_text:cargotram_cb_cargo_subtype;
 		colour_mapping:cargotram_cb_colour_mapping;

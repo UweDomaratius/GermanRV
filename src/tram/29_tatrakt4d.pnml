@@ -303,6 +303,7 @@ item(FEAT_ROADVEHS, ID_29_TatraKT4D) {
 	graphics {
 		default: tatrakt4d_graphics;
 		purchase: tatrakt4d_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:tatrakt4d_cb_articulation;
 		colour_mapping: tatrakt4d_cb_colour_mapping;
 		length: tatrakt4d_cb_length;

@@ -173,6 +173,7 @@ item(FEAT_ROADVEHS, ID_2C_DUEWAG_MGTD6D) {
 	graphics {
 		default: duewagmgtd6d_graphics;
 		purchase: duewagmgtd6d_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:duewagmgtd6d_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
 		cargo_subtype_text: tram_cb_refit_all_cities;

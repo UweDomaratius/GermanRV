@@ -258,6 +258,7 @@ item(FEAT_ROADVEHS, ID_30_GTw21) {
 	graphics {
 		default: gtw21_graphics;
 		purchase: gtw21_menu;
+		sound_effect:tram_cb_sound;
 		colour_mapping:gtw21_cb_colour_mapping;
 		cargo_capacity: gtw21_cb_cargo_capacity;
 		purchase_cargo_capacity: return 6 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100;
@@ -312,6 +313,7 @@ item(FEAT_ROADVEHS, ID_31_GTw35) {
 	graphics {
 		default: gtw35_graphics;
 		purchase: gtw35_menu;
+		sound_effect:tram_cb_sound;
 		colour_mapping:gtw21_cb_colour_mapping; // logic is shared between GTw21 and GTw35
 		purchase_cargo_capacity: return 8 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100;
 		cargo_capacity:gtw35_cb_cargo_capacity;

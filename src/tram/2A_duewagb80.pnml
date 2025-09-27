@@ -135,6 +135,7 @@ item(FEAT_ROADVEHS, ID_2A_Duewag_B80) {
 	graphics {
 		default: duewagb80_graphics;
 		purchase: duewagb80_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:duewagb80_cb_articulation;
 		colour_mapping: duewagb80_cb_colour_mapping;
 		cargo_subtype_text: tram_cb_refit_west_cities;
