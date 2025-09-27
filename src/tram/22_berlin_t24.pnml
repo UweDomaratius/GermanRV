@@ -61,6 +61,7 @@ item(FEAT_ROADVEHS, ID_22_BERLIN_T24) {
         cargo_capacity:59;
 		default_cargo_type:PASS;
 		cost_factor:13;
+		sound_effect:sound("src/bell1.wav");
 		length:8;
         power:92 hp;
         weight:13.25 tons;

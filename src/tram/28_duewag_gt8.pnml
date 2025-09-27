@@ -150,6 +150,7 @@ item(FEAT_ROADVEHS, ID_28_DuewagGT8) {
         cargo_capacity:88; // third of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:210;
+		sound_effect:sound("src/bell1.wav");
 		length:6;
         power:408 hp;
         weight:25 tons;

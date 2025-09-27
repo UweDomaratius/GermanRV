@@ -290,6 +290,7 @@ item(FEAT_ROADVEHS, ID_29_TatraKT4D) {
         cargo_capacity:65; // quarter of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:220;
+		sound_effect:sound("src/bell1.wav");
 		length:8;
         power:220 hp;
         weight:10.25 tons;

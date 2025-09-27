@@ -244,6 +244,7 @@ item(FEAT_ROADVEHS, ID_30_GTw21) {
         cargo_capacity:6;
 		default_cargo_type:COAL;
 		cost_factor:25;
+		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:110 hp;
         weight:15 tons;
@@ -297,6 +298,7 @@ item(FEAT_ROADVEHS, ID_31_GTw35) {
         cargo_capacity:8;
 		default_cargo_type:COAL;
 		cost_factor:66;
+		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:170 hp;
         weight:20 tons;

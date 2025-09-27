@@ -118,6 +118,7 @@ item(FEAT_ROADVEHS, ID_25_GothaET) {
         cargo_capacity:87; // half the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:125;
+		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:165 hp;
         weight:10.5 tons;

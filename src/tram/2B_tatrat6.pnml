@@ -168,6 +168,7 @@ item(FEAT_ROADVEHS, ID_2B_TATRA_T6A2) {
         cargo_capacity:115; // half of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:183;
+		sound_effect:sound("src/bell1.wav");
 		length:8;
         power:245 hp;
         weight:16.25 tons;
