@@ -184,7 +184,6 @@ item(FEAT_ROADVEHS, ID_2D_ADTRANZ_GT8N2) {
         cargo_capacity:52; // quarter of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:191;
-		sound_effect:sound("src/bell1.wav");
 		length:6;
         power:653 hp;
         weight:40.5 tons;

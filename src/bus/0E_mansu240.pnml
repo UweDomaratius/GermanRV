@@ -43,7 +43,7 @@ item(FEAT_ROADVEHS, ID_0E_MAN_SU240) {
         cargo_capacity:94;
 		default_cargo_type:PASS;
 		cost_factor:107;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:8;
         power:240 hp;
         weight:9.75 tons;

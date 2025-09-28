@@ -43,7 +43,7 @@ item(FEAT_ROADVEHS, ID_0C_Buessing_Ludewig_Aero) {
         cargo_capacity:130;
 		default_cargo_type:PASS;
 		cost_factor:94;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:8;
         power:150 hp;
         weight:9.5 tons;

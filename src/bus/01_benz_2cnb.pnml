@@ -92,7 +92,7 @@ item(FEAT_ROADVEHS, ID_01_Benz_2CNb) {
         cargo_capacity:39;
 		default_cargo_type:PASS;
 		cost_factor:12;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:7;
         power:55 hp;
         weight:5 tons;

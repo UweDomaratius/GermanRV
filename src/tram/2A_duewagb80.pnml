@@ -122,7 +122,6 @@ item(FEAT_ROADVEHS, ID_2A_Duewag_B80) {
         cargo_capacity:91; // half of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:167;
-		sound_effect:sound("src/bell1.wav");
 		length:8;
         power:220 hp;
         weight:19.5 tons;

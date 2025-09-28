@@ -195,7 +195,6 @@ item(FEAT_ROADVEHS, ID_32_Cargotram) {
         cargo_capacity:12;
 		default_cargo_type:GOOD;
 		cost_factor:253;
-		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:1224 hp;
         weight:63.75 tons;

@@ -66,7 +66,6 @@ item(FEAT_ROADVEHS, ID_21_PSB_TW21) {
         cargo_capacity:36;
 		default_cargo_type:PASS;
 		cost_factor:7;
-		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:92 hp;
         weight:9.5 tons;

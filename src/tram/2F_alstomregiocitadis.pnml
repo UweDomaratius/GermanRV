@@ -157,7 +157,6 @@ item(FEAT_ROADVEHS, ID_2F_ALSTOM_REGIOCITADIS) {
         cargo_capacity:74; // third of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:252;
-		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:820 hp;
         weight:60 tons;

@@ -43,7 +43,7 @@ item(FEAT_ROADVEHS, ID_04_MB_OP3750) {
         cargo_capacity:45;
 		default_cargo_type:TOUR;
 		cost_factor:47;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:7;
         power:100 hp;
         weight:7 tons;

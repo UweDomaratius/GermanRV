@@ -118,7 +118,6 @@ item(FEAT_ROADVEHS, ID_24_WestwaggonT2) {
         cargo_capacity:68; // half the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:64;
-		sound_effect:sound("src/bell1.wav");
 		length:7;
         power:155 hp;
         weight:9.5 tons;

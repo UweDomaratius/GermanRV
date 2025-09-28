@@ -65,7 +65,7 @@ item(FEAT_ROADVEHS, ID_12_MAN_SD200) {
         cargo_capacity:100;
 		default_cargo_type:PASS;
 		cost_factor:101;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:8;
         power:192 hp;
         weight:14 tons;

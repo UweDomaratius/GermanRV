@@ -204,7 +204,6 @@ item(FEAT_ROADVEHS, ID_2E_BOMBARDIER_FLEXITY) {
         cargo_capacity:52; // fifth of the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:239;
-		sound_effect:sound("src/bell1.wav");
 		length:6;
         power:925 hp;
         weight:56.75 tons;

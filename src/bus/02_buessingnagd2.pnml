@@ -30,7 +30,7 @@ item(FEAT_ROADVEHS, ID_02_BuessingNAG_D2) {
         cargo_capacity:61;
 		default_cargo_type:PASS;
 		cost_factor:19;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:7;
         power:70 hp;
         weight:7 tons;

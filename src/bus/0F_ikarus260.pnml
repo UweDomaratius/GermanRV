@@ -43,7 +43,7 @@ item(FEAT_ROADVEHS, ID_0F_Ikarus_260) {
         cargo_capacity:98;
 		default_cargo_type:PASS;
 		cost_factor:95;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:8;
         power:192 hp;
         weight:9 tons;
