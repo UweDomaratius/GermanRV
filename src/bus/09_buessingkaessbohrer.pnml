@@ -86,7 +86,7 @@ item(FEAT_ROADVEHS, ID_09_Buessing_Kaessbohrer) {
         cargo_capacity:65; // half the capacity since it is articulated
 		default_cargo_type:PASS;
 		cost_factor:122;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:8;
         power:150 hp;
         weight:12.25 tons;

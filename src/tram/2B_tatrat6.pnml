@@ -180,6 +180,7 @@ item(FEAT_ROADVEHS, ID_2B_TATRA_T6A2) {
 	graphics {
 		default: tatrat6_graphics;
 		purchase: tatrat6_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:tatrat6_cb_articulation;
 		colour_mapping: tatrat6_cb_colour_mapping;
 		cargo_subtype_text: tram_cb_refit_east_cities;

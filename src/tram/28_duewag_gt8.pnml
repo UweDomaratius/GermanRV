@@ -162,6 +162,7 @@ item(FEAT_ROADVEHS, ID_28_DuewagGT8) {
 	graphics {
 		default: duewag_gt8_graphics;
 		purchase: duewag_gt8_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:duewag_gt8_cb_articulation;
 		colour_mapping: duewag_gt8_cb_colour_mapping;
 		cargo_capacity: duewag_gt8_cb_refitted_capacity;

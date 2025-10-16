@@ -169,6 +169,7 @@ item(FEAT_ROADVEHS, ID_2F_ALSTOM_REGIOCITADIS) {
 	graphics {
 		default: alstomregiocitadis_graphics;
 		purchase: alstomregiocitadis_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:alstomregiocitadis_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
 		cargo_capacity: alstomregiocitadis_cb_refitted_capacity;

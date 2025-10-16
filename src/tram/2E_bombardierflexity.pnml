@@ -216,6 +216,7 @@ item(FEAT_ROADVEHS, ID_2E_BOMBARDIER_FLEXITY) {
 	graphics {
 		default: bombardierflexity_graphics;
 		purchase: bombardierflexity_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:bombardierflexity_cb_articulation;
 		length: bombardierflexity_cb_length;
 		colour_mapping: tram_cb_colour_mapping_all_cities_modern;

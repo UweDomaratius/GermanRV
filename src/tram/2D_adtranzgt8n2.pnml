@@ -196,6 +196,7 @@ item(FEAT_ROADVEHS, ID_2D_ADTRANZ_GT8N2) {
 	graphics {
 		default: adtranzgt8n2_graphics;
 		purchase: adtranzgt8n2_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:adtranzgt8n2_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_all_cities_modern;
 		cargo_subtype_text: tram_cb_refit_all_cities;

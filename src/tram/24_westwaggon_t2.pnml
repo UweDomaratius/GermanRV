@@ -130,6 +130,7 @@ item(FEAT_ROADVEHS, ID_24_WestwaggonT2) {
 	graphics {
 		default: westwaggont2_graphics;
 		purchase: westwaggont2_menu;
+		sound_effect:tram_cb_sound;
 		articulated_part:westwaggont2_cb_articulation;
 		colour_mapping: tram_cb_colour_mapping_west_cities_very_old;
 		cargo_subtype_text: tram_cb_refit_west_cities;

@@ -55,3 +55,9 @@ cargotable {
 	PORE, SALT, SAND, SCRP,
 	SULP, VEHI
 }
+
+switch(FEAT_ROADVEHS, SELF, tram_cb_sound, extra_callback_info1)
+{
+	SOUND_EVENT_START: return sound("src/trambell.wav");
+	return CB_RESULT_NO_SOUND;
+}

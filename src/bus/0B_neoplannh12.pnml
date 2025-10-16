@@ -43,7 +43,7 @@ item(FEAT_ROADVEHS, ID_0B_Neoplan_NH12) {
         cargo_capacity:44;
 		default_cargo_type:TOUR;
 		cost_factor:82;
-        sound_effect:SOUND_DEPARTURE_OLD_BUS;
+        sound_effect:SOUND_DEPARTURE_OLD_RV_1;
 		length:8;
         power:170 hp;
         weight:8 tons;
