@@ -1008,7 +1008,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container) {
         air_drag_coefficient: 0;
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
-		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
@@ -1045,7 +1045,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container_with_trailer) {
         air_drag_coefficient: 0;
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
-		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}

@@ -14,7 +14,11 @@ STR_PARAM_CARGO_CAPACITY_DESC: Skaliert die Menge an Fracht, die ein Fahrzeug tr
 STR_BUS_CITY    :{BLACK}Verwendung: {ORANGE}Stadtbus
 STR_BUS_COACH   :{BLACK}Verwendung: {ORANGE}Reisebus
 STR_BUS_REGIONAL:{BLACK}Verwendung: {ORANGE}Regionalbus
+
 STR_TRUCK_AUTOREFIT:{BLACK}Umrüstbar an Haltestellen.
+STR_CFG_TRUCK            :{BLACK}Konfiguration: {YELLOW}Lastwagen
+STR_CFG_TRUCK_TRAILER    :{BLACK}Konfiguration: {YELLOW}Lastwagen mit Anhänger
+STR_CFG_TRUCK_SEMITRAILER:{BLACK}Konfiguration: {YELLOW}Sattelzug
 
 # Trucks
 TRUCK_BUSSING_IIIGL_OPEN      :Büssing III GL (Kipper)

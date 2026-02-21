@@ -18,9 +18,9 @@ STR_BUS_COACH   :{BLACK}Usage: {ORANGE}coach
 STR_BUS_REGIONAL:{BLACK}Usage: {ORANGE}regional lines
 
 STR_TRUCK_AUTOREFIT      :{BLACK}Refittable in stations.
-STR_CFG_TRUCK            :{BLACK}Configuration: {ORANGE}lorry
-STR_CFG_TRUCK_TRAILER    :{BLACK}Configuration: {ORANGE}lorry with trailer
-STR_CFG_TRUCK_SEMITRAILER:{BLACK}Configuration: {ORANGE}articulated lorry
+STR_CFG_TRUCK            :{BLACK}Configuration: {YELLOW}lorry
+STR_CFG_TRUCK_TRAILER    :{BLACK}Configuration: {YELLOW}lorry with trailer
+STR_CFG_TRUCK_SEMITRAILER:{BLACK}Configuration: {YELLOW}articulated lorry
 
 # Buses
 BUS_VOMAG_P20            :Vomag P20f
