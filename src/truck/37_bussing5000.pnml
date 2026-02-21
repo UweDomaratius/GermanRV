@@ -339,7 +339,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_closed) {
         air_drag_coefficient: 0;
         retire_early:2;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
-		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
 		variant_group: ID_37_bussing5000_tarpaulin;
 	}
@@ -375,7 +375,7 @@ item(FEAT_ROADVEHS, ID_37_bussing5000_closed_with_trailer) {
         air_drag_coefficient: 0;
         retire_early:2;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
-		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED);
+		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
 		variant_group: ID_37_bussing5000_tarpaulin;
 	}

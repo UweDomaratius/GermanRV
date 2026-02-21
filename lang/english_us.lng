@@ -3,6 +3,6 @@
 # This is the English (US) language file
 # Most strings are the same as for the default english.lng
 
-STR_CFG_TRUCK            :{BLACK}Configuration: {ORANGE}truck
-STR_CFG_TRUCK_TRAILER    :{BLACK}Configuration: {ORANGE}truck with trailer
-STR_CFG_TRUCK_SEMITRAILER:{BLACK}Configuration: {ORANGE}semi-trailer truck
+STR_CFG_TRUCK            :{BLACK}Configuration: {YELLOW}truck
+STR_CFG_TRUCK_TRAILER    :{BLACK}Configuration: {YELLOW}truck with trailer
+STR_CFG_TRUCK_SEMITRAILER:{BLACK}Configuration: {YELLOW}semi-trailer truck
