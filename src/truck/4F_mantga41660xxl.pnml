@@ -51,6 +51,11 @@ switch(FEAT_ROADVEHS, SELF,mantga41660xxl_cb_cargo_capacity,
 	return (80 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight * 100);
 }
 
+switch(FEAT_ROADVEHS, SELF, mantga41660xxl_cb_articulation, extra_callback_info1) {
+	1: return ID_4F_mantga41660xxl;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
 item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
 	property{
 		name: string(TRUCK_MAN_TGA_41660_XXL);
@@ -65,7 +70,7 @@ item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:40;
-		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		default_cargo_type:GOOD;
 		cost_factor:4;
 		refit_cost:0;
 		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
@@ -82,7 +87,9 @@ item(FEAT_ROADVEHS, ID_4F_mantga41660xxl) {
 	graphics {
 		default: mantga41660xxl_switch_graphics;
 		cargo_capacity: mantga41660xxl_cb_cargo_capacity;
-		purchase_cargo_capacity: return 40 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
+		// it should be 40t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 80*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
+		articulated_part:mantga41660xxl_cb_articulation;
 	}
 }

@@ -134,7 +134,7 @@ switch(FEAT_ROADVEHS, SELF, bussing8000_cb_cargo_capacity,
 }
 
 switch(FEAT_ROADVEHS, SELF, bussing8000_open_cb_articulation, extra_callback_info1) {
-	1: return ID_38_bussing8000_open;
+	1: return ID_38_bussing8000_open_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -213,13 +213,14 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_open_with_trailer) {
 		default: bussing8000_switch_graphics_open;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing8000_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:bussing8000_open_cb_articulation;
 		purchase: bussing8000_open_menu;
 	}
 }
 
 switch(FEAT_ROADVEHS, SELF, bussing8000_tarpaulin_cb_articulation, extra_callback_info1) {
-	1: return ID_38_bussing8000_tarpaulin;
+	1: return ID_38_bussing8000_tarpaulin_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -297,13 +298,15 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tarpaulin_with_trailer) {
 		default: bussing8000_switch_graphics_tarpaulin;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing8000_cb_cargo_capacity;
+		// full capacity is 24t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 24*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:bussing8000_tarpaulin_cb_articulation;
 		purchase: bussing8000_tarpaulin_menu;
 	}
 }
 
 switch(FEAT_ROADVEHS, SELF, bussing8000_closed_cb_articulation, extra_callback_info1) {
-	1: return ID_38_bussing8000_closed;
+	1: return ID_38_bussing8000_closed_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -382,13 +385,15 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_closed_with_trailer) {
 		default: bussing8000_switch_graphics_closed;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: bussing8000_cb_cargo_capacity;
+		// full capacity is 24t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 24*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:bussing8000_closed_cb_articulation;
 		purchase: bussing8000_closed_menu;
 	}
 }
 
 switch(FEAT_ROADVEHS, SELF, bussing8000_tanker_cb_articulation, extra_callback_info1) {
-	1: return ID_38_bussing8000_tanker;
+	1: return ID_38_bussing8000_tanker_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -462,6 +467,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tanker_with_trailer) {
 	graphics {
 		default: bussing8000_switch_graphics_tanker;
 		cargo_capacity: bussing8000_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:bussing8000_tanker_cb_articulation;
 		purchase: bussing8000_tanker_menu;

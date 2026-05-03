@@ -262,7 +262,7 @@ switch(FEAT_ROADVEHS, SELF, mbactros2_2541_switch_graphics_open, position_in_con
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_open_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_open;
+	1: return ID_4E_mbactros2_2541_open_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -336,13 +336,14 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_with_trailer) {
 		default: mbactros2_2541_switch_graphics_open;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:mbactros2_2541_open_cb_articulation;
 		purchase: mbactros2_2541_open_menu;
 	}
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_tarpaulin_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_tarpaulin;
+	1: return ID_4E_mbactros2_2541_tarpaulin_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -417,10 +418,13 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tarpaulin_with_trailer) {
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
 		cargo_disallow_refit: [WOOD, STEL, LVST];
+		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
 		default: mbactros2_2541_switch_graphics_tarpaulin;
 		purchase: mbactros2_2541_tarpaulin_menu;
+		// full capacity is 24t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 24*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
 		articulated_part:mbactros2_2541_tarpaulin_cb_articulation;
@@ -428,7 +432,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tarpaulin_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_silo_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_silo;
+	1: return ID_4E_mbactros2_2541_silo_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -502,6 +506,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_silo_with_trailer) {
 	graphics {
 		default: mbactros2_2541_switch_graphics_silo;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		articulated_part:mbactros2_2541_silo_cb_articulation;
 		purchase: mbactros2_2541_silo_menu;
@@ -509,7 +514,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_silo_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_tanker_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_tanker;
+	1: return ID_4E_mbactros2_2541_tanker_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -583,6 +588,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tanker_with_trailer) {
 	graphics {
 		default: mbactros2_2541_switch_graphics_tanker;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2_2541_tanker_cb_articulation;
 		purchase: mbactros2_2541_tanker_menu;
@@ -590,7 +596,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tanker_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_livestock_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_livestock;
+	1: return ID_4E_mbactros2_2541_livestock_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -664,13 +670,14 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_livestock_with_trailer) {
 		default: mbactros2_2541_switch_graphics_livestock;
 		purchase: mbactros2_2541_livestock_menu;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		purchase_cargo_capacity: return (32*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100)-1; // doubled due to articulation, don't know where that -1 comes from...
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2_2541_livestock_cb_articulation;
 	}
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_wood_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_wood;
+	1: return ID_4E_mbactros2_2541_wood_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -746,6 +753,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_wood_with_trailer) {
 	graphics {
 		default: mbactros2_2541_switch_graphics_wood;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		articulated_part:mbactros2_2541_wood_cb_articulation;
 		purchase:mbactros2_2541_wood_menu;
@@ -753,7 +761,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_wood_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_vehicles_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_vehicles;
+	1: return ID_4E_mbactros2_2541_vehicles_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -895,6 +903,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_vehicles_with_trailer) {
 	graphics {
 		default: mbactros2_2541_switch_graphics_vehicles;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:mbactros2_2541_vehicles_cb_articulation;
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		random_trigger: mbactros2_2541_graphics_vehicles_random_freight_color;
@@ -903,7 +912,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_vehicles_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_container_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_container;
+	1: return ID_4E_mbactros2_2541_container_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -1034,7 +1043,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container_with_trailer) {
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:12; // 8t + 16t in trailer
-		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		default_cargo_type:GOOD;
 		cost_factor:4;
 		refit_cost:0;
 		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
@@ -1052,6 +1061,8 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container_with_trailer) {
 	graphics {
 		default: mbactros2_2541_switch_graphics_container;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		// full capacity is 24t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 24*2 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		articulated_part:mbactros2_2541_container_cb_articulation;
 		random_trigger: mbactros2_2541_graphics_container_random_freight_color;
@@ -1060,7 +1071,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_refrigerated_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_refrigerated;
+	1: return ID_4E_mbactros2_2541_refrigerated_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -1136,6 +1147,8 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_refrigerated_with_trailer) {
 	graphics {
 		default: mbactros2_2541_switch_graphics_refrigerated;
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		// full capacity is 24t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		additional_text: return string(STR_CFG_TRUCK_TRAILER);
 		articulated_part:mbactros2_2541_refrigerated_cb_articulation;
 		purchase: mbactros2_2541_refrigerated_menu;
@@ -1143,7 +1156,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_refrigerated_with_trailer) {
 }
 
 switch(FEAT_ROADVEHS, SELF, mbactros2_2541_crane_cb_articulation, extra_callback_info1) {
-	1: return ID_4E_mbactros2_2541_open_crane;
+	1: return ID_4E_mbactros2_2541_open_crane_with_trailer;
 	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
@@ -1174,7 +1187,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_crane) {
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:8;
-		default_cargo_type:GOOD;
+		default_cargo_type:STEL;
 		cost_factor:4;
 		refit_cost:0;
 		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
@@ -1211,7 +1224,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_crane_with_trailer) {
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:12; // 8t + 16t in trailer
-		default_cargo_type:GOOD;
+		default_cargo_type:STEL;
 		cost_factor:4;
 		refit_cost:0;
 		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
@@ -1231,6 +1244,8 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_crane_with_trailer) {
 		default: mbactros2_2541_switch_graphics_crane;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mbactros2_2541_cb_cargo_capacity;
+		// full capacity is 24t, but goods are 0.5t per item
+		purchase_cargo_capacity: return 12 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:mbactros2_2541_crane_cb_articulation;
 		purchase: mbactros2_2541_open_crane_menu;
 	}

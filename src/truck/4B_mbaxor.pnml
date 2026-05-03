@@ -133,7 +133,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_tarpaulin) {
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:13; // 26t in trailer
-		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		default_cargo_type:GOOD;
 		cost_factor:4;
 		refit_cost:0;
 		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
@@ -151,7 +151,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_tarpaulin) {
 		default: mb_axor_switch_graphics_tarpaulin;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
 		cargo_capacity: mb_axor_cb_cargo_capacity;
-		purchase_cargo_capacity: return 13 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
+		purchase_cargo_capacity: return 26 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:mb_axor_tarpaulin_cb_articulation;
 		purchase: mb_axor_tarpaulin_menu;
 	}
@@ -465,7 +465,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_container) {
         running_cost_base:RUNNING_COST_ROADVEH;
         sprite_id:SPRITE_ID_NEW_ROADVEH;
         cargo_capacity:13; // 26t in trailer
-		default_cargo_type:DEFAULT_CARGO_FIRST_REFITTABLE;
+		default_cargo_type:GOOD;
 		refit_cost:0;
 		cost_factor:4;
 		sound_effect:SOUND_DEPARTURE_OLD_RV_2;
@@ -484,7 +484,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_container) {
 		default: mb_axor_switch_graphics_container;
 		cargo_capacity: mb_axor_cb_cargo_capacity;
 		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_SEMITRAILER), string(STR_TRUCK_AUTOREFIT));
-		purchase_cargo_capacity: return 13 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
+		purchase_cargo_capacity: return 26 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
 		articulated_part:mb_axor_container_cb_articulation;
 		purchase: mb_axor_container_menu;
 	}
