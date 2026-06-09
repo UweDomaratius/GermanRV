@@ -51,6 +51,8 @@ TRUCK_HENSCHEL_HS140_TARPAULIN:Henschel HS 140 (Pritsche mit Plane)
 TRUCK_HENSCHEL_HS140_TANKER   :Henschel HS 140 (Tankwagen)
 TRUCK_HENSCHEL_HS140_CLOSED   :Henschel HS 140 (Kastenwagen)
 
+TRUCK_MAGIRUS_230D22AK :Magirus 230 D 22 AK (Kipper)
+
 TRUCK_MB_ACTROS_2540_OPEN        :Mercedes-Benz Actros 2540 (Kipper)
 TRUCK_MB_ACTROS_2540_TARPAULIN   :Mercedes-Benz Actros 2540 (Pritsche mit Plane)
 TRUCK_MB_ACTROS_2540_TANKER      :Mercedes-Benz Actros 2540 (Tankwagen)
