@@ -1,0 +1,153 @@
+template t_magirus230d22ak(y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	[  2, y,  8, 20,  -3, -11]
+	[ 66, y, 25, 15, -14,  -7]
+	[130, y, 29, 13, -15,  -7]
+    [194, y, 25, 22, -10, -12]
+    [258, y,  8, 20,  -3, -11]
+    [322, y, 25, 22, -13, -13]
+    [386, y, 29, 13, -13,  -7]
+    [450, y, 25, 16, -10,  -7]
+}
+
+spriteset(magirus230d22ak_void, "graphics/magirus230d22ak.pcx") {
+	t_magirus230d22ak(8)
+}
+
+spriteset(magirus230d22ak_open_empty, "graphics/magirus230d22ak.pcx") {
+	t_magirus230d22ak(72)
+}
+
+spriteset(magirus230d22ak_open_bulk_half_full, "graphics/magirus230d22ak.pcx") {
+	t_magirus230d22ak(136)
+}
+
+spriteset(magirus230d22ak_open_bulk_full, "graphics/magirus230d22ak.pcx") {
+	t_magirus230d22ak(200)
+}
+
+spriteset(magirus230d22ak_open_menu, "graphics/magirus230d22ak.pcx") {
+	[ 2, 39,  53,13,  -26, -7]
+}
+
+spritegroup magirus230d22ak_open_bulk_group {
+	loading: [magirus230d22ak_void, magirus230d22ak_open_bulk_half_full, magirus230d22ak_open_bulk_full];
+	loaded:  [magirus230d22ak_void, magirus230d22ak_open_bulk_half_full, magirus230d22ak_open_bulk_full];
+}
+
+switch(FEAT_ROADVEHS, SELF, magirus230d22ak_graphics_open_bulk_spritestack0, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	magirus230d22ak_open_empty;
+}
+
+switch(FEAT_ROADVEHS, SELF, magirus230d22ak_graphics_open_bulk_spritestack1, 
+	[STORE_TEMP(LOAD_TEMP(0), 0x100)]
+)
+{
+	magirus230d22ak_open_bulk_group;
+}
+
+// extra_callback_info1 contains iteration of sprite stacking
+// 0: draw vehicle as 2cc
+// 1: draw bulk cargo
+switch(FEAT_ROADVEHS, SELF, magirus230d22ak_graphics_open_bulk_spritestack, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 getbits(extra_callback_info1, 8, 8)])
+{
+	1: magirus230d22ak_graphics_open_bulk_spritestack1;
+	magirus230d22ak_graphics_open_bulk_spritestack0;
+}
+
+// truck has 15t capacity, trailer has 15t
+switch(FEAT_ROADVEHS, SELF, magirus230d22ak_cb_cargo_capacity, 
+	[STORE_TEMP(param_cargo_capacity == 0 ? 100 : param_cargo_capacity, 0),
+	position_in_consist]) {
+	return (15 * 16 * LOAD_TEMP(0)) / (cargo_unit_weight*100);
+}
+
+switch(FEAT_ROADVEHS, SELF, magirus230d22ak_open_cb_articulation, extra_callback_info1) {
+	1: return ID_3A_magirus230d22ak_open_with_trailer;
+	return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_ROADVEHS, SELF, magirus230d22ak_switch_graphics_open, position_in_consist) {
+	0: magirus230d22ak_graphics_open_bulk_spritestack;
+	henschel36_bussing8000_graphics_open;
+}
+
+// open
+item(FEAT_ROADVEHS, ID_3A_magirus230d22ak_open) {
+	property{
+		name: string(TRUCK_MAGIRUS_230D22AK);
+		introduction_date:date(1957,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:15;
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:230 hp;
+        weight:8 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:16;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK);
+		non_refittable_cargo_classes:bitmask(CC_COVERED);
+	}
+	graphics {
+		default: magirus230d22ak_switch_graphics_open;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: magirus230d22ak_cb_cargo_capacity;
+	}
+}
+
+item(FEAT_ROADVEHS, ID_3A_magirus230d22ak_open_with_trailer) {
+	property{
+		name: string(TRUCK_MAGIRUS_230D22AK);
+		introduction_date:date(1957,01,01);
+		reliability_decay:18;
+		vehicle_life:12;
+        model_life:26;
+        loading_speed:8;
+        climates_available: bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPIC);
+        speed:70 km/h;
+        running_cost_factor:7;
+        running_cost_base:RUNNING_COST_ROADVEH;
+        sprite_id:SPRITE_ID_NEW_ROADVEH;
+        cargo_capacity:15;
+		default_cargo_type:COAL;
+		cost_factor:4;
+		refit_cost:0;
+		sound_effect:SOUND_DEPARTURE_OLD_RV_1;
+		length:8;
+        power:110 hp;
+        weight:9.5 tons;
+        tractive_effort_coefficient:0.3;
+        air_drag_coefficient: 0;
+        retire_early:16;
+        misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
+		refittable_cargo_classes:bitmask(CC_BULK);
+		non_refittable_cargo_classes:bitmask(CC_COVERED);
+		variant_group: ID_3A_magirus230d22ak_open;
+	}
+	graphics {
+		default: magirus230d22ak_switch_graphics_open;
+		additional_text: return string(STR_PURCHASE_MENU2, string(STR_CFG_TRUCK_TRAILER), string(STR_TRUCK_AUTOREFIT));
+		cargo_capacity: magirus230d22ak_cb_cargo_capacity;
+		purchase_cargo_capacity: return 15 * ((param_cargo_capacity == 0) ? 100 : param_cargo_capacity)/100; // doubled due to articulation
+		articulated_part:magirus230d22ak_open_cb_articulation;
+		purchase: magirus230d22ak_open_menu;
+	}
+}

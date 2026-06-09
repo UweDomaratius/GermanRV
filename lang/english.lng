@@ -108,6 +108,8 @@ TRUCK_HENSCHEL_HS140_TARPAULIN:Henschel HS 140 (flatbed with tarpaulin)
 TRUCK_HENSCHEL_HS140_TANKER   :Henschel HS 140 (tanker)
 TRUCK_HENSCHEL_HS140_CLOSED   :Henschel HS 140 (box truck)
 
+TRUCK_MAGIRUS_230D22AK :Magirus 230 D 22 AK (dump truck)
+
 TRUCK_MB_ACTROS_2540_OPEN        :Mercedes-Benz Actros 2540 (dump truck)
 TRUCK_MB_ACTROS_2540_TARPAULIN   :Mercedes-Benz Actros 2540 (flatbed with tarpaulin)
 TRUCK_MB_ACTROS_2540_TANKER      :Mercedes-Benz Actros 2540 (tanker)
