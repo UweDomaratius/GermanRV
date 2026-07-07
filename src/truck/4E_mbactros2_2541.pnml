@@ -294,6 +294,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK);
 		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -330,6 +331,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK);
 		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -418,6 +420,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tarpaulin_with_trailer) {
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
 		cargo_disallow_refit: [WOOD, STEL, LVST];
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -467,6 +470,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_silo) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_POWDERIZED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -501,6 +505,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_silo_with_trailer) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_POWDERIZED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -549,6 +554,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tanker) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_LIQUID);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -583,6 +589,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_tanker_with_trailer) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_LIQUID);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -630,6 +637,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_livestock) {
         air_drag_coefficient: 0;
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -664,6 +672,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_livestock_with_trailer) {
         air_drag_coefficient: 0;
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -713,6 +722,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_wood) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		cargo_allow_refit: [WOOD,WDPR];
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -748,6 +758,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_wood_with_trailer) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		cargo_allow_refit: [WOOD,WDPR];
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -864,6 +875,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_vehicles) {
         air_drag_coefficient: 0;
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -898,6 +910,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_vehicles_with_trailer) {
         air_drag_coefficient: 0;
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -1019,6 +1032,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -1056,6 +1070,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_container_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -1107,6 +1122,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_refrigerated) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -1142,6 +1158,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_refrigerated_with_trailer) {
         retire_early:7;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -1201,6 +1218,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_crane) {
 		refittable_cargo_classes:bitmask(CC_PIECE_GOODS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED, CC_COVERED);
 		cargo_disallow_refit: [WOOD, LVST];
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
@@ -1238,6 +1256,7 @@ item(FEAT_ROADVEHS, ID_4E_mbactros2_2541_open_crane_with_trailer) {
 		refittable_cargo_classes:bitmask(CC_PIECE_GOODS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED, CC_COVERED);
 		cargo_disallow_refit: [WOOD, LVST];
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_4E_mbactros2_2541_tarpaulin;
 	}
 	graphics {
