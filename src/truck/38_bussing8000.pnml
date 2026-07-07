@@ -171,6 +171,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_open) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK, CC_PIECE_GOODS);
 		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {
@@ -207,6 +208,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_open_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK, CC_PIECE_GOODS);
 		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {
@@ -292,6 +294,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tarpaulin_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_PIECE_GOODS, CC_COVERED);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_HAZARDOUS, CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {
@@ -343,6 +346,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_closed) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {
@@ -379,6 +383,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_closed_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {
@@ -428,6 +433,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tanker) {
         retire_early:12;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_LIQUID);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {
@@ -462,6 +468,7 @@ item(FEAT_ROADVEHS, ID_38_bussing8000_tanker_with_trailer) {
         retire_early:12;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_LIQUID);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_38_bussing8000_tarpaulin;
 	}
 	graphics {

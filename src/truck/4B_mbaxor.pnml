@@ -96,6 +96,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_open) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK);
 		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -192,6 +193,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_tanker) {
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_LIQUID);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -238,6 +240,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_livestock) {
         air_drag_coefficient: 0;
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -285,6 +288,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_silo) {
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_POWDERIZED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -333,6 +337,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_stake) {
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		cargo_allow_refit: [WOOD,WDPR,STEL]; // todo: add more fitting cargos
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -381,6 +386,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_refrigerated) {
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_REFRIGERATED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -429,6 +435,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_flatbed) {
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_OVERSIZED);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
@@ -478,6 +485,7 @@ item(FEAT_ROADVEHS, ID_4B_mb_axor_container) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED, CC_BULK);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
 		variant_group: ID_4B_mb_axor_tarpaulin;
 	}
 	graphics {
