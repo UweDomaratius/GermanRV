@@ -140,7 +140,7 @@ item(FEAT_ROADVEHS, ID_3A_magirus230d22ak_open_with_trailer) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK);
 		non_refittable_cargo_classes:bitmask(CC_COVERED);
-		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_3A_magirus230d22ak_open;
 	}
 	graphics {

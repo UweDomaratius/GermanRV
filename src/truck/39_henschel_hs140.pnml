@@ -76,7 +76,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_open) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT, ROADVEH_FLAG_SPRITE_STACK);
 		refittable_cargo_classes:bitmask(CC_BULK);
 		non_refittable_cargo_classes:bitmask(CC_HAZARDOUS, CC_COVERED, CC_REFRIGERATED);
-		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_39_henschel_hs140_tarpaulin;
 	}
 	graphics {
@@ -178,7 +178,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_closed) {
         misc_flags: bitmask(ROADVEH_FLAG_2CC, ROADVEH_FLAG_AUTOREFIT);
 		refittable_cargo_classes:bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED, CC_COVERED, CC_REFRIGERATED, CC_HAZARDOUS);
 		non_refittable_cargo_classes:bitmask(CC_OVERSIZED);
-		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_39_henschel_hs140_tarpaulin;
 	}
 	graphics {
@@ -229,7 +229,7 @@ item(FEAT_ROADVEHS, ID_39_henschel_hs140_tanker) {
         retire_early:0;
         misc_flags: bitmask(ROADVEH_FLAG_2CC);
 		refittable_cargo_classes:bitmask(CC_LIQUID);
-		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW);
+		extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE);
 		variant_group: ID_39_henschel_hs140_tarpaulin;
 	}
 	graphics {
