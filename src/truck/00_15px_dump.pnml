@@ -1,0 +1,47 @@
+// two spritesets for the actual bodywork
+// drawing order: bodywork, then cargo, then second bodywork sprite
+spriteset(truck_15px_dump, "graphics/cargo/15px_dumper.pcx") {
+	template_24(0,30)
+}
+
+spriteset(truck_15px_dump2, "graphics/cargo/15px_dumper.pcx") {
+	template_24(0,60)
+}
+
+// cargo: 2 wooden crates
+spriteset(cargo_15px_dump_33, "graphics/cargo/15px_dumper.pcx") {
+	template_24(0,90)
+}
+spriteset(cargo_15px_dump_66, "graphics/cargo/15px_dumper.pcx") {
+	template_24(0,120)
+}
+spriteset(cargo_15px_dump_100, "graphics/cargo/15px_dumper.pcx") {
+	template_24(0,150)
+}
+
+spritegroup cargo_15px_dump_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_dump_33, cargo_15px_dump_66, cargo_15px_dump_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_dump_33, cargo_15px_dump_66, cargo_15px_dump_100];
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_dump_cargo, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 STORE_TEMP(CB_FLAG_MORE_SPRITES | LOAD_TEMP(0), 0x100)]
+)
+{
+	cargo_15px_dump_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_dump, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_dump;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_dump2, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_dump2;
+}

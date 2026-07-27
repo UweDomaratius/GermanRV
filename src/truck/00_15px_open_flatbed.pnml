@@ -1,0 +1,214 @@
+spriteset(test_vehicle_base, "graphics/test_vehicle.pcx") {
+	template_24(0,140)
+}
+
+spriteset(test_vehicle_base_on_top, "graphics/test_vehicle.pcx") {
+	template_24(0,180)
+}
+
+// two spritesets for the actual bodywork
+// drawing order: bodywork, then cargo, then second bodywork sprite
+spriteset(truck_15px_open_flatbed, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,30)
+}
+
+spriteset(truck_15px_open_flatbed2, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,60)
+}
+
+spriteset(truck_15px_open_tarpaulin, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,540)
+}
+
+spriteset(truck_15px_open_tarpaulin_loading, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,600)
+}
+
+spriteset(truck_15px_open_tarpaulin_loading2, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,570)
+}
+
+spritegroup truck_15px_open_tarpaulin_group {
+	loading: [truck_15px_open_tarpaulin_loading];
+	loaded:  [truck_15px_open_tarpaulin];
+}
+
+spritegroup truck_15px_open_tarpaulin2_group {
+	loading: [truck_15px_open_tarpaulin_loading2];
+	loaded:  [truck_15px_open_tarpaulin];
+}
+
+// cargo sprites related to bodywork following here
+// empty sprite, used to denote empty flatbed
+spriteset(cargo_15px_open_flatbed_nothing, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,0)
+}
+
+// cargo: 2 wooden crates
+spriteset(cargo_15px_2crates_50, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,90)
+}
+
+spriteset(cargo_15px_2crates_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,120)
+}
+
+spritegroup cargo_15px_2crates_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_2crates_50, cargo_15px_2crates_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_2crates_50, cargo_15px_2crates_100];
+}
+
+// cargo: wooden logs
+spriteset(cargo_15px_wood_33, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,150)
+}
+spriteset(cargo_15px_wood_66, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,180)
+}
+spriteset(cargo_15px_wood_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,210)
+}
+
+spritegroup cargo_15px_wooden_logs_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_wood_33, cargo_15px_wood_66, cargo_15px_wood_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_wood_33, cargo_15px_wood_66, cargo_15px_wood_100];
+}
+
+// cargo: 2 small grey steel coils
+spriteset(cargo_15px_small_steel_coils_50, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,240)
+}
+spriteset(cargo_15px_small_steel_coils_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,270)
+}
+
+spritegroup cargo_15px_small_steel_coils_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_small_steel_coils_50, cargo_15px_small_steel_coils_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_small_steel_coils_50, cargo_15px_small_steel_coils_100];
+}
+
+// cargo: timber / wood products
+spriteset(cargo_15px_timber_50, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,300)
+}
+spriteset(cargo_15px_timber_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,330)
+}
+
+spritegroup cargo_15px_timber_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_timber_50, cargo_15px_timber_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_timber_50, cargo_15px_timber_100];
+}
+
+// cargo: 1 big crate
+spriteset(cargo_15px_big_crate_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,360)
+}
+
+spritegroup cargo_15px_big_crate_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_big_crate_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_big_crate_100];
+}
+
+// cargo: 2 open crates of fruits
+spriteset(cargo_15px_fruits_50, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,390)
+}
+spriteset(cargo_15px_fruits_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,420)
+}
+
+spritegroup cargo_15px_fruits_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_fruits_50, cargo_15px_fruits_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_fruits_50, cargo_15px_fruits_100];
+}
+
+// cargo: big dark grey pipe
+spriteset(cargo_15px_big_pipe_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,450)
+}
+spritegroup cargo_15px_big_pipe_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_big_pipe_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_big_pipe_100];
+}
+
+// cargo: big light grey metal piece
+spriteset(cargo_15px_light_grey_metal_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,480)
+}
+spritegroup cargo_15px_light_grey_metal_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_light_grey_metal_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_light_grey_metal_100];
+}
+
+// cargo: wooden cable drum
+spriteset(cargo_15px_cable_drum_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,510)
+}
+spritegroup cargo_15px_cable_drum_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_cable_drum_100];
+	loaded:  [cargo_15px_open_flatbed_nothing, cargo_15px_cable_drum_100];
+}
+
+// cargo: bricks
+spriteset(cargo_15px_bricks_50, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,630)
+}
+spriteset(cargo_15px_bricks_100, "graphics/cargo/15px_open_flatbed.pcx") {
+	template_24(0,660)
+}
+
+spritegroup cargo_15px_bricks_group {
+	loading: [cargo_15px_open_flatbed_nothing, cargo_15px_bricks_50, cargo_15px_bricks_100];
+	loaded: [cargo_15px_open_flatbed_nothing, cargo_15px_bricks_50, cargo_15px_bricks_100];
+}
+
+random_switch(FEAT_ROADVEHS, SELF, switch_15px_open_flatbed_cargo_random_steel, bitmask(TRIGGER_VEHICLE_NEW_LOAD)) {
+	1: cargo_15px_cable_drum_group;
+	1: cargo_15px_light_grey_metal_group;
+	1: cargo_15px_small_steel_coils_group;
+	1: cargo_15px_big_pipe_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_open_flatbed_cargo, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | LOAD_TEMP(0), 0x100),
+	 cargo_type_in_veh
+	]
+)
+{
+	BDMT: cargo_15px_bricks_group;
+	FRUT: cargo_15px_fruits_group;
+	GOOD: cargo_15px_big_crate_group;
+	STEL: switch_15px_open_flatbed_cargo_random_steel;
+	WDPR: cargo_15px_timber_group;
+	WOOD: cargo_15px_wooden_logs_group;
+	cargo_15px_2crates_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_open_flatbed, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_open_flatbed;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_open_flatbed2, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_open_flatbed2;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_open_tarpaulin, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_open_tarpaulin_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_open_tarpaulin2, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_open_tarpaulin2_group;
+}

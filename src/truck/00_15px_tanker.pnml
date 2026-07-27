@@ -1,0 +1,21 @@
+// two spritesets for the actual bodywork
+// drawing order: bodywork, then cargo, then second bodywork sprite
+spriteset(truck_15px_tanker, "graphics/cargo/15px_tanker.pcx") {
+	template_24(0,30)
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_tanker2, 
+	[STORE_TEMP(cb_colour_bulk_freight(),0),
+	 STORE_TEMP(CB_FLAG_MORE_SPRITES | LOAD_TEMP(0), 0x100)]
+)
+{
+	truck_15px_tanker;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_tanker, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_tanker;
+}
+

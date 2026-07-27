@@ -1,0 +1,36 @@
+// two spritesets for the actual bodywork
+// drawing order: bodywork, then cargo, then second bodywork sprite
+spriteset(truck_15px_closed, "graphics/cargo/15px_closed.pcx") {
+	template_24(0,30)
+}
+spriteset(truck_15px_closed_loading, "graphics/cargo/15px_closed.pcx") {
+	template_24(0,60)
+}
+spriteset(truck_15px_closed_loading2, "graphics/cargo/15px_closed.pcx") {
+	template_24(0,90)
+}
+
+spritegroup truck_15px_closed_group {
+	loading: [truck_15px_closed_loading];
+	loaded:  [truck_15px_closed];
+}
+
+spritegroup truck_15px_closed_group2 {
+	loading: [truck_15px_closed_loading2];
+	loaded:  [truck_15px_closed];
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_closed, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_closed_group;
+}
+
+switch(FEAT_ROADVEHS, SELF, switch_15px_closed2, 
+	[STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)]
+)
+{
+	truck_15px_closed_group2;
+}
+

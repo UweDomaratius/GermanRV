@@ -3056,7 +3056,7 @@ switch(FEAT_ROADVEHS, SELF, tram_cb_colour_mapping_all_cities_modern, cargo_subt
 }
 
 // colors aligned with MB to have same recolourings as DBSetXL
-bulk_palettes = reserve_sprites(22);
+bulk_palettes = reserve_sprites(39);
 replace(bulk_palettes) {
 	recolour_sprite {
 		// BAUXIT
@@ -3278,9 +3278,180 @@ replace(bulk_palettes) {
 		0x8E:0x3B;
 		0x8F:0x26;
 	}
+	recolour_sprite {
+		// NH3_
+		0x89:122;
+		0x8A:122;
+		0x8B:123;
+		0x8C:124;
+		0x8D:125;
+		0x8E:126;
+		0x8F:127;
+	}
+	recolour_sprite {
+		// CHLO
+		0x89:89;
+		0x8A:90;
+		0x8B:91;
+		0x8C:92;
+		0x8D:93;
+		0x8E:94;
+		0x8F:95;
+	}
+	recolour_sprite {
+		// C2H4 (ethylene)
+		0x89:34;
+		0x8A:34;
+		0x8B:35;
+		0x8C:36;
+		0x8D:37;
+		0x8E:38;
+		0x8F:39;
+	}
+	recolour_sprite {
+		// COAT (paints)
+		0x89:170;
+		0x8A:170;
+		0x8B:171;
+		0x8C:172;
+		0x8D:173;
+		0x8E:174;
+		0x8F:175;
+	}
+	recolour_sprite {
+		// RUBR
+		0x89:16;
+		0x8A:16;
+		0x8B:17;
+		0x8C:18;
+		0x8D:19;
+		0x8E:20;
+		0x8F:21;
+	}
+	recolour_sprite {
+		// MILK
+		0x89:10;
+		0x8A:10;
+		0x8B:11;
+		0x8C:12;
+		0x8D:13;
+		0x8E:14;
+		0x8F:15;
+	}
+	recolour_sprite {
+		// RFPR
+		0x89:72;
+		0x8A:72;
+		0x8B:73;
+		0x8C:74;
+		0x8D:75;
+		0x8E:76;
+		0x8F:77;
+	}
+	recolour_sprite {
+		// LYE_
+		0x89:80;
+		0x8A:80;
+		0x8B:81;
+		0x8C:82;
+		0x8D:83;
+		0x8E:84;
+		0x8F:85;
+	}
+	recolour_sprite {
+		// OIL_
+		0x89:24;
+		0x8A:24;
+		0x8B:25;
+		0x8C:26;
+		0x8D:27;
+		0x8E:28;
+		0x8F:29;
+	}
+	recolour_sprite {
+		// O2__
+		0x89:200;
+		0x8A:200;
+		0x8B:201;
+		0x8C:202;
+		0x8D:203;
+		0x8E:204;
+		0x8F:205;
+	}
+	recolour_sprite {
+		// ACID
+		0x89:180;
+		0x8A:180;
+		0x8B:181;
+		0x8C:182;
+		0x8D:183;
+		0x8E:184;
+		0x8F:185;
+	}	
+	recolour_sprite {
+		// N2__
+		0x89:164;
+		0x8A:164;
+		0x8B:165;
+		0x8C:166;
+		0x8D:167;
+		0x8E:168;
+		0x8F:169;
+	}
+	recolour_sprite {
+		// FUEL
+		0x89:186;
+		0x8A:186;
+		0x8B:187;
+		0x8C:188;
+		0x8D:189;
+		0x8E:190;
+		0x8F:191;
+	}
+	recolour_sprite {
+		// H2__
+		0x89:148;
+		0x8A:148;
+		0x8B:149;
+		0x8C:150;
+		0x8D:151;
+		0x8E:152;
+		0x8F:153;
+	}
+	recolour_sprite {
+		// aluminium - very light gray
+		0x89:18;
+		0x8A:18;
+		0x8B:19;
+		0x8C:21;
+		0x8D:22;
+		0x8E:12;
+		0x8F:13;
+	}
+	recolour_sprite {
+		// steel - gray
+		0x89:32;
+		0x8A:32;
+		0x8B:40;
+		0x8C:19;
+		0x8D:20;
+		0x8E:21;
+		0x8F:22;
+	}
+	recolour_sprite {
+		// copper
+		0x89:122;
+		0x8A:122;
+		0x8B:107;
+		0x8C:75;
+		0x8D:76;
+		0x8E:78;
+		0x8F:79;
+	}
 }
 
 switch(FEAT_ROADVEHS, SELF, cb_colour_bulk_freight, cargo_type_in_veh) {
+	// bulk cargos
 	AORE: return bulk_palettes + CT_BAUXIT;
 	CLAY: return bulk_palettes + CT_CLAY;
     COAL: return bulk_palettes + CT_COAL;
@@ -3304,6 +3475,26 @@ switch(FEAT_ROADVEHS, SELF, cb_colour_bulk_freight, cargo_type_in_veh) {
     SCRP: return bulk_palettes + CT_SCRAP_METAL;
     SULP: return bulk_palettes + CT_SULPHUR;
     WDPR: return bulk_palettes + CT_WOOD_PRODUCTS;
+	// liquid cargos (colored marker on tank)
+	//SULP already handled as bulk
+	NH3_: return bulk_palettes + CT_AMMONIA;
+	CHLO: return bulk_palettes + CT_CHLORINE;
+	C2H4: return bulk_palettes + CT_ETHYLENE;
+	COAT: return bulk_palettes + CT_COAT_PAINT;
+	RUBR: return bulk_palettes + CT_RUBBER;
+	MILK: return bulk_palettes + CT_MILK;
+	RFPR: return bulk_palettes + CT_NAPHTHA;
+	LYE_: return bulk_palettes + CT_LYE;
+	OIL_: return bulk_palettes + CT_OIL;
+	O2__: return bulk_palettes + CT_OXYGEN;
+	ACID: return bulk_palettes + CT_ACID;
+	N2__: return bulk_palettes + CT_NITROGEN;
+	FUEL: return bulk_palettes + CT_FUEL;
+	H2__: return bulk_palettes + CT_HYDROGEN;
+	// steel and other metals
+	STEL: return bulk_palettes + CT_STEEL;
+	ALUM: return bulk_palettes + CT_ALUMINIUM;
+	COPR: return bulk_palettes + CT_COPPER;
 	return PALETTE_USE_DEFAULT;
 }
 

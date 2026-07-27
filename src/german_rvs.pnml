@@ -45,19 +45,127 @@ if (traffic_side != TRAFFIC_SIDE_RIGHT) {
 }
 
 cargotable {
-	PASS, COAL, MAIL, OIL_, 
-	LVST, GOOD, TOUR, STEL,
-	PAPR, STAL, WOOD, WDPR,
+	PASS, COAL, MAIL, LVST, // passengers, mail, goods should always be in these locations for compatibility
+	STEL, GOOD, TOUR, WOOD, // tourists are required for busses, the rest is then filled with whatever is needed
+	// the next 5 rows plus SULP are bulk cargoes - needed to choose correct recoloring table
 	AORE, CLAY, COKE, CORE,
 	FERT, GRAI, GRVL, IORE,
 	KAOL, LIME, MNO2, NITR,
 	OLSD, PEAT, PHOS, POTA,
 	PORE, SALT, SAND, SCRP,
-	SULP, VEHI
+	SULP, WDPR, PAPR, STAL,
+	FRUT, OIL_, VEHI, NH3_,
+	// liquids and compressed gases - tanks are given colored markers, so we need to be able to distinguish the different cargoes
+	CHLO, C2H4, COAT, RUBR,
+	MILK, RFPR, LYE_, O2__,
+	ACID, N2__, FUEL, H2__,
+	// further cargo types
+	ALUM, COPR, BDMT, 
 }
 
 switch(FEAT_ROADVEHS, SELF, tram_cb_sound, extra_callback_info1)
 {
 	SOUND_EVENT_START: return sound("src/trambell.wav");
 	return CB_RESULT_NO_SOUND;
+}
+
+template template_32(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,         -11]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -18,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -11]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,          -18,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_28(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,         -11]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -20,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -13]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,          -16,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_24(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,         -11]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -22,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -15]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,          -14,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_20(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,         -10]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -24,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -16]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,          -12,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_16(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,          -9]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -26,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -17]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,          -10,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_12(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,          -8]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -28,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -18]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,           -8,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_8(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,          -7]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -30,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -19]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,           -6,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_4(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          10,        28,           -4,          -6]
+    [x+ 20,     y,          26,        28,          -17,         -14]
+    [x+ 50,     y,          36,        28,          -32,         -20]
+    [x+ 90,     y,          26,        28,           -9,         -15]
+    [x+120,     y,          10,        28,           -4,         -20]
+    [x+140,     y,          26,        28,          -16,         -16]
+    [x+170,     y,          36,        28,           -4,         -20]
+    [x+210,     y,          26,        28,           -8,         -16]
+}
+
+template template_purchase(x, y) {
+    //[left_x,  upper_y,    width,     height,     offset_x,     offset_y]
+    [x,         y,          50,        12,          -25,          -6]
 }
